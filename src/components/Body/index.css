@@ -1,0 +1,16 @@
+.body-container {
+  background: #003d59;
+}
+.frontCover-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(172, 149, 149, 0.911);
+  width: 100%;
+  height: 20rem;
+}
+
+.item-frontCover {
+  font-size: 4rem;
+  color: white;
+}

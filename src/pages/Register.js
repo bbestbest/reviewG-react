@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Body from "../components/Body";
 import Footer from "../components/Footer";
 
-function SignUp(){
+function Register(){
     return(
         <>
             <Header></Header>
@@ -13,4 +13,4 @@ function SignUp(){
     )
 }
 
-export default SignUp; ;
+export default Register;

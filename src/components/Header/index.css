@@ -1,3 +1,6 @@
+
+
+
 .navbar-container-1 {
   display: flex;
   justify-content: space-around;
@@ -15,6 +18,8 @@
   height: 5vh;
   font-size: 20px;
   background-color: #f04823;
+  text-decoration: none;
+  color: white;
 }
 
 .signUp-navbar {
@@ -24,7 +29,10 @@
   text-align: center;
   padding: 10px;
   background: #f04823;
+  text-decoration: none;
+  color: white;
 }
+
 
 .signIn-navbar {
   display: flex;
@@ -33,7 +41,13 @@
   text-align: center;
   padding: 10px;
   background: #F04823(15, 199, 255);
+  text-decoration: none;
+  color: white;
+    
 }
+
+
+
 
 /* end navbar 1 */
 
@@ -46,6 +60,8 @@
   color: wheat;
   height: 6vh;
   padding-left: 1rem;
+  text-decoration: none;
+  
 }
 
 .categories-container {
@@ -53,8 +69,18 @@
   list-style-type: none;
   align-items: center;
   font-size: 20px;
+  
 }
 
 .list-categories {
   padding: 13px;
+  text-decoration: none;
+  color: white;
+}
+
+.list-categories:hover {
+  padding: 13.5px;
+  text-decoration: none;
+  background-color: #43847C;
+  color: white;
 }

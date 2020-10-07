@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Body from "../components/Body";
 import Footer from "../components/Footer";
 
-function Simulation(){
+function SignUp(){
     return(
         <>
             <Header></Header>
@@ -13,4 +13,4 @@ function Simulation(){
     )
 }
 
-export default Simulation ;
+export default SignUp; ;

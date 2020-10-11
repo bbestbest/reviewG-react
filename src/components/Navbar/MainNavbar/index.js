@@ -38,6 +38,11 @@ const SignButton = styled.div`
   background: #f04823;
   text-decoration: none;
   color: white;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `
 
 function MainNavbar () {

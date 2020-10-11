@@ -42,7 +42,7 @@ function MinorNavbar () {
       <Container>
         <Catagories>
           <ListCatagories>
-            <Link to='/home'>Home</Link>
+            <Link to='/'>Home</Link>
           </ListCatagories>
           <ListCatagories>
             <Link to='/action'>Action</Link>

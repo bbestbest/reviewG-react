@@ -1,7 +1,6 @@
 import React, { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import './main.css'
-import './reset.css'
+import { Reset } from 'styled-reset'
 
 const Home = lazy(() => import('./pages/Home'))
 const Action = lazy(() => import('./pages/Action'))
@@ -16,6 +15,7 @@ const Register = lazy(() => import('./pages/Register'))
 function App () {
   return (
     <>
+      <Reset />
       <Router>
         <Suspense fallback='...loading'>
           <Switch>

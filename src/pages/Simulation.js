@@ -1,16 +1,16 @@
-import React from "react";
-import Header from "../components/Header";
-import Body from "../components/Body";
-import Footer from "../components/Footer";
+import React from 'react'
+import Navbar from '../components/Navbar'
+import Body from '../components/Body'
+import Footer from '../components/Footer'
 
-function Simulation(){
-    return(
-        <>
-            <Header></Header>
-            <Body></Body>
-            <Footer></Footer>
-        </>
-    )
+function Simulation () {
+  return (
+    <>
+      <Navbar />
+      <Body>Simulation</Body>
+      <Footer />
+    </>
+  )
 }
 
-export default Simulation ;
+export default Simulation

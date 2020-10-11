@@ -1,13 +1,23 @@
 import React from 'react'
-import './index.css'
+import styled from 'styled-components'
 
-function Footer() {
-    return (      
+const Container = styled.footer`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #f04823;
+  color: wheat;
+  height: 6vh;
+  padding-left: 1rem;
+`
+
+function Footer () {
+  return (
     <>
-        <footer className="footer-container">
-            © 2020 GamingDose All Rights Reserved
-        </footer>
+      <Container>
+        © 2020 GamingDose All Rights Reserved
+      </Container>
     </>
-    )
+  )
 }
-export default Footer;
+export default Footer

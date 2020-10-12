@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-around;
   background-color: #f04823;
-  color: wheat;
+  color: white;
   height: 5vh;
   padding-right: 2rem;
 `
@@ -28,7 +28,10 @@ const Logo = styled.div`
     color: inherit;
   }
 
+
+
 `
+
 const SignButton = styled.div`
   display: flex;
   justify-content: center;
@@ -42,7 +45,15 @@ const SignButton = styled.div`
   a {
     color: inherit;
     text-decoration: none;
+  }  
+    &:hover {
+    padding: 10px;
+    text-decoration: none;
+    background-color: #D04527;
+    color: white;
+    transition: background-color .8s;
   }
+
 `
 
 function MainNavbar () {

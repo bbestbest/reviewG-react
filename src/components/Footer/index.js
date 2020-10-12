@@ -15,7 +15,7 @@ function Footer () {
   return (
     <>
       <Container>
-        © 2020 GamingDose All Rights Reserved
+        © 2020 Review-G All Rights Reserved
       </Container>
     </>
   )

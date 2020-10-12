@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import Body from '../components/Body'
+import MainNavbar from '../components/Navbar/MainNavbar'
+import Body from '../components/Login'
 import Footer from '../components/Footer'
 
 function Login () {
   return (
     <>
-      <Navbar />
+      <MainNavbar />
       <Body>Login</Body>
       <Footer />
     </>

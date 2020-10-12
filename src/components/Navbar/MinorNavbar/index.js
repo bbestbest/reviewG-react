@@ -32,7 +32,7 @@ const ListCatagories = styled.li`
     text-decoration: none;
     background-color: #43847C;
     color: white;
-    transition: background-color .5s;
+    transition: background-color .8s;
   }
 `
 

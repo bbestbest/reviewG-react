@@ -16,6 +16,7 @@ const Catagories = styled.div`
   list-style-type: none;
   align-items: center;
   font-size: 20px;
+  flex: 1rem;
 `
 const ListCatagories = styled.li`
   padding: 13px;
@@ -28,7 +29,7 @@ const ListCatagories = styled.li`
     text-decoration: none;
   }
   &:hover {
-    padding: 13.5px;
+    padding: 13.9px;
     text-decoration: none;
     background-color: #43847C;
     color: white;

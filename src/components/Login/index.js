@@ -77,6 +77,13 @@ const ButtonSubmit = styled.a`
     background-color: #d04527;
   }
 `
+const Register = styled.a`
+  color: #f04823;
+  font-size: 15px;
+  padding-top: 10px;
+  color: inherit;
+  text-decoration: none;
+`
 
 function Login () {
   return (
@@ -91,6 +98,9 @@ function Login () {
             <ButtonSubmit>
               <Link to='/'>Submit</Link>
             </ButtonSubmit>
+            <Register>
+              <Link to='/Register'> Create new account </Link>
+            </Register>
           </SignInContainer>
         </LoginContainer>
       </Container>

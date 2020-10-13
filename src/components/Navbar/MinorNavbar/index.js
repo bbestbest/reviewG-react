@@ -19,7 +19,8 @@ const Catagories = styled.div`
   flex: 1rem;
 `
 const ListCatagories = styled.li`
-  padding: 13px;
+  display: flex;
+  padding: 13.9px;
   text-decoration: none;
   color: white;
   transition: background-color .5s;

@@ -1,13 +1,13 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import Body from '../components/Body'
+import MainNavbar from '../components/Navbar/MainNavbar'
+import Logins from '../components/Login'
 import Footer from '../components/Footer'
 
 function Register () {
   return (
     <>
-      <Navbar />
-      <Body>Register</Body>
+      <MainNavbar />
+      <Logins>Register</Logins>
       <Footer />
     </>
   )

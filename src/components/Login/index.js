@@ -11,7 +11,7 @@ const Container = styled.div`
   height: 89vh;
 `
 
-const LoginContainer = styled.div`
+const SignContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ const Image = styled.div`
   height: 100%;
 `
 
-const SignInContainer = styled.div`
+const Sign = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,21 +78,27 @@ const ButtonSubmit = styled.a`
   }
 `
 const Register = styled.a`
-  color: #f04823;
   font-size: 15px;
-  padding-top: 10px;
-  color: inherit;
-  text-decoration: none;
+  padding-top: 1rem;
+  color: #f04823;
+  a:link {
+    text-decoration: none;
+    color: #f04823;
+  }
+  &:hover {
+    color: #f04823;
+    border-bottom: 2px solid #f04823;
+  }
 `
 
-function Login () {
+function Login ({ children }) {
   return (
     <>
       <Container>
-        <LoginContainer>
+        <SignContainer>
           <Image> Image </Image>
-          <SignInContainer>
-            <Head> Login </Head>
+          <Sign>
+            <Head> {children} </Head>
             <ButtonInput placeholder=' Username... ' />
             <ButtonInput placeholder=' Password... ' />
             <ButtonSubmit>
@@ -101,8 +107,8 @@ function Login () {
             <Register>
               <Link to='/Register'> Create new account </Link>
             </Register>
-          </SignInContainer>
-        </LoginContainer>
+          </Sign>
+        </SignContainer>
       </Container>
     </>
   )

@@ -35,6 +35,7 @@ const Signs = styled.div`
   width: 80%;
   height: 100%;
   padding: 3rem;
+  
 `
 
 const Head = styled.div`
@@ -75,6 +76,7 @@ const ButtonSubmit = styled.a`
   }
   &:hover {
     background-color: #d04527;
+    border: 2px solid #d04527;
   }
 `
 const Register = styled.a`
@@ -83,7 +85,7 @@ const Register = styled.a`
   color: #f04823;
   a:link {
     text-decoration: none;
-    color: #f04823;
+ ;
   }
   &:hover {
     color: #f04823;

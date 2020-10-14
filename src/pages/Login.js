@@ -1,13 +1,13 @@
 import React from 'react'
 import MainNavbar from '../components/Navbar/MainNavbar'
-import Logins from '../components/Login'
+import Sign from '../components/Login'
 import Footer from '../components/Footer'
 
 function Login () {
   return (
     <>
       <MainNavbar />
-      <Logins>Login</Logins>
+      <Sign>Login</Sign>
       <Footer />
     </>
   )

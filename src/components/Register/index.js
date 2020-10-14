@@ -38,7 +38,7 @@ const Signs = styled.div`
 `
 
 const Head = styled.div`
-  padding: 3rem;
+  padding: 2rem;
   font-size: 40px;
   color: #f04823;
 `
@@ -75,6 +75,7 @@ const ButtonSubmit = styled.a`
   }
   &:hover {
     background-color: #d04527;
+    border: 2px solid #d04527;
   }
 `
 

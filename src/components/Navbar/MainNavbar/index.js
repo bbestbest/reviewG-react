@@ -8,15 +8,19 @@ const Container = styled.div`
   justify-content: space-around;
   background-color: #f04823;
   color: white;
-  height: 5vh;
+  height: auto;
+  width: auto;
+  margin-bottom: auto;
   padding-right: 2rem;
+  position: relative;
 `
 const Logo = styled.div`
   display: flex;
   align-items: center;
   flex: 1rem;
   padding-left: 2rem;
-  height: 5vh;
+  height: auto;
+  width: auto;
   font-size: 20px;
   background-color: #f04823;
   text-decoration: none;
@@ -27,9 +31,6 @@ const Logo = styled.div`
     text-decoration: none;
     color: inherit;
   }
-
-
-
 `
 
 const SignButton = styled.div`
@@ -37,8 +38,9 @@ const SignButton = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 10px;
-  background: #f04823;
+  padding: 1rem;
+  /* background: #f04823; */
+  background-color: transparent;
   text-decoration: none;
   color: white;
 
@@ -47,7 +49,7 @@ const SignButton = styled.div`
     text-decoration: none;
   }  
     &:hover {
-    padding: 10px;
+    /* padding: 10px; */
     text-decoration: none;
     background-color: #D04527;
     color: white;

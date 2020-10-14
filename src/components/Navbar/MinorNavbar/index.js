@@ -7,7 +7,9 @@ const Container = styled.nav`
   justify-content: flex-start;
   background-color: #f69335;
   color: white;
-  height: 6vh;
+  /* height: 6vh; */
+  height: auto;
+  width: auto;
   padding-left: 1rem;
   text-decoration: none;
 `
@@ -20,7 +22,7 @@ const Catagories = styled.div`
 `
 const ListCatagories = styled.li`
   display: flex;
-  padding: 13.9px;
+  padding: 14px;
   text-decoration: none;
   color: white;
   transition: background-color .5s;

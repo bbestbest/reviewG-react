@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Body from '../components/Body'
 import Footer from '../components/Footer'
+import withHelmet from '../utils/withHelmet'
 
 function Home () {
   return (
@@ -13,4 +14,4 @@ function Home () {
   )
 }
 
-export default Home
+export default withHelmet('review-G')(Home)

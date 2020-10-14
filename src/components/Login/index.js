@@ -26,7 +26,7 @@ const Image = styled.div`
   height: 100%;
 `
 
-const Sign = styled.div`
+const Signs = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,13 +91,13 @@ const Register = styled.a`
   }
 `
 
-function Login ({ children }) {
+function Sign ({ children }) {
   return (
     <>
       <Container>
         <SignContainer>
           <Image> Image </Image>
-          <Sign>
+          <Signs>
             <Head> {children} </Head>
             <ButtonInput placeholder=' Username... ' />
             <ButtonInput placeholder=' Password... ' />
@@ -107,10 +107,10 @@ function Login ({ children }) {
             <Register>
               <Link to='/Register'> Create new account </Link>
             </Register>
-          </Sign>
+          </Signs>
         </SignContainer>
       </Container>
     </>
   )
 }
-export default Login
+export default Sign

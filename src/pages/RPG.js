@@ -1,13 +1,13 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import Body from '../components/Body'
+import BodyCategories from '../components/BodyCategories'
 import Footer from '../components/Footer'
 
 function RPG () {
   return (
     <>
       <Navbar />
-      <Body>RPG</Body>
+      <BodyCategories>RPG</BodyCategories>
       <Footer />
     </>
   )

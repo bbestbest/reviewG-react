@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import SlideShow from '../SlideShow'
 import BackgroundBlock from '../BackgroundBlock'
 import backgroundImage1 from '../../assets/cyberpunk.jpg'
 import backgroundImage2 from '../../assets/Souls.jpg'
+import backgroundImage3 from '../../assets/callofd.jpg'
+import backgroundImage4 from '../../assets/mario.jpg'
 
 const Container = styled.div`
   width: 100%;
@@ -16,7 +19,7 @@ const Container = styled.div`
 const ContentContainer = styled.div`
   width: auto;
   height: 100%;
-  padding: 1rem;
+  padding: 2rem;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -30,7 +33,7 @@ const ContentContainer = styled.div`
 // `
 
 const SlideShowContainer = styled.div`
-  width: 75%;
+  width: 90%;
   height: 45vh;
   background-color: orange;
 `
@@ -38,7 +41,7 @@ const SlideShowContainer = styled.div`
 const TopReviewsContainer = styled.div`
   width: 100%;
   height: 40vh;
-  background-color: blue;
+  /* background-color: blue; */
   display: flex;
   justify-content: center;
   padding: 2rem;
@@ -47,15 +50,16 @@ const TopReviewsContainer = styled.div`
 const TopReviewsInsideContainer = styled.div`
   width: 60%;
   height: 100%;
-  background-color: brown;
-display: flex;
+  /* background-color: brown; */
+  display: flex;
   flex-direction: row;
 `
 const TopReviews = styled.div`
   height: 100%;
-  width: 24%;
-  margin: 0 2%;
+  width: 30%;
+  margin: 0 1%;
   overflow: hidden;
+  border-radius: 10px;
 `
 
 const BodyContainer = styled.div`
@@ -73,7 +77,9 @@ function Body ({ children }) {
       <Container>
         <ContentContainer>
           {/* <WelcomeContainer /> */}
-          <SlideShowContainer />
+          <SlideShowContainer>
+            <SlideShow />
+          </SlideShowContainer>
           <TopReviewsContainer>
             <TopReviewsInsideContainer>
               <TopReviews>
@@ -83,10 +89,10 @@ function Body ({ children }) {
                 <BackgroundBlock src={backgroundImage2} height='50' />
               </TopReviews>
               <TopReviews>
-                <BackgroundBlock src={backgroundImage1} height='50' />
+                <BackgroundBlock src={backgroundImage3} height='50' />
               </TopReviews>
               <TopReviews>
-                <BackgroundBlock src={backgroundImage2} height='50' />
+                <BackgroundBlock src={backgroundImage4} height='50' />
               </TopReviews>
             </TopReviewsInsideContainer>
           </TopReviewsContainer>

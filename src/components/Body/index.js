@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  background: #003d59;
+  /* background: #003d59; */
+  background-color: white;
   width: 100vw;
   height: 83vh;
 `
@@ -10,13 +11,13 @@ const TopicContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(172, 149, 149, 0.911);
+  /* background: rgba(172, 149, 149, 0.911); */
   width: 100%;
   height: 20rem;
 `
 const Text = styled.div`
   font-size: 4rem;
-  color: white;
+  color: orange;
 `
 
 function Body ({ children }) {

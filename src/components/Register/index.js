@@ -62,8 +62,8 @@ const ButtonSubmit = styled.a`
   align-items: center;
   width: 75%;
   height: 2rem;
-  padding: 5px 10px 5px 10px;
-  margin-top: 3rem;
+  padding: 5px 15px 5px 10px;
+  margin-top: 1rem;
   background-color: #f04823;
   border: 2px solid #f04823;
   color: white;
@@ -77,19 +77,6 @@ const ButtonSubmit = styled.a`
     background-color: #d04527;
   }
 `
-const Register = styled.a`
-  font-size: 15px;
-  padding-top: 1rem;
-  color: #f04823;
-  a:link {
-    text-decoration: none;
-    color: #f04823;
-  }
-  &:hover {
-    color: #f04823;
-    border-bottom: 2px solid #f04823;
-  }
-`
 
 function Sign ({ children }) {
   return (
@@ -101,12 +88,10 @@ function Sign ({ children }) {
             <Head> {children} </Head>
             <ButtonInput placeholder=' Username... ' />
             <ButtonInput placeholder=' Password... ' />
+            <ButtonInput placeholder=' Email ... ' />
             <ButtonSubmit>
               <Link to='/'>Submit</Link>
             </ButtonSubmit>
-            <Register>
-              <Link to='/Register'> Create new account </Link>
-            </Register>
           </Signs>
         </SignContainer>
       </Container>

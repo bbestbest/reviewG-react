@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Topic from '../Topic/index'
 
 const Container = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ const BodyContainer = styled.div`
   flex-direction: column;
   background: white;
   width: 90%;
-  height: 80vh;
+  height: auto;
   border-radius: 2rem;
   padding: 2rem;
 `
@@ -55,6 +56,7 @@ function BodyCategories ({ children }) {
             <MainHeadLine> {children} </MainHeadLine>
           </HeadLineContainer>
           <MinorHeadLine> Review-G </MinorHeadLine>
+          <Topic />
         </BodyContainer>
       </Container>
     </>

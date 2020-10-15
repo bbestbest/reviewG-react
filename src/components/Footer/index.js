@@ -8,7 +8,7 @@ const Container = styled.footer`
   background-color: #f04823;
   color: white;
   /* height: 10vh; */
-  height: auto;
+  height: 7vh;
   width: auto;
   padding-left: 1rem;
 `

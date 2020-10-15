@@ -19,7 +19,7 @@ const Container = styled.div`
 const ContentContainer = styled.div`
   width: auto;
   height: 100%;
-  padding: 2rem;
+  padding: 1.2rem;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -45,7 +45,7 @@ const TopReviewsContainer = styled.div`
   display: flex;
   justify-content: center;
   padding: 2rem;
-  margin: 1rem;
+  /* margin: .5rem; */
 `
 const TopReviewsInsideContainer = styled.div`
   width: 60%;

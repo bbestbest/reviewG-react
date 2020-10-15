@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import SlideShow from '../SlideShow'
+import CategoriesBody from '../CatagoriesBody'
 import BackgroundBlock from '../BackgroundBlock'
 import backgroundImage1 from '../../assets/cyberpunk.jpg'
 import backgroundImage2 from '../../assets/Souls.jpg'
@@ -62,14 +63,14 @@ const TopReviews = styled.div`
   border-radius: 10px;
 `
 
-const BodyContainer = styled.div`
-  width: 90%;
-  height: 200vh;
-  display: flex;
-  background-color: white;
-  margin: inherit;
-  border-radius: 5rem;
-  `
+// const BodyContainer = styled.div`
+//   width: 90%;
+//   height: 200vh;
+//   display: flex;
+//   background-color: white;
+//   margin: inherit;
+//   border-radius: 5rem;
+// `
 
 function Body ({ children }) {
   return (
@@ -96,7 +97,7 @@ function Body ({ children }) {
               </TopReviews>
             </TopReviewsInsideContainer>
           </TopReviewsContainer>
-          <BodyContainer />
+          <CategoriesBody> REVIEW-G </CategoriesBody>
         </ContentContainer>
       </Container>
     </>

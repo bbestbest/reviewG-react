@@ -5,7 +5,7 @@ function withHelmet (title) {
   return Component => props => (
     <>
       <Helmet>
-        <link href='https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap' rel='stylesheet' />
+        <link href='https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap' rel='stylesheet' />
         <title>{title}</title>
       </Helmet>
       <Component {...props} />

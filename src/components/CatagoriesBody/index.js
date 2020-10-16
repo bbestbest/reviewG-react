@@ -17,7 +17,6 @@ const BodyContainer = styled.div`
   width: 90%;
   height: auto;
   border-radius: 2rem;
-  margin-bottom: 2rem;
   padding: 2rem;
 `
 

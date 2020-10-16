@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import { Reset } from 'styled-reset'
 import routes from './config/routes'
+import GlobalStyle from './components/GlobalStyle'
+import withHelmet from './utils/withHelmet'
 
 const BackgroundColor = styled.div`
   background-color: #003d59;
@@ -16,6 +18,7 @@ const Wrapper = styled.div`
 function App () {
   return (
     <>
+      <GlobalStyle />
       <Reset />
       <Router>
         <Suspense fallback='...loading'>
@@ -34,4 +37,4 @@ function App () {
   )
 }
 
-export default App
+export default withHelmet('Review-G')(App)

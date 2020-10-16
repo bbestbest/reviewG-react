@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: auto;
   height: 89vh;
 `
 
@@ -17,14 +17,15 @@ const SignContainer = styled.div`
   align-items: center;
   width: 80%;
   height: 65%;
+  padding: 3rem;
 `
 const Image = styled.div`
-  /* background-color: #D1C5C2; */
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
 `
+// Sign start
 
 const Signs = styled.div`
   display: flex;
@@ -34,12 +35,12 @@ const Signs = styled.div`
   border-radius: 2rem;
   width: 80%;
   height: 100%;
-  padding: 3rem;
+  padding: 5rem 0 5rem 0;
   
 `
 
 const Head = styled.div`
-  padding: 3rem;
+  margin-bottom: 4rem;
   font-size: 40px;
   color: #f04823;
 `
@@ -83,13 +84,15 @@ const Register = styled.a`
   font-size: 15px;
   padding-top: 1rem;
   color: #f04823;
-  a:link {
+  a:visited {
+    color: #f04823;
+  }
+  a:link{
     text-decoration: none;
- ;
   }
   &:hover {
     color: #f04823;
-    border-bottom: 2px solid #f04823;
+    border-bottom: 1px solid #f04823;
   }
 `
 

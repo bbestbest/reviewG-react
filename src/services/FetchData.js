@@ -1,25 +1,13 @@
-// /* global fetch */
-// import React, { useState } from 'react'
-// import { useParams } from 'react-router-dom'
-// import withHelmet from '../utils/withHelmet'
+import axios from 'axios'
 
-// async function getPost (id) {
-//   const response = await fetch.get(`http://localhost:3333/api/posts/${id}`)
-// }
-// function usePostData (postId) {
-//   const [post, setPost] = useState({})
-//   const [isLoading, setLoading] = useState(false)
-//   const [error, setError] = useState(undefined)
-//   async function reteiveData () {
-//     try {
-//       setLoading(true)
-//       const postResponse = await getPost(postId)
-//       setPost(postResponse)
-//     } catch (err) {
-//       setError(err)
-//     }
-//     setLoading(false)
+const API_ENDPOINT = 'http://localhost:3333'
+const API_VER = 'api/v1'
 
-//     return [{ post, isLoading, error }, { reteiveData }] = usePostData(storyId)
-//   }
-// }
+export async function getData (table) {
+  return axios(
+    {
+      medthod: 'get',
+      url: `${API_ENDPOINT}/${API_VER}/${table}/`
+    }
+  ).then((response) => response.data)
+}

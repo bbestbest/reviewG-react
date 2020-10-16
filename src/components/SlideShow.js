@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import BackgroundBlock from '../components/BackgroundBlock'
+import BackgroundBlock from '../components/SlideShowBlock'
 import image1 from '../assets/genshin.jpg'
 import image2 from '../assets/battlefield.jpg'
 import image3 from '../assets/death.jpg'
@@ -31,6 +31,7 @@ const LeftButton = styled.button`
   background: none;
   border: none;
   outline: none;
+  cursor: pointer;
   /* transform: translateY(-50%); */
 `
 const RightButton = styled.button`
@@ -43,6 +44,7 @@ const RightButton = styled.button`
   background: none;
   border: none;
   outline: none;
+  cursor: pointer;
 
   /* transform: translateY(-50%); */
 `

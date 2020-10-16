@@ -11,42 +11,29 @@ import backgroundImage4 from '../../assets/mario.jpg'
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  /* background-color: white; */
   background-color: #003d59;
-  /* overflow: hidden; */
-  position: initial;
 `
 
 const ContentContainer = styled.div`
   width: auto;
   height: 100%;
-  padding: 1.2rem;
   align-items: center;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 `
 
-// const WelcomeContainer = styled.div`
-//   width: 100%;
-//   height: 25vh;
-//   background-color: red;
-// `
-
 const SlideShowContainer = styled.div`
-  width: 90%;
-  height: 45vh;
-  background-color: orange;
+  width: 100%;
+  height: 49vh;
 `
 
 const TopReviewsContainer = styled.div`
   width: 100%;
   height: 40vh;
-  /* background-color: blue; */
   display: flex;
   justify-content: center;
-  padding: 2rem;
-  /* margin: .5rem; */
+  padding: 1rem;
 `
 const TopReviewsInsideContainer = styled.div`
   width: 60%;

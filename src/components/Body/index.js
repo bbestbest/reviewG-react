@@ -11,7 +11,7 @@ import backgroundImage4 from '../../assets/mario.jpg'
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #003d59;
+  position: initial;
 `
 
 const ContentContainer = styled.div`
@@ -36,7 +36,7 @@ const TopReviewsContainer = styled.div`
   padding: 1rem;
 `
 const TopReviewsInsideContainer = styled.div`
-  width: 60%;
+  width: 100%;
   height: 100%;
   /* background-color: brown; */
   display: flex;
@@ -45,7 +45,7 @@ const TopReviewsInsideContainer = styled.div`
 const TopReviews = styled.div`
   height: 100%;
   width: 30%;
-  margin: 0 1%;
+  margin: 0 0.5%;
   overflow: hidden;
   border-radius: 10px;
 `
@@ -77,10 +77,16 @@ function Body ({ children }) {
                 <BackgroundBlock src={backgroundImage2} height='50' />
               </TopReviews>
               <TopReviews>
-                <BackgroundBlock src={backgroundImage3} height='50' />
+                <BackgroundBlock src={backgroundImage4} height='50' />
               </TopReviews>
               <TopReviews>
                 <BackgroundBlock src={backgroundImage4} height='50' />
+              </TopReviews>
+              <TopReviews>
+                <BackgroundBlock src={backgroundImage1} height='50' />
+              </TopReviews>
+              <TopReviews>
+                <BackgroundBlock src={backgroundImage2} height='50' />
               </TopReviews>
             </TopReviewsInsideContainer>
           </TopReviewsContainer>

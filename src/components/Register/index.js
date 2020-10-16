@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
+  width: 100vw;
   height: 89vh;
 `
 
@@ -17,15 +17,14 @@ const SignContainer = styled.div`
   align-items: center;
   width: 80%;
   height: 65%;
-  padding: 3rem;
 `
 const Image = styled.div`
+  /* background-color: #D1C5C2; */
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
 `
-// Sign start
 
 const Signs = styled.div`
   display: flex;
@@ -35,12 +34,11 @@ const Signs = styled.div`
   border-radius: 2rem;
   width: 80%;
   height: 100%;
-  padding: 5rem 0 5rem 0;
-  
+  padding: 3rem;
 `
 
 const Head = styled.div`
-  margin-bottom: 4rem;
+  padding: 2rem;
   font-size: 40px;
   color: #f04823;
 `
@@ -64,8 +62,8 @@ const ButtonSubmit = styled.a`
   align-items: center;
   width: 75%;
   height: 2rem;
-  padding: 5px 10px 5px 10px;
-  margin-top: 3rem;
+  padding: 5px 15px 5px 10px;
+  margin-top: 1rem;
   background-color: #f04823;
   border: 2px solid #f04823;
   color: white;

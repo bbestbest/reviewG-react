@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  background: #003d59;
+   background: #003d59;
   display: flex;
   justify-content: center;
   align-items: center;
   width: auto;
-  height: auto;
-  padding: 6rem 0 6rem 0;
+  height: 89vh;
 `
 
 const SignContainer = styled.div`

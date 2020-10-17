@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import imageTopic from '../../assets/genshin-impact-1.jpg'
 
 const Containar = styled.div`
   display: flex;
@@ -17,10 +18,14 @@ const TopicContainer = styled.div`
 `
 
 const ImageTopic = styled.div`
+  background-image: url(${props => props.src});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   width: auto;
   height: 11rem;
   border-radius: 15px;
-  background-color: #99a3a4;
 `
 const Topics = styled.div`
   font-size: 18px;
@@ -33,68 +38,92 @@ const TimeTopics = styled.div`
   padding-top: 10px;
 `
 
-function Topic () {
+function Topic ({ src }) {
   return (
     <>
       <Containar>
         <TopicContainer>
-          <ImageTopic />
+          <ImageTopic src={imageTopic} />
           <Topics>
             ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
           </Topics>
           <TimeTopics> 16/10/2020 </TimeTopics>
         </TopicContainer>
+
         <TopicContainer>
-          <ImageTopic />
+          <ImageTopic src={imageTopic} />
           <Topics>
             ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
           </Topics>
           <TimeTopics> 16/10/2020 </TimeTopics>
         </TopicContainer>
+
         <TopicContainer>
-          <ImageTopic />
+          <ImageTopic src={imageTopic} />
           <Topics>
             ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
           </Topics>
           <TimeTopics> 16/10/2020 </TimeTopics>
         </TopicContainer>
+
         <TopicContainer>
-          <ImageTopic />
+          <ImageTopic src={imageTopic} />
           <Topics>
             ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
           </Topics>
           <TimeTopics> 16/10/2020 </TimeTopics>
         </TopicContainer>
+
         <TopicContainer>
-          <ImageTopic />
+          <ImageTopic src={imageTopic} />
           <Topics>
             ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
           </Topics>
           <TimeTopics> 16/10/2020 </TimeTopics>
         </TopicContainer>
+
         <TopicContainer>
-          <ImageTopic />
+          <ImageTopic src={imageTopic} />
           <Topics>
             ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
           </Topics>
           <TimeTopics> 16/10/2020 </TimeTopics>
         </TopicContainer>
+
         <TopicContainer>
-          <ImageTopic />
+          <ImageTopic src={imageTopic} />
           <Topics>
             ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
           </Topics>
           <TimeTopics> 16/10/2020 </TimeTopics>
         </TopicContainer>
+
         <TopicContainer>
-          <ImageTopic />
+          <ImageTopic src={imageTopic} />
           <Topics>
             ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
           </Topics>
           <TimeTopics> 16/10/2020 </TimeTopics>
         </TopicContainer>
+
         <TopicContainer>
-          <ImageTopic />
+          <ImageTopic src={imageTopic} />
+          <Topics>
+            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
+          </Topics>
+          <TimeTopics> 16/10/2020 </TimeTopics>
+        </TopicContainer>
+
+        <TopicContainer>
+          <ImageTopic src={imageTopic} />
+          <Topics>
+            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
+          </Topics>
+          <TimeTopics> 16/10/2020 </TimeTopics>
+        </TopicContainer>
+
+        <TopicContainer>
+          <ImageTopic src={imageTopic} />
           <Topics>
             ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
           </Topics>

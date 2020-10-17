@@ -37,5 +37,10 @@ export default {
   Register: {
     path: '/register',
     component: lazy(() => import('../pages/Register'))
+  },
+  // Design end delete
+  Review: {
+    path: '/review',
+    component: lazy(() => import('../pages/Review'))
   }
 }

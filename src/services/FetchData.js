@@ -6,8 +6,8 @@ const API_VER = 'api/v1'
 export async function getData (table) {
   return axios(
     {
-      medthod: 'get',
-      url: `${API_ENDPOINT}/${API_VER}/${table}/`
+      method: 'GET',
+      url: `${API_ENDPOINT}/${API_VER}/${table}`
     }
-  ).then((response) => response.data)
+  ).then(response => response.data.data)
 }

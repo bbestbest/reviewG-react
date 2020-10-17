@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { getData } from '../../services/fetchData'
 
 const Containar = styled.div`
   display: flex;
@@ -33,74 +34,83 @@ const TimeTopics = styled.div`
   padding-top: 10px;
 `
 
-function Topic () {
+function Topic ({ children }) {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    getData('posts').then(response => setData(response))
+  }, [])
   return (
     <>
       <Containar>
-        <TopicContainer>
-          <ImageTopic />
-          <Topics>
-            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
-          </Topics>
-          <TimeTopics> 16/10/2020 </TimeTopics>
-        </TopicContainer>
-        <TopicContainer>
-          <ImageTopic />
-          <Topics>
-            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
-          </Topics>
-          <TimeTopics> 16/10/2020 </TimeTopics>
-        </TopicContainer>
-        <TopicContainer>
-          <ImageTopic />
-          <Topics>
-            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
-          </Topics>
-          <TimeTopics> 16/10/2020 </TimeTopics>
-        </TopicContainer>
-        <TopicContainer>
-          <ImageTopic />
-          <Topics>
-            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
-          </Topics>
-          <TimeTopics> 16/10/2020 </TimeTopics>
-        </TopicContainer>
-        <TopicContainer>
-          <ImageTopic />
-          <Topics>
-            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
-          </Topics>
-          <TimeTopics> 16/10/2020 </TimeTopics>
-        </TopicContainer>
-        <TopicContainer>
-          <ImageTopic />
-          <Topics>
-            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
-          </Topics>
-          <TimeTopics> 16/10/2020 </TimeTopics>
-        </TopicContainer>
-        <TopicContainer>
-          <ImageTopic />
-          <Topics>
-            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
-          </Topics>
-          <TimeTopics> 16/10/2020 </TimeTopics>
-        </TopicContainer>
-        <TopicContainer>
-          <ImageTopic />
-          <Topics>
-            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
-          </Topics>
-          <TimeTopics> 16/10/2020 </TimeTopics>
-        </TopicContainer>
-        <TopicContainer>
-          <ImageTopic />
-          <Topics>
-            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
-          </Topics>
-          <TimeTopics> 16/10/2020 </TimeTopics>
-        </TopicContainer>
+        {data.map((item, index) => (
+          <TopicContainer key={index}>
+            <ImageTopic />
+            <Topics>
+              {item.topic}
+            </Topics>
+            <TimeTopics> {item.post_date} </TimeTopics>
+          </TopicContainer>
+        ))}
       </Containar>
+      {/* <Containar>
+        <TopicContainer>
+          <ImageTopic />
+          <Topics>
+            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
+          </Topics>
+          <TimeTopics> 16/10/2020 </TimeTopics>
+        </TopicContainer>
+        <TopicContainer>
+          <ImageTopic />
+          <Topics>
+            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
+          </Topics>
+          <TimeTopics> 16/10/2020 </TimeTopics>
+        </TopicContainer>
+        <TopicContainer>
+          <ImageTopic />
+          <Topics>
+            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
+          </Topics>
+          <TimeTopics> 16/10/2020 </TimeTopics>
+        </TopicContainer>
+        <TopicContainer>
+          <ImageTopic />
+          <Topics>
+            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
+          </Topics>
+          <TimeTopics> 16/10/2020 </TimeTopics>
+        </TopicContainer>
+        <TopicContainer>
+          <ImageTopic />
+          <Topics>
+            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
+          </Topics>
+          <TimeTopics> 16/10/2020 </TimeTopics>
+        </TopicContainer>
+        <TopicContainer>
+          <ImageTopic />
+          <Topics>
+            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
+          </Topics>
+          <TimeTopics> 16/10/2020 </TimeTopics>
+        </TopicContainer>
+        <TopicContainer>
+          <ImageTopic />
+          <Topics>
+            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
+          </Topics>
+          <TimeTopics> 16/10/2020 </TimeTopics>
+        </TopicContainer>
+        <TopicContainer>
+          <ImageTopic />
+          <Topics>
+            ยอดขาย Among Us ขึ้นแท่นอันดับหนึ่งใน Steam ประจำเดือนกันยายนนี้แล้ว
+          </Topics>
+          <TimeTopics> 16/10/2020 </TimeTopics>
+        </TopicContainer>
+      </Containar> */}
     </>
   )
 }

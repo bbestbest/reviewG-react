@@ -19,7 +19,6 @@ const SignContainer = styled.div`
   height: 65%;
 `
 const Image = styled.div`
-  /* background-color: #D1C5C2; */
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -84,12 +83,15 @@ const Register = styled.a`
   padding-top: 1rem;
   color: #f04823;
   a:link {
+    color: #f04823;
     text-decoration: none;
- ;
+  }
+  a:visited {
+    color: #f04823;
   }
   &:hover {
     color: #f04823;
-    border-bottom: 2px solid #f04823;
+    border-bottom: 1px solid #f04823;
   }
 `
 

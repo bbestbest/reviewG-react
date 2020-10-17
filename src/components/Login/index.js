@@ -7,8 +7,9 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 89vh;
+  width: auto;
+  height: auto;
+  padding: 6rem 0 6rem 0;
 `
 
 const SignContainer = styled.div`

@@ -30,6 +30,10 @@ export default {
     path: '/strategy',
     component: lazy(() => import('../pages/Strategy'))
   },
+  Other: {
+    path: '/other',
+    component: lazy(() => import('../pages/Other'))
+  },
   Login: {
     path: '/login',
     component: lazy(() => import('../pages/Login'))

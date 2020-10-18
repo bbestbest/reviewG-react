@@ -5,7 +5,7 @@ import CategoriesBody from '../CatagoriesBody'
 import BackgroundBlock from '../BackgroundBlock'
 import backgroundImage1 from '../../assets/cyberpunk.jpg'
 import backgroundImage2 from '../../assets/Souls.jpg'
-import backgroundImage3 from '../../assets/callofd.jpg'
+// import backgroundImage3 from '../../assets/callofd.jpg'
 import backgroundImage4 from '../../assets/mario.jpg'
 
 const Container = styled.div`
@@ -34,6 +34,7 @@ const TopReviewsContainer = styled.div`
   display: flex;
   justify-content: center;
   padding: 1rem;
+  margin-top: 1rem;
 `
 const TopReviewsInsideContainer = styled.div`
   width: 100%;
@@ -90,7 +91,7 @@ function Body ({ children }) {
               </TopReviews>
             </TopReviewsInsideContainer>
           </TopReviewsContainer>
-          <CategoriesBody> REVIEW-G </CategoriesBody>
+          <CategoriesBody> Lastest </CategoriesBody>
         </ContentContainer>
       </Container>
     </>

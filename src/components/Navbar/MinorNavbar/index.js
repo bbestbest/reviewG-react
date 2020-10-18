@@ -66,6 +66,9 @@ function MinorNavbar () {
           <ListCatagories>
             <Link to='/sport'>Sport</Link>
           </ListCatagories>
+          <ListCatagories>
+            <Link to='/other'>Other</Link>
+          </ListCatagories>
         </Catagories>
       </Container>
     </>

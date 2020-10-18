@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { getData } from '../../services/FetchData'
+import { getData } from '../../services/fetchData'
 
 const Containar = styled.div`
   display: flex;
@@ -19,7 +19,6 @@ const TopicContainer = styled.div`
 
 const ImageTopic = styled.div`
   background-image: url(${props => props.src});
-  background-size: cover;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -42,14 +41,16 @@ function Topic ({ children }) {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    getData('posts').then(response => setData(response))
+    getData('posts', 'assets').then(response => setData(response))
   }, [])
   return (
     <>
       <Containar>
         {data.map((item, index) => (
           <TopicContainer key={index}>
-            <ImageTopic />
+            {item.assets.map((item2) => (
+              <ImageTopic key={index} src={item2.asset_path} />
+            ))}
             <Topics>
               {item.topic}
             </Topics>

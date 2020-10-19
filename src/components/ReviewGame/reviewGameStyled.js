@@ -61,7 +61,7 @@ export const Content = styled.div`
 export const Border = styled.div`
   width: auto;
   margin: 4rem 0 4rem 0;
-  border-bottom: 5px solid #f69335;
+  border-bottom: 3px solid #f69335;
 `
 
 export const Heading = styled.div`

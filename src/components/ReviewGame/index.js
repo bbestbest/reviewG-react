@@ -12,7 +12,8 @@ import {
   Border,
   Heading,
   AdminContainer,
-  ProfileImageAdmin
+  ProfileImageAdmin,
+  NameAdmin
 } from './reviewGameStyled'
 
 function ReviewGame () {
@@ -58,6 +59,7 @@ function ReviewGame () {
             <Heading> Review by Admin </Heading>
             <AdminContainer>
               <ProfileImageAdmin />
+              <NameAdmin> naratipcover </NameAdmin>
             </AdminContainer>
             <Border />
           </ContentContainer>

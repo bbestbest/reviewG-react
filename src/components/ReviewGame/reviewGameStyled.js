@@ -81,7 +81,8 @@ export const Heading = styled.div`
 
 export const AdminContainer = styled.div`
   display: flex;
-  margin: 2rem;
+  align-items: center;
+  margin: 2.7rem;
   width: auto;
   height: auto;
 `
@@ -93,5 +94,9 @@ export const ProfileImageAdmin = styled.div`
 `
 
 export const NameAdmin = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  padding: 2.4rem;
+  color: #003d59;
 `
 // admin end

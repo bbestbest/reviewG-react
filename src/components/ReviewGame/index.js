@@ -1,6 +1,18 @@
 import React from 'react'
 import { Reset } from 'styled-reset'
-import { Container, BodyContainer, TopicReviewContainer, TopicReview, DateTopicReview, Image, ContainerContent, Content, Border } from './reviewGameStyled'
+import {
+  Container,
+  BodyContainer,
+  TopicReviewContainer,
+  TopicReview,
+  DateTopicReview,
+  ImageTopic,
+  ContentContainer,
+  Content,
+  Border,
+  Heading,
+  AdminContainer
+} from './reviewGameStyled'
 
 function ReviewGame () {
   return (
@@ -15,8 +27,8 @@ function ReviewGame () {
               <DateTopicReview> 19/10/2563 </DateTopicReview>
             </TopicReview>
           </TopicReviewContainer>
-          <Image />
-          <ContainerContent>
+          <ImageTopic />
+          <ContentContainer>
             <Content>
               โดยในช่วง Live Stream ถ่ายทอดสดของ Capcom ในงาน Tokyo Game Show
               2020 ที่มีการเผยรายละเอียดใหม่ของเกม Resident Evil Village
@@ -42,7 +54,11 @@ function ReviewGame () {
               ส่วนรายละเอียดใหม่นั้นอาจจะมีการประกาศออกมาเพิ่มเติมอีกครั้งในอนาคตข้างหน้านี้
             </Content>
             <Border />
-          </ContainerContent>
+            <AdminContainer>
+              <Heading> Review by Admin </Heading>
+            </AdminContainer>
+            <Border />
+          </ContentContainer>
         </BodyContainer>
       </Container>
     </>

@@ -24,7 +24,7 @@ export const TopicReviewContainer = styled.div`
 
 export const TopicReview = styled.div`
   font-size: 30px;
-  line-height: 1.6;
+  line-height: 1.3;
   height: auto;
   width: auto;
   font-weight: bold;
@@ -37,7 +37,7 @@ export const DateTopicReview = styled.div`
 // TopicReview end
 
 // start Image
-export const Image = styled.div`
+export const ImageTopic = styled.div`
   height: 50vh;
   width: 70%;
   background-color: #b7c2c3;
@@ -45,7 +45,7 @@ export const Image = styled.div`
 // end Image
 
 // Content start
-export const ContainerContent = styled.div`
+export const ContentContainer = styled.div`
   height: auto;
   width: auto;
   margin: 2rem 0 2rem 0;
@@ -56,10 +56,32 @@ export const Content = styled.div`
 `
 // Contemt end
 
-// admin start
+// Heading and Boder start
 
 export const Border = styled.div`
   width: auto;
-  border-bottom: 5rem solid #f69335;
+  margin: 4rem 0 4rem 0;
+  border-bottom: 5px solid #f69335;
+`
+
+export const Heading = styled.div`
+  display: flex;
+  align-items: center;
+  width: 25%;
+  height: 10px;
+  padding: 1.5rem;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  background-color: #f69335;
+`
+// Heading and Boder end
+
+// admin start
+
+export const AdminContainer = styled.div`
+  display: flex;
+  width: auto;
+  height: auto;
 `
 // admin end

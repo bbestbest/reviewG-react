@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { getData } from '../../services/fetchData'
+import { getData } from '../../services/FetchData'
 
 const Containar = styled.div`
   display: flex;

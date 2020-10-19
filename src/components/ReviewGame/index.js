@@ -11,7 +11,8 @@ import {
   Content,
   Border,
   Heading,
-  AdminContainer
+  AdminContainer,
+  ProfileImageAdmin
 } from './reviewGameStyled'
 
 function ReviewGame () {
@@ -54,8 +55,9 @@ function ReviewGame () {
               ส่วนรายละเอียดใหม่นั้นอาจจะมีการประกาศออกมาเพิ่มเติมอีกครั้งในอนาคตข้างหน้านี้
             </Content>
             <Border />
+            <Heading> Review by Admin </Heading>
             <AdminContainer>
-              <Heading> Review by Admin </Heading>
+              <ProfileImageAdmin />
             </AdminContainer>
             <Border />
           </ContentContainer>

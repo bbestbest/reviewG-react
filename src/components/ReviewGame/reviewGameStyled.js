@@ -60,7 +60,7 @@ export const Content = styled.div`
 
 export const Border = styled.div`
   width: auto;
-  margin: 4rem 0 4rem 0;
+  margin: 2.5rem 0 2.5rem 0;
   border-bottom: 3px solid #f69335;
 `
 
@@ -69,8 +69,8 @@ export const Heading = styled.div`
   align-items: center;
   width: 25%;
   height: 10px;
-  padding: 1.5rem;
-  font-size: 25px;
+  padding: 1.4rem;
+  font-size: 23px;
   font-weight: bold;
   color: white;
   background-color: #f69335;
@@ -81,7 +81,17 @@ export const Heading = styled.div`
 
 export const AdminContainer = styled.div`
   display: flex;
+  margin: 2rem;
   width: auto;
   height: auto;
+`
+export const ProfileImageAdmin = styled.div`
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50%;
+  background-color: #b7c2c3;
+`
+
+export const NameAdmin = styled.div`
 `
 // admin end

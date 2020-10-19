@@ -16,25 +16,31 @@ const BodyContainer = styled.div`
   width: 90%;
   height: auto;
   border-radius: 2rem;
-  padding: 2rem;
+  padding: 3rem;
 `
 // TopicReview start
 const TopicReviewContainer = styled.div`
   height: auto;
   width: auto;
-  background-color: greenyellow;
 `
 
 const TopicReview = styled.div`
-  font-size: 25px;
+  font-size: 30px;
   height: auto;
-  width: 90%;
+  width: auto;
+  font-weight: bold;
+  margin: 2rem;
+`
+const DateTopicReview = styled.div`
+  padding:1rem;
+  font-size: 15px;
+
 `
 // TopicReview end
 const Image = styled.div`
   height: 50vh;
   width: 50vh;
-  background-color:  red;
+  background-color: red;
 `
 
 function ReviewGame () {
@@ -45,16 +51,15 @@ function ReviewGame () {
         <BodyContainer>
           <TopicReviewContainer>
             <TopicReview>
-              55555555555555555555555555555555555555555555555555555
-              555555555555555555555555555555555555555555555555555555555555
-              555555555555555555555555555555555555555555555555555555
-              555555555555555555555555555555555555555555555555555555
-              555555555555555555555555555555555555555555555555555555
+              ภาพวาดเกม The Last of Us Part II จาก Yoji Shinkawa แห่ง Kojima
+              Productions เพื่อเฉลิมฉลองวัน The Last of Us Day
+              <DateTopicReview> 19/10/2563 </DateTopicReview>
             </TopicReview>
           </TopicReviewContainer>
           <Image />
         </BodyContainer>
-      </Containar>dic`
+      </Containar>
+      dic`
     </>
   )
 }

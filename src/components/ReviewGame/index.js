@@ -16,7 +16,7 @@ const BodyContainer = styled.div`
   width: 90%;
   height: auto;
   border-radius: 2rem;
-  padding: 3rem;
+  padding: 4rem;
 `
 // TopicReview start
 const TopicReviewContainer = styled.div`
@@ -29,19 +29,26 @@ const TopicReview = styled.div`
   height: auto;
   width: auto;
   font-weight: bold;
-  margin: 2rem;
+  margin-bottom: 2rem;
 `
 const DateTopicReview = styled.div`
-  padding:1rem;
+  padding: 1rem;
   font-size: 15px;
 
 `
 // TopicReview end
+// start Image
+// const ContainerImage = styled.div`
+//   display: flex;
+//   justify-content: center;
+// `
+
 const Image = styled.div`
   height: 50vh;
-  width: 50vh;
-  background-color: red;
+  width: 70%;
+  background-color: #B7C2C3;
 `
+// end Image
 
 function ReviewGame () {
   return (
@@ -59,7 +66,6 @@ function ReviewGame () {
           <Image />
         </BodyContainer>
       </Containar>
-      dic`
     </>
   )
 }

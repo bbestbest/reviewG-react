@@ -28,6 +28,7 @@ const ImageTopic = styled.div`
 `
 const Topics = styled.div`
   font-size: 18px;
+  line-height: 1.2;
   padding-top: 1rem;
   width: auto;
   height: auto;

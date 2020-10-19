@@ -63,6 +63,9 @@ export const Border = styled.div`
   margin: 2.5rem 0 2.5rem 0;
   border-bottom: 3px solid #f69335;
 `
+export const HeadingContainer = styled.div`
+  padding: 2rem 0 2rem 0;
+`
 
 export const Heading = styled.div`
   display: flex;

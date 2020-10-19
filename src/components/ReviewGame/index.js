@@ -10,6 +10,7 @@ import {
   ContentContainer,
   Content,
   Border,
+  HeadingContainer,
   Heading,
   AdminContainer,
   ProfileImageAdmin,
@@ -62,6 +63,9 @@ function ReviewGame () {
               <NameAdmin> naratipcover </NameAdmin>
             </AdminContainer>
             <Border />
+            <HeadingContainer>
+              <Heading> Review Score </Heading>
+            </HeadingContainer>
           </ContentContainer>
         </BodyContainer>
       </Container>

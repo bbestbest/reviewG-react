@@ -1,5 +1,6 @@
 import React from 'react'
 import { Reset } from 'styled-reset'
+import ScoreReview from './ScoreReview'
 import {
   Container,
   BodyContainer,
@@ -66,6 +67,7 @@ function ReviewGame () {
             <HeadingContainer>
               <Heading> Review Score </Heading>
             </HeadingContainer>
+            <ScoreReview />
           </ContentContainer>
         </BodyContainer>
       </Container>

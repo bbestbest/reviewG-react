@@ -1,60 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Reset } from 'styled-reset'
-
-const Containar = styled.div`
-  background: #003d59;
-  display: flex;
-  justify-content: center;
-  width: auto;
-  height: 89vh;
-  padding: 1.5rem 4rem 1.5rem 4rem;
-`
-const BodyContainer = styled.div`
-  /* flex-direction: column; */
-  background: white;
-  width: 90%;
-  height: auto;
-  border-radius: 2rem;
-  padding: 4rem;
-`
-// TopicReview start
-const TopicReviewContainer = styled.div`
-  height: auto;
-  width: auto;
-`
-
-const TopicReview = styled.div`
-  font-size: 30px;
-  height: auto;
-  width: auto;
-  font-weight: bold;
-  margin-bottom: 2rem;
-`
-const DateTopicReview = styled.div`
-  padding: 1rem;
-  font-size: 15px;
-
-`
-// TopicReview end
-// start Image
-// const ContainerImage = styled.div`
-//   display: flex;
-//   justify-content: center;
-// `
-
-const Image = styled.div`
-  height: 50vh;
-  width: 70%;
-  background-color: #B7C2C3;
-`
-// end Image
+import { Container, BodyContainer, TopicReviewContainer, TopicReview, DateTopicReview, Image, ContainerContent, Content, Border } from './reviewGameStyled'
 
 function ReviewGame () {
   return (
     <>
       <Reset />
-      <Containar>
+      <Container>
         <BodyContainer>
           <TopicReviewContainer>
             <TopicReview>
@@ -64,8 +16,35 @@ function ReviewGame () {
             </TopicReview>
           </TopicReviewContainer>
           <Image />
+          <ContainerContent>
+            <Content>
+              โดยในช่วง Live Stream ถ่ายทอดสดของ Capcom ในงาน Tokyo Game Show
+              2020 ที่มีการเผยรายละเอียดใหม่ของเกม Resident Evil Village
+              เพิ่มเติม โดยคุณ Tsuyoshi Kanda
+              โปรดิวเซอร์ของเกมได้บอกไว้ในช่วงหนึ่งของการถ่ายทอดสดว่า
+              เขาและทีมงานนั้นต้องการที่จะส่งมอบประสบการณ์ความสยองระดับสุดยอดของเกม
+              Survival Horror ในเครื่องคอนโซลรุ่นก่อนอย่าง PS4 และ Xbox One ด้วย
+              ซึ่งจะทำให้เกมนี้กลายเป็นเกมแบบ Cross Gen อีกด้วย
+              น่าเสียดายที่ในช่วงการ Live Stream นี้
+              ทางทีมงานไม่ได้เผยข้อมูลใหม่อะไรออกมามากนัก
+              เป็นเพียงแค่การสรุปสิ่งที่เคยประกาศเอาไว้แล้วอีกครั้งหนึ่งเท่านั้น
+              ส่วนรายละเอียดใหม่นั้นอาจจะมีการประกาศออกมาเพิ่มเติมอีกครั้งในอนาคตข้างหน้านี้
+              โดยในช่วง Live Stream ถ่ายทอดสดของ Capcom ในงาน Tokyo Game Show
+              2020 ที่มีการเผยรายละเอียดใหม่ของเกม Resident Evil Village
+              เพิ่มเติม โดยคุณ Tsuyoshi Kanda
+              โปรดิวเซอร์ของเกมได้บอกไว้ในช่วงหนึ่งของการถ่ายทอดสดว่า
+              เขาและทีมงานนั้นต้องการที่จะส่งมอบประสบการณ์ความสยองระดับสุดยอดของเกม
+              Survival Horror ในเครื่องคอนโซลรุ่นก่อนอย่าง PS4 และ Xbox One ด้วย
+              ซึ่งจะทำให้เกมนี้กลายเป็นเกมแบบ Cross Gen อีกด้วย
+              น่าเสียดายที่ในช่วงการ Live Stream นี้
+              ทางทีมงานไม่ได้เผยข้อมูลใหม่อะไรออกมามากนัก
+              เป็นเพียงแค่การสรุปสิ่งที่เคยประกาศเอาไว้แล้วอีกครั้งหนึ่งเท่านั้น
+              ส่วนรายละเอียดใหม่นั้นอาจจะมีการประกาศออกมาเพิ่มเติมอีกครั้งในอนาคตข้างหน้านี้
+            </Content>
+            <Border />
+          </ContainerContent>
         </BodyContainer>
-      </Containar>
+      </Container>
     </>
   )
 }

@@ -9,18 +9,42 @@ const HeadingScore = styled.div`
 `
 
 export const ScoreCriterias = styled.div`
-  padding: 3rem 0 1rem 3rem;
+  padding: 2rem 0 1rem 3rem;
   font-size: 23px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const ScoreContainer = styled.div`
+  width: 5rem;
+  height: 3rem;
+  border-radius: 2rem;
+  background-color: #f69335;
+  margin-right: 8rem;
 `
 
 function ScoreCriteria ({ children }) {
   return (
     <>
       <HeadingScore> {children} </HeadingScore>
-      <ScoreCriterias> Story </ScoreCriterias>
-      <ScoreCriterias> Gameplay </ScoreCriterias>
-      <ScoreCriterias> Performance </ScoreCriterias>
-      <ScoreCriterias> Graphic </ScoreCriterias>
+      <ScoreCriterias>
+        Story
+        <ScoreContainer />
+      </ScoreCriterias>
+      <ScoreCriterias>
+        Gameplay
+        <ScoreContainer />
+      </ScoreCriterias>
+      <ScoreCriterias>
+        Performance
+        <ScoreContainer />
+      </ScoreCriterias>
+      <ScoreCriterias>
+        Graphic
+        <ScoreContainer />
+      </ScoreCriterias>
     </>
   )
 }

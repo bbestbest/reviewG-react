@@ -1,11 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ReactStars from 'react-stars'
-import { render } from 'react-dom'
-
-const ratingChanged = newRating => {
-  console.log(newRating)
-}
+import Stars from './Stars'
 
 const HeadingContainer = styled.div`
   padding: 2rem 0 2rem 0;
@@ -23,6 +18,13 @@ const HeadingRating = styled.div`
   background-color: #f69335;
 `
 
+const RatingCriteriaContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: auto;
+`
+
 const RatingCriteria = styled.div`
   display: block;
   font-size: 20px;
@@ -38,15 +40,25 @@ function Rating () {
       <HeadingContainer>
         <HeadingRating> Review Score </HeadingRating>
       </HeadingContainer>
-      <RatingCriteria> Story </RatingCriteria>
-      <RatingCriteria> Gameplay </RatingCriteria>
-      <ReactStars
-        count={5}
-        onChange={ratingChanged}
-        size={100}
-        color1={ '#003d59' }
-        color2={ '#f69335' }
-      />
+      <RatingCriteriaContainer>
+        <RatingCriteria> Story </RatingCriteria>
+        <Stars />
+      </RatingCriteriaContainer>
+
+      <RatingCriteriaContainer>
+        <RatingCriteria> Gameplay </RatingCriteria>
+        <Stars />
+      </RatingCriteriaContainer>
+
+      <RatingCriteriaContainer>
+        <RatingCriteria> Performance </RatingCriteria>
+        <Stars />
+      </RatingCriteriaContainer>
+
+      <RatingCriteriaContainer>
+        <RatingCriteria> Graphic </RatingCriteria>
+        <Stars />
+      </RatingCriteriaContainer>
     </>
   )
 }

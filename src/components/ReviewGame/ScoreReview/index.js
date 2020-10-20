@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ScoreCriteria, { ScoreCriterias, ScoreContainer } from './ScoreCriteria'
+import Rating from './Rating'
 
 const ScoreReviewContainer = styled.div`
   display: flex;
@@ -30,6 +31,7 @@ function ScoreReview () {
           <ScoreCriteria> Review by user </ScoreCriteria>
         </ScoreAdminUserContainer>
       </ScoreReviewContainer>
+      <Rating />
     </>
   )
 }

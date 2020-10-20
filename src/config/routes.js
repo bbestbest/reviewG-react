@@ -44,7 +44,7 @@ export default {
   },
   // Design end delete
   Review: {
-    path: '/review',
+    path: '/review/:id',
     component: lazy(() => import('../pages/Review'))
   }
 }

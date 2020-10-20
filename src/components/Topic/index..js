@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { getData } from '../../services/fetchData'
 import styled from 'styled-components'
-import { getData } from '../../services/FetchData'
 
 const Containar = styled.div`
   display: flex;
@@ -9,6 +10,15 @@ const Containar = styled.div`
   width: auto;
   height: auto;
   padding: 1.5rem 4rem 1.5rem 4rem;
+  color: #000;
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:visited {
+    color: inherit;
+  }
 `
 
 const TopicContainer = styled.div`
@@ -49,13 +59,15 @@ function Topic ({ children }) {
       <Containar>
         {data.map((item, index) => (
           <TopicContainer key={index}>
-            {item.assets.map((item2) => (
-              <ImageTopic key={index} src={item2.asset_path} />
-            ))}
-            <Topics>
-              {item.topic}
-            </Topics>
-            <TimeTopics> {item.post_date} </TimeTopics>
+            <Link to={`/review/${index + 1}`}>
+              {item.assets.map((image) => (
+                <ImageTopic key={index} src={image.asset_path} />
+              ))}
+              <Topics>
+                {item.topic}
+              </Topics>
+              <TimeTopics> {item.post_date} </TimeTopics>
+            </Link>
           </TopicContainer>
         ))}
       </Containar>

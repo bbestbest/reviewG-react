@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import routes from './config/routes'
 import styled from 'styled-components'
 import { Reset } from 'styled-reset'
-import routes from './config/routes'
 import GlobalStyle from './components/GlobalStyle'
 import withHelmet from './utils/withHelmet'
 

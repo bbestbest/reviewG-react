@@ -20,3 +20,12 @@ export async function getImage (table, id, value) {
     }
   ).then(response => response.data.data)
 }
+
+export async function getDataById (table, value, catagories, id) {
+  return axios(
+    {
+      method: 'GET',
+      url: `${API_ENDPOINT}/${API_VER}/${table}/${catagories}/${id}?references=${value}`
+    }
+  ).then(response => response.data.data)
+}

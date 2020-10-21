@@ -27,10 +27,10 @@ const PostContainer = styled.div`
 `
 
 const SubHeading = styled.div`
-  width: 20%;
   font-size: 30px;
   padding-bottom: 1rem;
   font-weight: bold;
+  margin-top: 3rem;
   border-bottom: 3px solid #f69335;
 `
 
@@ -62,6 +62,28 @@ const ButtonInput = styled.input`
 `
 
 const InputFile = styled.input`
+  margin: 2rem;
+`
+
+const ScoreContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  padding: 2rem;
+`
+
+const ScoreCatagories = styled.div`
+  font-size: 20px;
+`
+
+const Score = styled.input`
+  height: auto;
+  border: 2px solid #707070;
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 5px 10px 5px 10px;
+  color: #f04823;
 `
 
 function Admin () {
@@ -73,6 +95,7 @@ function Admin () {
             <Heading> POST </Heading>
           </HeadingContainer>
           <PostContainer>
+
             <SubHeading> Topic </SubHeading>
             <ButtonTextarea className='Topic ' placeholder=' ex: Topic... ' />
 
@@ -80,9 +103,35 @@ function Admin () {
             <ButtonInput className='Writer' placeholder=' ex: Writer... ' />
 
             <SubHeading> Content </SubHeading>
-            <ButtonTextarea className='Content ' placeholder=' ex: Content... ' />
+            <ButtonTextarea
+              className='Content '
+              placeholder=' ex: Content... '
+            />
 
-            <InputFile className='Content ' type='file' />
+            <SubHeading> Image </SubHeading>
+            <InputFile className='Image file ' type='file' />
+
+            <SubHeading> Score </SubHeading>
+            <ScoreContainer>
+              <ScoreCatagories className='Story'> Story </ScoreCatagories>
+              <Score type='number' min='0' max='10' />
+            </ScoreContainer>
+
+            <ScoreContainer>
+              <ScoreCatagories className='Gameplay'> Gameplay </ScoreCatagories>
+              <Score type='number' min='0' max='10' />
+            </ScoreContainer>
+
+            <ScoreContainer>
+              <ScoreCatagories className='Performance'> Performance </ScoreCatagories>
+              <Score type='number' min='0' max='10' />
+            </ScoreContainer>
+
+            <ScoreContainer>
+              <ScoreCatagories className='Graphic'> Graphic </ScoreCatagories>
+              <Score type='number' min='0' max='10' />
+            </ScoreContainer>
+
           </PostContainer>
         </BodyContainer>
       </Container>

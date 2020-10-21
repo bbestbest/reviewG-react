@@ -52,7 +52,11 @@ export default {
   },
   // AdminPost
   AdminPost: {
-    path: '/AdminPost',
+    path: '/adminPost',
     component: lazy(() => import('../pages/AdminPost'))
+  },
+  LoginAdmin: {
+    path: '/loginAdmin',
+    component: lazy(() => import('../pages/LoginAdmin'))
   }
 }

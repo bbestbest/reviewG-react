@@ -22,7 +22,6 @@ const Heading = styled.div`
   color: white;
 `
 const PostContainer = styled.div`
-  background-color: greenyellow;
   width: auto;
   margin: 3rem;
 `
@@ -36,8 +35,6 @@ const SubHeading = styled.div`
 `
 
 const ButtonTextarea = styled.textarea`
-  display: flex;
-  flex-wrap: wrap;
   width: auto;
   height: auot;
   border: 2px solid #707070;
@@ -49,6 +46,22 @@ const ButtonTextarea = styled.textarea`
   &::placeholder {
     color: #707070;
   }
+`
+const ButtonInput = styled.input`
+  width: 80%;
+  height: auto;
+  border: 2px solid #707070;
+  border-radius: 5px;
+  font-size: 15px;
+  margin: 1rem;
+  padding: 5px 10px 5px 10px;
+  color: #f04823;
+  &::placeholder {
+    color: #707070;
+  }
+`
+
+const InputFile = styled.input`
 `
 
 function Admin () {
@@ -62,6 +75,14 @@ function Admin () {
           <PostContainer>
             <SubHeading> Topic </SubHeading>
             <ButtonTextarea className='Topic ' placeholder=' ex: Topic... ' />
+
+            <SubHeading> Writer </SubHeading>
+            <ButtonInput className='Writer' placeholder=' ex: Writer... ' />
+
+            <SubHeading> Content </SubHeading>
+            <ButtonTextarea className='Content ' placeholder=' ex: Content... ' />
+
+            <InputFile className='Content ' type='file' />
           </PostContainer>
         </BodyContainer>
       </Container>

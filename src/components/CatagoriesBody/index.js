@@ -2,14 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import Topic from '../Topic/index.'
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
   background: #003d59;
   padding: 2rem 0;
   width: 100%;
 `
-const BodyContainer = styled.div`
+export const BodyContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;

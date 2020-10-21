@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getDataById } from '../../services/fetchData'
 import { Reset } from 'styled-reset'
 import ScoreReview from './ScoreReview'
-import Comment from './Comment'
+// import Comment from './Comment'
 import {
   Container,
   BodyContainer,

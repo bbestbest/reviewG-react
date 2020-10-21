@@ -59,3 +59,25 @@ margin: 1rem;
 padding: 5px 10px 5px 10px;
 color: #f04823;
 `
+export const ButtonSubmit = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 3rem;
+  margin-top: 2.5rem;
+  background-color: #f04823;
+  border: 2px solid #f04823;
+  color: white;
+  border-radius: 8px;
+  transition: background-color 0.5s;
+  font-size: 20px;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  &:hover {
+    background-color: #d04527;
+    border: 2px solid #d04527;
+  }
+`

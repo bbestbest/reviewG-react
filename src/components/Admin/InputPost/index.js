@@ -6,7 +6,8 @@ import {
   InputFile,
   ScoreContainer,
   ScoreCatagories,
-  Score
+  Score,
+  ButtonSubmit
 } from './InputPostStyled'
 
 function InputPost () {
@@ -44,6 +45,8 @@ function InputPost () {
         <ScoreCatagories className='Graphic'> Graphic </ScoreCatagories>
         <Score type='number' min='0' max='10' />
       </ScoreContainer>
+
+      <ButtonSubmit> Submit </ButtonSubmit>
     </>
   )
 }

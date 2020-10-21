@@ -1,6 +1,7 @@
 import { lazy } from 'react'
 
 export default {
+  // pages
   Home: {
     path: '/',
     exact: true,
@@ -34,6 +35,8 @@ export default {
     path: '/other',
     component: lazy(() => import('../pages/Other'))
   },
+
+  // login Reigister
   Login: {
     path: '/login',
     component: lazy(() => import('../pages/Login'))
@@ -42,9 +45,14 @@ export default {
     path: '/register',
     component: lazy(() => import('../pages/Register'))
   },
-  // Design end delete
+  // Review
   Review: {
     path: '/review/:id',
     component: lazy(() => import('../pages/Review'))
+  },
+  // AdminPost
+  AdminPost: {
+    path: '/AdminPost',
+    component: lazy(() => import('../pages/AdminPost'))
   }
 }

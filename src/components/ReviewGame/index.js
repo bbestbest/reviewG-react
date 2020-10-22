@@ -4,6 +4,8 @@ import { getDataById } from '../../services/fetchData'
 import { Reset } from 'styled-reset'
 import ScoreReview from './ScoreReview'
 import Comment from './Comment'
+import backgroundImage from '../../assets/genshin-impact-1.jpg'
+import backgroundAdmin from '../../assets/admin.jpg'
 import {
   Container,
   BodyContainer,
@@ -14,9 +16,10 @@ import {
   ContentContainer,
   Content,
   Border,
-  HeadingContainer,
   Heading,
   AdminContainer,
+  Admin,
+  ProfileAdmin,
   ProfileImageAdmin,
   NameAdmin
 } from './reviewGameStyled'
@@ -26,11 +29,14 @@ function ReviewGame () {
   const { id } = useParams()
 
   useEffect(() => {
-    getDataById('posts', 'assets', 'Action', id).then(response => setData(response))
+    getDataById('posts', 'assets', 'Action', id).then(response =>
+      setData(response)
+    )
   })
   return (
     <>
       <Reset />
+
       {data.map((item, index) => (
         <Container key={index}>
           <BodyContainer>
@@ -40,23 +46,27 @@ function ReviewGame () {
                 <DateTopicReview> {item.post_date} </DateTopicReview>
               </TopicReview>
             </TopicReviewContainer>
-            <ImageTopic />
+
+            <ImageTopic src={backgroundImage} />
+
             <ContentContainer>
-              <Content>
-                {item.body}
-              </Content>
+              <Content>{item.body}</Content>
+
               <Border />
-              <Heading> Review by Admin </Heading>
               <AdminContainer>
-                <ProfileImageAdmin />
-                <NameAdmin> naratipcover </NameAdmin>
+                <Admin>
+                  <Heading> Review by Admin </Heading>
+                  <ProfileAdmin>
+                    <ProfileImageAdmin src={backgroundAdmin} />
+                    <NameAdmin> naratipcover </NameAdmin>
+                  </ProfileAdmin>
+                </Admin>
+                <ScoreReview />
               </AdminContainer>
+
               <Border />
-              <HeadingContainer>
-                <Heading> Review Score </Heading>
-              </HeadingContainer>
-              <ScoreReview />
             </ContentContainer>
+
             <Comment />
           </BodyContainer>
         </Container>

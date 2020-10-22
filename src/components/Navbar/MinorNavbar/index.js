@@ -41,10 +41,6 @@ const ListCatagories = styled.li`
 `
 
 function MinorNavbar () {
-  const handleOnClick = (value) => {
-
-  }
-
   return (
     <>
       <Container>
@@ -53,22 +49,22 @@ function MinorNavbar () {
             <Link to='/'>Home</Link>
           </ListCatagories>
           <ListCatagories>
-            <Link to='/action' onClick={() => handleOnClick('action')}>Action</Link>
+            <Link to='/catagories/action'>Action</Link>
           </ListCatagories>
           <ListCatagories>
-            <Link to='/adventure' onClick={() => handleOnClick('adventure')}>Adventure</Link>
+            <Link to='/catagories/adventure'>Adventure</Link>
           </ListCatagories>
           <ListCatagories>
-            <Link to='/rpg' onClick={() => handleOnClick('rpg')}>RPG</Link>
+            <Link to='/catagories/rpg'>RPG</Link>
           </ListCatagories>
           <ListCatagories>
-            <Link to='/simulation' onClick={() => handleOnClick('simulation')}>Simulation</Link>
+            <Link to='/catagories/simulation'>Simulation</Link>
           </ListCatagories>
           <ListCatagories>
-            <Link to='/strategy' onClick={() => handleOnClick('strategy')}>Strategy</Link>
+            <Link to='/catagories/strategy'>Strategy</Link>
           </ListCatagories>
           <ListCatagories>
-            <Link to='/sport' onClick={() => handleOnClick('sport')}>Sport</Link>
+            <Link to='/catagories/sport'>Sport</Link>
           </ListCatagories>
           {/* <ListCatagories>
             <Link to='/'>Other</Link>

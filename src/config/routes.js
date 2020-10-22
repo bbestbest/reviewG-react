@@ -8,10 +8,35 @@ export default {
     component: lazy(() => import('../pages/Home'))
   },
   Catagories: {
-    path: '/:catagories',
+    path: '/catagories/:catagories',
     exact: true,
     component: lazy(() => import('../pages/Catagories'))
   },
+  Login: {
+    path: '/login',
+    exact: true,
+    component: lazy(() => import('../pages/Login'))
+  },
+  Register: {
+    path: '/register',
+    exact: true,
+    component: lazy(() => import('../pages/Register'))
+  },
+  Review: {
+    path: '/review/:catagories/:id',
+    exact: true,
+    component: lazy(() => import('../pages/Review'))
+  },
+  AdminPost: {
+    path: '/adminPost',
+    exact: true,
+    component: lazy(() => import('../pages/AdminPost'))
+  },
+  LoginAdmin: {
+    path: '/loginAdmin',
+    exact: true,
+    component: lazy(() => import('../pages/LoginAdmin'))
+  }
   // Action: {
   //   path: '/action',
   //   component: lazy(() => import('../pages/Action'))
@@ -40,29 +65,4 @@ export default {
   //   path: '/other',
   //   component: lazy(() => import('../pages/Other'))
   // },
-  Login: {
-    path: '/login',
-    exact: true,
-    component: lazy(() => import('../pages/Login'))
-  },
-  Register: {
-    path: '/register',
-    exact: true,
-    component: lazy(() => import('../pages/Register'))
-  },
-  Review: {
-    path: '/review/:catagories/:id',
-    exact: true,
-    component: lazy(() => import('../pages/Review'))
-  },
-  AdminPost: {
-    path: '/adminPost',
-    exact: true,
-    component: lazy(() => import('../pages/AdminPost'))
-  },
-  LoginAdmin: {
-    path: '/loginAdmin',
-    exact: true,
-    component: lazy(() => import('../pages/LoginAdmin'))
-  }
 }

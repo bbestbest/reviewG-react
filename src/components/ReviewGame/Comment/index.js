@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import CommentUser from './CommentUser'
+import ScoreUser from './ScoreUser'
 
 const HeadingComment = styled.div`
   font-size: 25px;
@@ -7,13 +9,13 @@ const HeadingComment = styled.div`
   margin: 3rem;
 `
 
-const ButtonInput = styled.input`
+const CommentInput = styled.input`
   width: 90%;
   height: 2rem;
   border: 4px solid #f69335;
   border-radius: 5px;
   font-size: 20px;
-  margin: 3rem;
+  margin: 0 3rem 3rem 3rem;
   padding: 5px 10px 5px 10px;
   color: #f04823;
   &::placeholder {
@@ -21,12 +23,11 @@ const ButtonInput = styled.input`
   }
 `
 const ButtonSubmitContainer = styled.div`
-  display:flex;
+  display: flex;
   justify-content: flex-end;
   width: auto;
   height: auto;
   margin: 0 3rem 0 0;
-
 `
 
 const ButtonSubmit = styled.a`
@@ -55,7 +56,17 @@ function Comment () {
   return (
     <>
       <HeadingComment> Comment </HeadingComment>
-      <ButtonInput placeholder=' Comment...' />
+
+      <CommentUser />
+      <ScoreUser />
+
+      <CommentUser />
+      <ScoreUser />
+
+      <CommentUser />
+      <ScoreUser />
+
+      <CommentInput placeholder=' Comment...' />
       <ButtonSubmitContainer>
         <ButtonSubmit> Comment </ButtonSubmit>
       </ButtonSubmitContainer>

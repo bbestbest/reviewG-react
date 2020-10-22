@@ -1,6 +1,7 @@
 import { lazy } from 'react'
 
 export default {
+  // pages
   Home: {
     path: '/',
     exact: true,
@@ -51,5 +52,13 @@ export default {
     path: '/review/:catagories/:id',
     exact: true,
     component: lazy(() => import('../pages/Review'))
+  },
+  AdminPost: {
+    path: '/adminPost',
+    component: lazy(() => import('../pages/AdminPost'))
+  },
+  LoginAdmin: {
+    path: '/loginAdmin',
+    component: lazy(() => import('../pages/LoginAdmin'))
   }
 }

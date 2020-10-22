@@ -42,7 +42,7 @@ export const ImageTopic = styled.div`
   width: 70%;
   background-image: url(${props => props.src});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
 `
 // end Image

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import SlideShow from '../SlideShow'
-import CategoriesBody from '../CatagoriesBody'
+import NewsBody from '../News/NewsBody'
 import BackgroundBlock from '../BackgroundBlock'
 import backgroundImage1 from '../../assets/cyberpunk.jpg'
 import backgroundImage2 from '../../assets/Souls.jpg'
@@ -91,7 +91,7 @@ function Body ({ children }) {
               </TopReviews>
             </TopReviewsInsideContainer>
           </TopReviewsContainer>
-          <CategoriesBody> Lastest </CategoriesBody>
+          <NewsBody> Lastest </NewsBody>
         </ContentContainer>
       </Container>
     </>

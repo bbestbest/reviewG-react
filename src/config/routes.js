@@ -7,56 +7,62 @@ export default {
     exact: true,
     component: lazy(() => import('../pages/Home'))
   },
-  Action: {
-    path: '/action',
-    component: lazy(() => import('../pages/Action'))
+  Catagories: {
+    path: '/:catagories',
+    exact: true,
+    component: lazy(() => import('../pages/Catagories'))
   },
-  Adventure: {
-    path: '/adventure',
-    component: lazy(() => import('../pages/Adventure'))
-  },
-  RPG: {
-    path: '/rpg',
-    component: lazy(() => import('../pages/RPG'))
-  },
-  Simulation: {
-    path: '/simulation',
-    component: lazy(() => import('../pages/Simulation'))
-  },
-  Sport: {
-    path: '/sport',
-    component: lazy(() => import('../pages/Sport'))
-  },
-  Strategy: {
-    path: '/strategy',
-    component: lazy(() => import('../pages/Strategy'))
-  },
-  Other: {
-    path: '/other',
-    component: lazy(() => import('../pages/Other'))
-  },
-
-  // login Reigister
+  // Action: {
+  //   path: '/action',
+  //   component: lazy(() => import('../pages/Action'))
+  // },
+  // Adventure: {
+  //   path: '/adventure',
+  //   component: lazy(() => import('../pages/Adventure'))
+  // },
+  // RPG: {
+  //   path: '/rpg',
+  //   component: lazy(() => import('../pages/RPG'))
+  // },
+  // Simulation: {
+  //   path: '/simulation',
+  //   component: lazy(() => import('../pages/Simulation'))
+  // },
+  // Sport: {
+  //   path: '/sport',
+  //   component: lazy(() => import('../pages/Sport'))
+  // },
+  // Strategy: {
+  //   path: '/strategy',
+  //   component: lazy(() => import('../pages/Strategy'))
+  // },
+  // Other: {
+  //   path: '/other',
+  //   component: lazy(() => import('../pages/Other'))
+  // },
   Login: {
     path: '/login',
+    exact: true,
     component: lazy(() => import('../pages/Login'))
   },
   Register: {
     path: '/register',
+    exact: true,
     component: lazy(() => import('../pages/Register'))
   },
-  // Review
   Review: {
-    path: '/review/:id',
+    path: '/review/:catagories/:id',
+    exact: true,
     component: lazy(() => import('../pages/Review'))
   },
-  // AdminPost
   AdminPost: {
     path: '/adminPost',
+    exact: true,
     component: lazy(() => import('../pages/AdminPost'))
   },
   LoginAdmin: {
     path: '/loginAdmin',
+    exact: true,
     component: lazy(() => import('../pages/LoginAdmin'))
   }
 }

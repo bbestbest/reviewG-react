@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, BodyContainer } from '../CatagoriesBody'
+import { Container, BodyContainer } from '../Catagories/CatagoriesBody'
 import InputPost from './InputPost'
 import {
   HeadingContainer,

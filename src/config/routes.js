@@ -6,34 +6,39 @@ export default {
     exact: true,
     component: lazy(() => import('../pages/Home'))
   },
-  Action: {
-    path: '/action',
-    component: lazy(() => import('../pages/Action'))
+  Catagories: {
+    path: '/:catagories',
+    exact: true,
+    component: lazy(() => import('../pages/Catagories'))
   },
-  Adventure: {
-    path: '/adventure',
-    component: lazy(() => import('../pages/Adventure'))
-  },
-  RPG: {
-    path: '/rpg',
-    component: lazy(() => import('../pages/RPG'))
-  },
-  Simulation: {
-    path: '/simulation',
-    component: lazy(() => import('../pages/Simulation'))
-  },
-  Sport: {
-    path: '/sport',
-    component: lazy(() => import('../pages/Sport'))
-  },
-  Strategy: {
-    path: '/strategy',
-    component: lazy(() => import('../pages/Strategy'))
-  },
-  Other: {
-    path: '/other',
-    component: lazy(() => import('../pages/Other'))
-  },
+  // Action: {
+  //   path: '/action',
+  //   component: lazy(() => import('../pages/Action'))
+  // },
+  // Adventure: {
+  //   path: '/adventure',
+  //   component: lazy(() => import('../pages/Adventure'))
+  // },
+  // RPG: {
+  //   path: '/rpg',
+  //   component: lazy(() => import('../pages/RPG'))
+  // },
+  // Simulation: {
+  //   path: '/simulation',
+  //   component: lazy(() => import('../pages/Simulation'))
+  // },
+  // Sport: {
+  //   path: '/sport',
+  //   component: lazy(() => import('../pages/Sport'))
+  // },
+  // Strategy: {
+  //   path: '/strategy',
+  //   component: lazy(() => import('../pages/Strategy'))
+  // },
+  // Other: {
+  //   path: '/other',
+  //   component: lazy(() => import('../pages/Other'))
+  // },
   Login: {
     path: '/login',
     component: lazy(() => import('../pages/Login'))
@@ -42,9 +47,9 @@ export default {
     path: '/register',
     component: lazy(() => import('../pages/Register'))
   },
-  // Design end delete
   Review: {
-    path: '/review/:id',
+    path: '/review/:catagories/:id',
+    exact: true,
     component: lazy(() => import('../pages/Review'))
   }
 }

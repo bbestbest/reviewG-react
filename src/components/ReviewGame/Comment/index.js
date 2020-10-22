@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import CommentUser from './CommentUser'
 import ScoreUser from './ScoreUser'
 import InputScoreUser from './InputScoreUser'
+import { withBaseIcon } from 'react-icons-kit'
+import { iosChatbubbleOutline } from 'react-icons-kit/ionicons/iosChatbubbleOutline'
 
 const HeadingComment = styled.div`
   font-size: 25px;
@@ -52,11 +54,17 @@ const ButtonSubmit = styled.a`
     border: 2px solid #d04527;
   }
 `
+const SideIconContainer = withBaseIcon({
+  size: '30px',
+  style: { color: '#f69335 ' }
+})
+
+export const IosChatbubbleOutline = () => <SideIconContainer icon={iosChatbubbleOutline} />
 
 function Comment () {
   return (
     <>
-      <HeadingComment> Comment </HeadingComment>
+      <HeadingComment> Comment <IosChatbubbleOutline /> </HeadingComment>
 
       <CommentUser />
       <ScoreUser />

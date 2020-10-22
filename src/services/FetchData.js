@@ -12,14 +12,14 @@ export async function getData (table, references) {
   ).then(response => response.data.data)
 }
 
-export async function getDataByCatagories (table, catagories, references) {
-  return axios(
-    {
-      method: 'GET',
-      url: `${API_ENDPOINT}/${API_VER}/${table}/${catagories}?references=${references}`
-    }
-  ).then(response => response.data.data)
-}
+// export async function getDataByCatagories (table, catagories, references) {
+//   return axios(
+//     {
+//       method: 'GET',
+//       url: `${API_ENDPOINT}/${API_VER}/${table}/${catagories}?references=${references}`
+//     }
+//   ).then(response => response.data.data)
+// }
 
 export async function getDataById (table, value, catagories, id) {
   return axios(

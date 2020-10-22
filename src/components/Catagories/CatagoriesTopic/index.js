@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { getDataByCatagories } from '../../../services/fetchData'
+import { getData } from '../../../services/fetchData'
 import styled from 'styled-components'
 
 const Containar = styled.div`
@@ -53,13 +53,13 @@ function Topic (params) {
   const { catagories } = useParams()
 
   useEffect(() => {
-    getDataByCatagories('posts', catagories, 'assets').then(response => setCatagoriesData(response))
+    getData('posts', 'assets').then(response => setCatagoriesData(response))
   }, [])
 
   return (
     <>
       <Containar>
-        {catagoriesData.map((item, index) => (
+        {catagoriesData.filter(catagoriesType => catagoriesType.catagories === catagories).map((item, index) => (
           <TopicContainer key={index}>
             <Link to={`/review/${item.catagories}/${item.post_id}`}>
               {item.assets.map((image) => (

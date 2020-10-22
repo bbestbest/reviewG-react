@@ -40,7 +40,10 @@ export const DateTopicReview = styled.div`
 export const ImageTopic = styled.div`
   height: 50vh;
   width: 70%;
-  background-color: #b7c2c3;
+  background-image: url(${props => props.src});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 `
 // end Image
 
@@ -61,39 +64,53 @@ export const Content = styled.div`
 export const Border = styled.div`
   width: auto;
   margin: 2.5rem 0 2.5rem 0;
-  border-bottom: 3.5px solid #f69335;
+  border-bottom: 4px solid  #003d59;
 `
 export const HeadingContainer = styled.div`
   padding: 2rem 0 2rem 0;
 `
 
-export const Heading = styled.div`
-  display: flex;
-  align-items: center;
-  width: 25%;
-  height: 10px;
-  padding: 1.4rem;
-  font-size: 23px;
-  font-weight: bold;
-  color: white;
-  background-color: #f69335;
-`
 // Heading and Boder end
 
 // admin start
 
 export const AdminContainer = styled.div`
   display: flex;
-  align-items: center;
-  margin: 2.7rem;
+  /* justify-content: center; */
   width: auto;
   height: auto;
 `
+
+export const Admin = styled.div`
+  margin-right: 6rem;
+  width: auto;
+  height: auto;
+`
+export const Heading = styled.div`
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 10px;
+  margin-bottom: 3rem;
+  padding: 1.4rem;
+  font-size: 23px;
+  font-weight: bold;
+  color: white;
+  background-color: #f69335;
+`
+export const ProfileAdmin = styled.div`
+    display: flex;
+    padding-left: 3rem;
+`
+
 export const ProfileImageAdmin = styled.div`
   width: 6.5rem;
   height: 6.5rem;
   border-radius: 50%;
-  background-color: #b7c2c3;
+  background-image: url(${props => props.src});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 `
 
 export const NameAdmin = styled.div`

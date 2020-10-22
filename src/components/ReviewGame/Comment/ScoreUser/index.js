@@ -38,7 +38,7 @@ function ScoreUser () {
 
     // ex 1
     <UserScoreContainer>
-      <HeadingSubScore> Your score </HeadingSubScore>
+      <HeadingSubScore> Score </HeadingSubScore>
 
       <CriteriaScore> Story </CriteriaScore>
       <ScoreContainer>

@@ -72,7 +72,7 @@ function Topic (params) {
   return (
     <>
       <Containar>
-        {catagoriesData.filter(catagoriesType => catagoriesType.catagories === catagories).map((item, index) => (
+        {catagoriesData.filter(catagoriesType => catagoriesType.catagories === catagories).sort((a, b) => b.post_id - a.post_id).map((item, index) => (
           <TopicContainer key={index}>
             <Link to={`/review/${item.catagories}/${item.post_id}`} onClick={() => handleOnClick(item.catagories, item.post_id)}>
               {item.assets.map((image, index2) => (

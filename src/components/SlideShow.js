@@ -1,11 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import BackgroundBlock from '../components/SlideShowBlock'
-import image1 from '../assets/genshin.jpg'
-import image2 from '../assets/battlefield.jpg'
-import image3 from '../assets/death.jpg'
-import image4 from '../assets/heat.jpg'
-import image5 from '../assets/red2.jpg'
+import { getData } from '../services/fetchData'
 
 const Container = styled.div`
   width: 100%;
@@ -13,64 +9,84 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  position:relative;
   overflow: hidden;
+`
+const SlideContainer = styled.div`
+  height: 100%;
+  width: 100vw;
+
+  z-index: 5000;
 `
 const Slide = styled.div`
   height: 100%;
-  min-width: 100%;
-  transition: 0.5s;
+  width: 100vw;
+  transition: transform .5s;
+  position: static;
+`
+const ButtonContainer = styled.div`
+  width: 100%;
+  height: 100%;
 `
 const LeftButton = styled.button`
   width: 10%;
   height: 100%;
-  position: absolute;
-  left: auto;
-  top: auto;
+  left: 0;
+  top: -15%;
   color: white;
   background: none;
   border: none;
   outline: none;
   cursor: pointer;
-  /* transform: translateY(-50%); */
+  position: absolute;
 `
 const RightButton = styled.button`
   width: 10%;
   height: 100%;
-  position: absolute;
   right: 0;
-  top: auto;
+  top: -15%;
   color: white;
   background: none;
   border: none;
   outline: none;
   cursor: pointer;
-
-  /* transform: translateY(-50%); */
+  position: absolute;
 `
 
 function SlideShow () {
-  const slides = [<BackgroundBlock key='1' src={image1} />, <BackgroundBlock key='2' src={image2} />, <BackgroundBlock key='3' src={image3} />, <BackgroundBlock key='4' src={image4} />, <BackgroundBlock key='5' src={image5} />]
-
+  const [data, setData] = useState([])
   const [x, setX] = useState(0)
 
-  const handleGoLeft = () => {
-    x === 0 ? setX(-100 * (slides.length - 1)) : setX(x + 100)
+  // const slides = [<BackgroundBlock key='1' src='' />, <BackgroundBlock key='2' src='' />, <BackgroundBlock key='3' src='' />, <BackgroundBlock key='4' src='' />, <BackgroundBlock key='5' src='' />]
+
+  const handleGoLeft = (image) => {
+    x === 0 ? setX(-100 * 4) : setX(x + 100)
   }
-  const handleGoRight = () => {
-    x === -100 * (slides.length - 1) ? setX(0) : setX(x - 100)
+  const handleGoRight = (image) => {
+    x === 100 * -4 ? setX(0 + 100) : setX(x - 100)
   }
+
+  useEffect(() => {
+    getData('posts', 'assets').then(response => setData(response))
+  }, [])
 
   return (
     <>
       <Container>
-        {slides.map((item, index) => {
+        {data.slice(0, 5).map((item, index) => {
           return (
-            <Slide key={index} style={{ transform: `translateX(${x}%)` }}>{item}</Slide>
+            <SlideContainer key={index}>
+              {item.assets.sort((a, b) => b.post_id - a.post_id).map((image, index2) => (
+                <Slide key={index2} style={{ transform: `translateX(${x}%)` }}>
+                  <BackgroundBlock src={image.asset_path} />
+                </Slide>
+              ))}
+              <ButtonContainer>
+                <LeftButton onClick={handleGoLeft}>← Left</LeftButton>
+                <RightButton onClick={handleGoRight}>Right →</RightButton>
+              </ButtonContainer>
+            </SlideContainer>
           )
         })}
-        <LeftButton onClick={handleGoLeft}>←Left</LeftButton>
-        <RightButton onClick={handleGoRight}>Right→</RightButton>
       </Container>
     </>
   )

@@ -88,7 +88,7 @@ function Sign ({ children }) {
           <Signs>
             <Head> {children} </Head>
             <ButtonInput placeholder=' Username... ' />
-            <ButtonInput placeholder=' Password... ' />
+            <ButtonInput type='password' placeholder=' Password... ' />
             <ButtonInput placeholder=' Email ... ' />
             <ButtonSubmit>
               <Link to='/'>Submit</Link>

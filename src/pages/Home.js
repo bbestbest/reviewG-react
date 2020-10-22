@@ -7,7 +7,7 @@ function Home () {
   return (
     <>
       <Navbar />
-      <Body>Home</Body>
+      <Body />
       <Footer />
     </>
   )

@@ -11,6 +11,7 @@ const Container = styled.footer`
   height: 7vh;
   width: auto;
   padding-left: 1rem;
+  position:relative;
 `
 
 function Footer () {

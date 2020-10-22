@@ -11,6 +11,7 @@ const Containar = styled.div`
   height: auto;
   padding: 1.5rem 4rem 1.5rem 4rem;
   color: #000;
+  position: relative;
   
   a {
     color: inherit;
@@ -33,7 +34,7 @@ const ImageTopic = styled.div`
   background-size: cover;
   background-position: center;
   width: auto;
-  height: 11rem;
+  height: 15rem;
   border-radius: 15px;
 `
 const Topics = styled.div`
@@ -62,7 +63,7 @@ function Topic ({ children }) {
   return (
     <>
       <Containar>
-        {data.map((item, index) => (
+        {data.sort((a, b) => b.post_id - a.post_id).map((item, index) => (
           <TopicContainer key={index}>
             <Link to={`/review/${item.catagories}/${item.post_id}`} onClick={() => handleOnClick(item.catagories, item.post_id)}>
               {item.assets.map((image, index2) => (

@@ -38,3 +38,12 @@ export async function getImage (table, id, value) {
     }
   ).then(response => response.data.data)
 }
+
+export async function countView (table, catagories, id) {
+  return axios(
+    {
+      method: 'PATCH',
+      url: `${API_ENDPOINT}/${API_VER}/${table}/${catagories}/${id}`
+    }
+  )
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getData } from '../../../services/fetchData'
+import { getData, countView } from '../../../services/fetchData'
 import styled from 'styled-components'
 
 const Containar = styled.div`
@@ -51,6 +51,10 @@ const DateOfTopics = styled.div`
 function Topic ({ children }) {
   const [data, setData] = useState([])
 
+  const handleOnClick = (catagories, id) => {
+    return countView('posts', catagories, id)
+  }
+
   useEffect(() => {
     getData('posts', 'assets').then(response => setData(response))
   }, [])
@@ -60,9 +64,9 @@ function Topic ({ children }) {
       <Containar>
         {data.map((item, index) => (
           <TopicContainer key={index}>
-            <Link to={`/review/${item.catagories}/${item.post_id}`}>
-              {item.assets.map((image) => (
-                <ImageTopic key={index} src={image.asset_path} />
+            <Link to={`/review/${item.catagories}/${item.post_id}`} onClick={() => handleOnClick(item.catagories, item.post_id)}>
+              {item.assets.map((image, index2) => (
+                <ImageTopic key={index2} src={image.asset_path} />
               ))}
               <Topics>
                 {item.topic}

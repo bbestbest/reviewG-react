@@ -24,13 +24,11 @@ import {
 function ReviewGame () {
   const [catagoriesData, setCatagoriesData] = useState({})
   const [data, setData] = useState([])
-  const [admins, setAdmins] = useState([])
   const { catagories, id } = useParams()
 
   useEffect(() => {
-    getData('posts').then(response => setCatagoriesData(response))
+    getData('posts', 'assets').then(response => setCatagoriesData(response))
     getDataById('posts', 'assets', catagories, id).then(response => setData(response))
-    getDataById('posts', 'admins', catagories, id).then(response => setAdmins(response))
   })
   return (
     <>

@@ -33,12 +33,14 @@ const Signs = styled.div`
   background-color: white;
   border-radius: 2rem;
   width: 80%;
-  height: 100%;
+  height: auto;
   padding: 3rem;
+  
 `
 
 const Head = styled.div`
-  padding: 2rem;
+  margin-top: 2rem;
+  padding: 1rem;
   font-size: 40px;
   color: #f04823;
 `
@@ -64,6 +66,7 @@ const ButtonSubmit = styled.a`
   height: 2rem;
   padding: 5px 15px 5px 10px;
   margin-top: 1rem;
+  margin-bottom: 2rem;
   background-color: #f04823;
   border: 2px solid #f04823;
   color: white;
@@ -87,9 +90,10 @@ function Sign ({ children }) {
           <Image> Image </Image>
           <Signs>
             <Head> {children} </Head>
+            <ButtonInput placeholder=' Email ... ' />
             <ButtonInput placeholder=' Username... ' />
             <ButtonInput type='password' placeholder=' Password... ' />
-            <ButtonInput placeholder=' Email ... ' />
+            <ButtonInput placeholder=' Display... ' />
             <ButtonSubmit>
               <Link to='/'>Submit</Link>
             </ButtonSubmit>

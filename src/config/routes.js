@@ -42,10 +42,12 @@ export default {
   // },
   Login: {
     path: '/login',
+    exact: true,
     component: lazy(() => import('../pages/Login'))
   },
   Register: {
     path: '/register',
+    exact: true,
     component: lazy(() => import('../pages/Register'))
   },
   Review: {
@@ -55,10 +57,12 @@ export default {
   },
   AdminPost: {
     path: '/adminPost',
+    exact: true,
     component: lazy(() => import('../pages/AdminPost'))
   },
   LoginAdmin: {
     path: '/loginAdmin',
+    exact: true,
     component: lazy(() => import('../pages/LoginAdmin'))
   }
 }

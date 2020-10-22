@@ -42,10 +42,20 @@ const Topics = styled.div`
   padding-top: 1rem;
   width: auto;
   height: auto;
+  transition: color 0.4s;
+
+    &:hover{
+    color: #f04823;
+    }
 `
 const DateOfTopics = styled.div`
   font-size: 12px;
   padding-top: 10px;
+  transition: color 0.4s;
+  
+  &:hover{
+    color: #f04823;
+    }
 `
 
 function Topic (params) {

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import CommentUser from './CommentUser'
 import ScoreUser from './ScoreUser'
+import InputScoreUser from './InputScoreUser'
 
 const HeadingComment = styled.div`
   font-size: 25px;
@@ -12,14 +13,14 @@ const HeadingComment = styled.div`
 const CommentInput = styled.input`
   width: 90%;
   height: 2rem;
-  border: 4px solid #f69335;
+  border: 2px solid #707070;
   border-radius: 5px;
   font-size: 20px;
   margin: 0 3rem 3rem 3rem;
   padding: 5px 10px 5px 10px;
-  color: #f04823;
+  color: #f69335;
   &::placeholder {
-    color: #f04823;
+    color: #f69335;
   }
 `
 const ButtonSubmitContainer = styled.div`
@@ -65,6 +66,8 @@ function Comment () {
 
       <CommentUser />
       <ScoreUser />
+
+      <InputScoreUser />
 
       <CommentInput placeholder=' Comment...' />
       <ButtonSubmitContainer>

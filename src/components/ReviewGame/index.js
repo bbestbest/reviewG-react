@@ -4,6 +4,8 @@ import { getData, getDataById } from '../../services/fetchData'
 import { Reset } from 'styled-reset'
 import ScoreReview from './ScoreReview'
 import Comment from './Comment'
+// import backgroundImage from '../../assets/genshin-impact-1.jpg'
+import backgroundAdmin from '../../assets/admin.jpg'
 import {
   Container,
   BodyContainer,
@@ -14,9 +16,10 @@ import {
   ContentContainer,
   Content,
   Border,
-  HeadingContainer,
   Heading,
   AdminContainer,
+  Admin,
+  ProfileAdmin,
   ProfileImageAdmin,
   NameAdmin
 } from './reviewGameStyled'
@@ -33,6 +36,7 @@ function ReviewGame () {
   return (
     <>
       <Reset />
+
       {data.map((item, index) => (
         <Container key={index}>
           <BodyContainer>
@@ -46,21 +50,23 @@ function ReviewGame () {
               <ImageTopic key={index} src={image.asset_path} />
             ))}
             <ContentContainer>
-              <Content>
-                {item.body}
-              </Content>
+              <Content>{item.body}</Content>
+
               <Border />
-              <Heading> Review by Admin </Heading>
               <AdminContainer>
-                <ProfileImageAdmin />
-                <NameAdmin> naratipcover </NameAdmin>
+                <Admin>
+                  <Heading> Review by Admin </Heading>
+                  <ProfileAdmin>
+                    <ProfileImageAdmin src={backgroundAdmin} />
+                    <NameAdmin> naratipcover </NameAdmin>
+                  </ProfileAdmin>
+                </Admin>
+                <ScoreReview />
               </AdminContainer>
+
               <Border />
-              <HeadingContainer>
-                <Heading> Review Score </Heading>
-              </HeadingContainer>
-              <ScoreReview />
             </ContentContainer>
+
             <Comment />
           </BodyContainer>
         </Container>

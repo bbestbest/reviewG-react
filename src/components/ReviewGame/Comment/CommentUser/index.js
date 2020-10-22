@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import backgroundAdmin from '../../../../assets/admin.jpg'
 
 const CommentAreaContainer = styled.div`
   display: flex;
@@ -9,6 +10,10 @@ const CommentAreaContainer = styled.div`
   margin: 0 3rem 0 3rem;
 `
 const ProfileImageUser = styled.div`
+  background-image: url(${props => props.src});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   width: 4.5rem;
   height: 4.5rem;
   border-radius: 50%;
@@ -39,7 +44,7 @@ const DateComment = styled.div`
 function CommentUser () {
   return (
     <CommentAreaContainer>
-      <ProfileImageUser />
+      <ProfileImageUser src={backgroundAdmin} />
       <CommentContainer>
         <CommentUsers> ควยหีแตด</CommentUsers>
         <NameComment>

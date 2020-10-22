@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import ScoreCriteria, { ScoreCriterias, ScoreContainer } from './ScoreCriteria'
-import Rating from './Rating'
+import ScoreCriteria from './ScoreCriteria'
+// import Rating from './Rating'
 
 const ScoreReviewContainer = styled.div`
   display: flex;
@@ -19,19 +19,16 @@ function ScoreReview () {
   return (
     <>
       <ScoreReviewContainer>
-        <ScoreAdminUserContainer>
-          <ScoreCriteria> Review by admin </ScoreCriteria>
-          <ScoreCriterias>
-            Overall
-            <ScoreContainer />
-          </ScoreCriterias>
-        </ScoreAdminUserContainer>
 
         <ScoreAdminUserContainer>
-          <ScoreCriteria> Review by user </ScoreCriteria>
+          <ScoreCriteria> Score review by admin </ScoreCriteria>
         </ScoreAdminUserContainer>
+
+        {/* <ScoreAdminUserContainer>
+          <Rating />
+        </ScoreAdminUserContainer> */}
+
       </ScoreReviewContainer>
-      <Rating />
     </>
   )
 }

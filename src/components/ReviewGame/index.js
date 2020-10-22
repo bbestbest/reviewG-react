@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getDataById } from '../../services/fetchData'
+import { getData, getDataById } from '../../services/fetchData'
 import { Reset } from 'styled-reset'
 import ScoreReview from './ScoreReview'
 import Comment from './Comment'
@@ -22,11 +22,15 @@ import {
 } from './reviewGameStyled'
 
 function ReviewGame () {
+  const [catagoriesData, setCatagoriesData] = useState({})
   const [data, setData] = useState([])
-  const { id } = useParams()
+  const [admins, setAdmins] = useState([])
+  const { catagories, id } = useParams()
 
   useEffect(() => {
-    getDataById('posts', 'assets', 'Action', id).then(response => setData(response))
+    getData('posts').then(response => setCatagoriesData(response))
+    getDataById('posts', 'assets', catagories, id).then(response => setData(response))
+    getDataById('posts', 'admins', catagories, id).then(response => setAdmins(response))
   })
   return (
     <>
@@ -43,7 +47,9 @@ function ReviewGame () {
                 <DateTopicReview> {item.post_date} </DateTopicReview>
               </TopicReview>
             </TopicReviewContainer>
-            <ImageTopic />
+            {item.assets.map((image) => (
+              <ImageTopic key={index} src={image.asset_path} />
+            ))}
             <ContentContainer>
               <Content>
                 {item.body}

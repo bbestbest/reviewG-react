@@ -12,8 +12,8 @@ function Stars () {
         count={5}
         onChange={ratingChanged}
         size={60}
-        color1={'#003d59'}
-        color2={'#f69335'}
+        color1='#003d59'
+        color2='#f69335'
       />
     </>
   )

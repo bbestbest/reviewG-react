@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -41,6 +41,10 @@ const ListCatagories = styled.li`
 `
 
 function MinorNavbar () {
+  const handleOnClick = (value) => {
+
+  }
+
   return (
     <>
       <Container>
@@ -49,26 +53,26 @@ function MinorNavbar () {
             <Link to='/'>Home</Link>
           </ListCatagories>
           <ListCatagories>
-            <Link to='/action'>Action</Link>
+            <Link to='/action' onClick={() => handleOnClick('action')}>Action</Link>
           </ListCatagories>
           <ListCatagories>
-            <Link to='/adventure'>Adventure</Link>
+            <Link to='/adventure' onClick={() => handleOnClick('adventure')}>Adventure</Link>
           </ListCatagories>
           <ListCatagories>
-            <Link to='/rpg'>RPG</Link>
+            <Link to='/rpg' onClick={() => handleOnClick('rpg')}>RPG</Link>
           </ListCatagories>
           <ListCatagories>
-            <Link to='/simulation'>Simulation</Link>
+            <Link to='/simulation' onClick={() => handleOnClick('simulation')}>Simulation</Link>
           </ListCatagories>
           <ListCatagories>
-            <Link to='/strategy'>Strategy</Link>
+            <Link to='/strategy' onClick={() => handleOnClick('strategy')}>Strategy</Link>
           </ListCatagories>
           <ListCatagories>
-            <Link to='/sport'>Sport</Link>
+            <Link to='/sport' onClick={() => handleOnClick('sport')}>Sport</Link>
           </ListCatagories>
-          <ListCatagories>
-            <Link to='/other'>Other</Link>
-          </ListCatagories>
+          {/* <ListCatagories>
+            <Link to='/'>Other</Link>
+          </ListCatagories> */}
         </Catagories>
       </Container>
     </>

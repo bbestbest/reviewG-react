@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Topic from '../Topic/index.'
+import Topic from '../CatagoriesTopic'
 
 const Container = styled.div`
   display: flex;
@@ -36,6 +36,7 @@ const MainHeadLine = styled.span`
   border-bottom: 5px solid white;
   font-size: 50px;
   color: white;
+  text-transform: capitalize;
 `
 
 const MinorHeadLine = styled.span`

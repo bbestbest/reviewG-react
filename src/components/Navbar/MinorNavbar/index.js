@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { withBaseIcon } from 'react-icons-kit'
+// import { Icon } from 'react-icons-kit'
+import { home } from 'react-icons-kit/icomoon/home'
 
 const Container = styled.nav`
   display: flex;
@@ -10,7 +13,7 @@ const Container = styled.nav`
   /* height: 6vh; */
   height: auto;
   width: auto;
-  padding-left: 1rem;
+  padding-left: 2.5rem;
   text-decoration: none;
 `
 const Catagories = styled.div`
@@ -22,23 +25,29 @@ const Catagories = styled.div`
 `
 const ListCatagories = styled.li`
   display: flex;
-  padding: 14px;
+  padding: 18px;
   text-decoration: none;
   color: white;
-  transition: background-color .5s;
+  transition: background-color 0.5s;
 
   a {
     color: inherit;
     text-decoration: none;
   }
   &:hover {
-    padding: 13.9px;
+    padding: 18px;
     text-decoration: none;
-    background-color: #43847C;
+    background-color: #43847c;
     color: white;
-    transition: background-color .8s;
+    transition: background-color 0.8s;
   }
 `
+const SideIconContainer = withBaseIcon({
+  size: '19.5px',
+  style: { color: '#FFFFFF ' }
+})
+
+export const HomeIcon1 = () => <SideIconContainer icon={home} />
 
 function MinorNavbar () {
   return (
@@ -46,8 +55,9 @@ function MinorNavbar () {
       <Container>
         <Catagories>
           <ListCatagories>
-            <Link to='/'>Home</Link>
+            <Link Link to='/'><HomeIcon1 /></Link>
           </ListCatagories>
+
           <ListCatagories>
             <Link to='/catagories/action'>Action</Link>
           </ListCatagories>

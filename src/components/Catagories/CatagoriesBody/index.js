@@ -2,14 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import Topic from '../CatagoriesTopic'
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
   background: #003d59;
   padding: 2rem 0;
   width: 100%;
 `
-const BodyContainer = styled.div`
+export const BodyContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -36,7 +36,7 @@ const MainHeadLine = styled.span`
   border-bottom: 5px solid white;
   font-size: 50px;
   color: white;
-  text-transform: capitalize;
+  text-transform: uppercase;
 `
 
 const MinorHeadLine = styled.span`

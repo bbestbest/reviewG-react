@@ -40,7 +40,10 @@ export const DateTopicReview = styled.div`
 export const ImageTopic = styled.div`
   height: 50vh;
   width: 70%;
-  background-color: #b7c2c3;
+  background-image: url(${props => props.src});
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 `
 // end Image
 

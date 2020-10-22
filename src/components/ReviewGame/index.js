@@ -46,8 +46,8 @@ function ReviewGame () {
                 <DateTopicReview> {item.post_date} </DateTopicReview>
               </TopicReview>
             </TopicReviewContainer>
-            {item.assets.map((image) => (
-              <ImageTopic key={index} src={image.asset_path} />
+            {item.assets.map((image, index2) => (
+              <ImageTopic key={index2} src={image.asset_path} />
             ))}
             <ContentContainer>
               <Content>{item.body}</Content>

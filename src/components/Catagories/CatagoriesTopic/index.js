@@ -65,8 +65,8 @@ function Topic (params) {
         {catagoriesData.filter(catagoriesType => catagoriesType.catagories === catagories).map((item, index) => (
           <TopicContainer key={index}>
             <Link to={`/review/${item.catagories}/${item.post_id}`} onClick={() => handleOnClick(item.catagories, item.post_id)}>
-              {item.assets.map((image) => (
-                <ImageTopic key={index} src={image.asset_path} />
+              {item.assets.map((image, index2) => (
+                <ImageTopic key={index2} src={image.asset_path} />
               ))}
               <Topics>
                 {item.topic}

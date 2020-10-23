@@ -7,7 +7,7 @@ import BackgroundBlock from '../../BackgroundBlock'
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  position: initial;
+  margin-top: 1rem;
 `
 
 const ContentContainer = styled.div`
@@ -24,8 +24,7 @@ const TopReviewsContainer = styled.div`
   height: 40vh;
   display: flex;
   justify-content: center;
-  padding: 1rem;
-  margin-top: 1rem;
+  padding: .5rem;
 `
 const TopReviewsInsideContainer = styled.div`
   width: 100%;
@@ -39,6 +38,17 @@ const TopReviews = styled.div`
   margin: 0 0.5%;
   overflow: hidden;
   border-radius: 10px;
+`
+const Topic = styled.div`
+  margin-top: 16%;
+  padding: 1.2rem;
+  width: 15%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  color: white;
+  z-index: 5000;
 `
 
 function Body ({ children }) {
@@ -60,6 +70,7 @@ function Body ({ children }) {
               {data.sort((a, b) => b.views - a.views).slice(0, 5).map((item, index) => (
                 <TopReviews key={index}>
                   <Link to={`/review/${item.catagories}/${item.post_id}`} onClick={() => handleOnClick(item.catagories, item.post_id)}>
+                    <Topic>{item.topic}</Topic>
                     {item.assets.map((image, index2) => (
                       <BackgroundBlock key={index2} src={image.asset_path} height='50' />
                     ))}

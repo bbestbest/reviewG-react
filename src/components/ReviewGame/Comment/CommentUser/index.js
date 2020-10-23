@@ -31,7 +31,10 @@ const CommentUsers = styled.div`
 `
 const NameComment = styled.div`
   display: flex;
-  font-size: 12px;
+  font-size: 1rem;
+  color: #D04527;
+  margin-top: 1.2rem;
+  font-weight: bold;
 `
 const DateComment = styled.div`
   display: flex;
@@ -41,15 +44,15 @@ const DateComment = styled.div`
 `
 // Comment User end
 
-function CommentUser () {
+function CommentUser (props) {
   return (
     <CommentAreaContainer>
       <ProfileImageUser src={backgroundAdmin} />
       <CommentContainer>
-        <CommentUsers> ควยหีแตด</CommentUsers>
+        <CommentUsers> {props.commentBody}</CommentUsers>
         <NameComment>
-          Bbest
-          <DateComment> 22/10/2563 </DateComment>
+          {props.userWhoCommented}
+          <DateComment> {props.commentDate}</DateComment>
         </NameComment>
       </CommentContainer>
     </CommentAreaContainer>

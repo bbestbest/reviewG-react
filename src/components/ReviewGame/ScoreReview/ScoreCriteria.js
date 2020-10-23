@@ -26,7 +26,7 @@ export const Score = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 5rem;
+  width: 6rem;
   height: 3rem;
   border-radius: 2rem;
   font-size: 22px;
@@ -37,19 +37,20 @@ export const Score = styled.div`
   margin-right: 8rem;
 `
 const FullScore = styled.div`
-  font-size: 10px;
+  margin-left: .2rem;
+  font-size: 1rem;
   color: white;
 `
 
-function ScoreCriteria ({ children }) {
+function ScoreCriteria (props) {
   return (
     <>
-      <HeadingScore> {children} </HeadingScore>
+      <HeadingScore> {props.children} </HeadingScore>
 
       <ScoreCriterias>
         Story
         <Score>
-          7
+          {props.story}
           <FullScore> /10 </FullScore>
         </Score>
       </ScoreCriterias>
@@ -57,7 +58,7 @@ function ScoreCriteria ({ children }) {
       <ScoreCriterias>
         Gameplay
         <Score>
-          8
+          {props.gameplay}
           <FullScore> /10 </FullScore>
         </Score>
       </ScoreCriterias>
@@ -65,7 +66,7 @@ function ScoreCriteria ({ children }) {
       <ScoreCriterias>
         Performance
         <Score>
-          10
+          {props.performance}
           <FullScore> /10 </FullScore>
         </Score>
       </ScoreCriterias>
@@ -73,7 +74,7 @@ function ScoreCriteria ({ children }) {
       <ScoreCriterias>
         Graphic
         <Score>
-          4
+          {props.graphic}
           <FullScore> /10 </FullScore>
         </Score>
       </ScoreCriterias>
@@ -81,7 +82,7 @@ function ScoreCriteria ({ children }) {
       <ScoreCriterias>
         Overall
         <Score>
-          7
+          {props.overall}
           <FullScore> /10 </FullScore>
         </Score>
       </ScoreCriterias>

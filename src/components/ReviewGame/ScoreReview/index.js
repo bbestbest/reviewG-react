@@ -15,13 +15,13 @@ const ScoreAdminUserContainer = styled.div`
   height: auto;
 `
 
-function ScoreReview () {
+function ScoreReview (props) {
   return (
     <>
       <ScoreReviewContainer>
 
         <ScoreAdminUserContainer>
-          <ScoreCriteria> Score review by admin </ScoreCriteria>
+          <ScoreCriteria story={props.story} gameplay={props.gameplay} performance={props.performance} graphic={props.graphic} overall={props.overall}> Score review by admin </ScoreCriteria>
         </ScoreAdminUserContainer>
 
         {/* <ScoreAdminUserContainer>

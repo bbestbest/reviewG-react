@@ -66,8 +66,8 @@ function Comment (props) {
     <>
       {/* <HeadingComment> Comment <IosChatbubbleOutline /> </HeadingComment> */}
 
-      <CommentUser commentBody={props.commentBody} commentDate={props.commentDate} userWhoCommented={props.userWhoCommented} />
-      <ScoreUser />
+      <CommentUser commentBody={props.commentBody} commentDate={props.commentDate} userWhoCommented={props.userWhoCommented} story={props.story} />
+      {/* <ScoreUser /> */}
 
       {/* <CommentUser />
       <ScoreUser />

@@ -23,17 +23,20 @@ const CriteriaScore = styled.div`
 `
 const ScoreContainer = styled.div`
   display: flex;
-  font-size: 16px;
   color: #f69335;
 `
 const Score = styled.div`
   font-size: 16px;
   color: #f69335;
+
+  h1 {
+    font-size: 1.5rem;
+  }
 `
 
 // Score User end
 
-function ScoreUser () {
+export function ScoreUser ({ story, gamplay, performance, graphic, overall }) {
   return (
 
     // ex 1
@@ -42,29 +45,35 @@ function ScoreUser () {
 
       <CriteriaScore> Story </CriteriaScore>
       <ScoreContainer>
-        <Score> 7 </Score>
+        <Score> {story} </Score>
         /10
       </ScoreContainer>
 
       <CriteriaScore> Gameplay </CriteriaScore>
       <ScoreContainer>
-        <Score> 7 </Score>
+        <Score> {gamplay} </Score>
         /10
       </ScoreContainer>
 
       <CriteriaScore> Performance </CriteriaScore>
       <ScoreContainer>
-        <Score> 7 </Score>
+        <Score> {performance} </Score>
         /10
       </ScoreContainer>
 
       <CriteriaScore> Graphic </CriteriaScore>
       <ScoreContainer>
-        <Score> 7 </Score>
+        <Score> {graphic} </Score>
+        /10
+      </ScoreContainer>
+
+      <CriteriaScore> Overall </CriteriaScore>
+      <ScoreContainer>
+        <Score><h1> {overall} </h1> </Score>
         /10
       </ScoreContainer>
     </UserScoreContainer>
   )
 }
 
-export default ScoreUser
+// export default ScoreUser

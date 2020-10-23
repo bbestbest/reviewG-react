@@ -4,6 +4,7 @@ import { getData, getDataByIdAndCatagories } from '../../services/fetchData'
 import { Reset } from 'styled-reset'
 import ScoreReview from './ScoreReview'
 import Comment from './Comment'
+import { ScoreUser } from './Comment/ScoreUser'
 // import backgroundImage from '../../assets/genshin-impact-1.jpg'
 import backgroundAdmin from '../../assets/admin.jpg'
 import { withBaseIcon } from 'react-icons-kit'
@@ -92,9 +93,18 @@ function ReviewGame () {
             <>
               {userComment.map((userCommentItem, userCommentIndex) => (
                 <div key={userCommentItem}>
-                  {userCommentItem.comments.filter(userRefComment => userRefComment.post_id === item.post_id).map((userRefCommentItem, userRefCommentIndex) => (
+                  {userCommentItem.comments.filter(userRefComment => userRefComment.post_id === item.post_id).sort((a, b) => b.comment_id - a.comment_id).map((userRefCommentItem, userRefCommentIndex) => (
                     <div key={userRefCommentIndex}>
                       <Comment commentBody={userRefCommentItem.comment} commentDate={userRefCommentItem.comment_date} userWhoCommented={userCommentItem.display_name} />
+                      {userScore.filter(userScoreId => userScoreId.user_id === userCommentItem.user_id).map((userScoreItem, userScoreIndex) => (
+                        <div key={userScoreIndex}>
+                          {userScoreItem.userScores.map((userRefScoreItem, userRefScoreIndex) => (
+                            <div key={userRefScoreIndex}>
+                              <ScoreUser story={userRefScoreItem.story} gameplay={userRefScoreItem.gameplay} performance={userRefScoreItem.performance} graphic={userRefScoreItem.graphic} overall={userRefScoreItem.overall} />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
                     </div>
                   ))}
                 </div>

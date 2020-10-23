@@ -39,7 +39,7 @@ const NameComment = styled.div`
 const DateComment = styled.div`
   display: flex;
   align-items: center;
-  font-size: 8px;
+  font-size: .75rem;
   margin-left: 1rem;
 `
 // Comment User end

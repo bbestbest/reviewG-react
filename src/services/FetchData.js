@@ -20,8 +20,16 @@ export async function getData (table, references) {
 //     }
 //   ).then(response => response.data.data)
 // }
+export async function getDataById (table, value, id) {
+  return axios(
+    {
+      method: 'GET',
+      url: `${API_ENDPOINT}/${API_VER}/${table}/${id}?references=${value}`
+    }
+  ).then(response => response.data.data)
+}
 
-export async function getDataById (table, value, catagories, id) {
+export async function getDataByIdAndCatagories (table, value, catagories, id) {
   return axios(
     {
       method: 'GET',

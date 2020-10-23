@@ -5,6 +5,7 @@ import { Reset } from 'styled-reset'
 import ScoreReview from './ScoreReview'
 import Comment from './Comment'
 import { ScoreUser } from './Comment/ScoreUser'
+import EnterComment from './Comment/EnterComment'
 // import backgroundImage from '../../assets/genshin-impact-1.jpg'
 import backgroundAdmin from '../../assets/admin.jpg'
 import { withBaseIcon } from 'react-icons-kit'
@@ -28,8 +29,9 @@ import {
 } from './reviewGameStyled'
 
 const SideIconContainer = withBaseIcon({
-  size: '30px',
-  style: { color: '#f69335 ' }
+  size: '10%',
+  // style: { color: '#f69335 ' }
+  style: { color: '#fff ' }
 })
 
 export const IosChatbubbleOutline = () => <SideIconContainer icon={iosChatbubbleOutline} />
@@ -90,6 +92,7 @@ function ReviewGame () {
               <Border />
             </ContentContainer>
             <Heading> Comment <IosChatbubbleOutline /></Heading>
+            <EnterComment />
             <>
               {userComment.map((userCommentItem, userCommentIndex) => (
                 <div key={userCommentItem}>

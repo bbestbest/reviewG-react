@@ -34,9 +34,7 @@ const Score = styled.div`
   }
 `
 
-// Score User end
-
-export function ScoreUser ({ story, gamplay, performance, graphic, overall }) {
+export function ScoreUser ({ story, gameplay, performance, graphic, overall }) {
   return (
 
     // ex 1
@@ -51,7 +49,7 @@ export function ScoreUser ({ story, gamplay, performance, graphic, overall }) {
 
       <CriteriaScore> Gameplay </CriteriaScore>
       <ScoreContainer>
-        <Score> {gamplay} </Score>
+        <Score> {gameplay} </Score>
         /10
       </ScoreContainer>
 

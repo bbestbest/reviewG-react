@@ -4,8 +4,8 @@ import styled from 'styled-components'
 const Container = styled.div`
   height: 7%;
   width: 100%;
-  border: solid #f69335 1px;
-  border-radius: 25px;
+  /* border: solid #f69335 1px; */
+  /* border-radius: 25px; */
 `
 const HeadingCatagories = styled.div`
   width: 8rem;
@@ -43,9 +43,9 @@ const CommentInput = styled.input`
   font-size: 20px;
   margin: 0 3rem 3rem 3rem;
   padding: 5px 10px 5px 10px;
-  color: #f69335;
+  /* color: #f69335; */
   &::placeholder {
-    color: #f69335;
+    /* color: #f69335; */
   }
 `
 const ButtonSubmitContainer = styled.div`

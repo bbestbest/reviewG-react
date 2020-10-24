@@ -1,4 +1,6 @@
-import React from 'react'
+/* global fetch */
+
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -18,7 +20,6 @@ const ScoreContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 0 1rem 3rem;
-
 `
 const ScoreCatagories = styled.div`
   font-size: 18px;
@@ -79,28 +80,88 @@ const ButtonSubmit = styled.a`
 `
 
 function EnterComment () {
+  const [story, setStory] = useState('')
+  const [gameplay, setGameplay] = useState('')
+  const [performance, setPerformance] = useState('')
+  const [graphic, setGraphic] = useState('')
+  const [comment, setComment] = useState('')
+
+  const handleChangeStory = event => setStory(event.target.value)
+  const handleChangeGameplay = event => setGameplay(event.target.value)
+  const handleChangePerformance = event => setPerformance(event.target.value)
+  const handleChangeGraphic = event => setGraphic(event.target.value)
+  const handleChangeComment = event => setComment(event.target.value)
+
+  const onSubmited = () => {
+    const scoreOption = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        story: story,
+        gameplay: gameplay,
+        performance: performance,
+        graphic: graphic
+      })
+    }
+    fetch('http://127.0.0.1:3333/api/v1/user_scores', scoreOption)
+      .then(response => response.json())
+      .then(response => console.log(response))
+
+    const commentOption = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        comment: comment
+      })
+    }
+    fetch('http://127.0.0.1:3333/api/v1/comments', commentOption)
+      .then(response => response.json())
+      .then(response => console.log(response))
+  }
+
   return (
     <>
       <Container>
         <ScoreContainer>
           <HeadingCatagories> Your score : </HeadingCatagories>
           <ScoreCatagories className='Story'> Story </ScoreCatagories>
-          <Score type='number' min='0' max='10' />
+          <Score onChange={handleChangeStory} type='number' min='0' max='10' />
 
           <ScoreCatagories className='Gameplay'> Gameplay </ScoreCatagories>
-          <Score type='number' min='0' max='10' />
+          <Score
+            onChange={handleChangeGameplay}
+            type='number'
+            min='0'
+            max='10'
+          />
 
-          <ScoreCatagories className='Performance'> Performance </ScoreCatagories>
-          <Score type='number' min='0' max='10' />
+          <ScoreCatagories className='Performance'>
+            {' '}
+            Performance{' '}
+          </ScoreCatagories>
+          <Score
+            onChange={handleChangePerformance}
+            type='number'
+            min='0'
+            max='10'
+          />
 
           <ScoreCatagories className='Graphic'> Graphic </ScoreCatagories>
-          <Score type='number' min='0' max='10' />
-
+          <Score
+            onChange={handleChangeGraphic}
+            type='number'
+            min='0'
+            max='10'
+          />
         </ScoreContainer>
 
-        <CommentInput placeholder=' Comment...' />
+        <CommentInput onChange={handleChangeComment} placeholder=' Comment...' />
         <ButtonSubmitContainer>
-          <ButtonSubmit> Comment </ButtonSubmit>
+          <ButtonSubmit onClick={onSubmited}> Comment </ButtonSubmit>
         </ButtonSubmitContainer>
       </Container>
     </>

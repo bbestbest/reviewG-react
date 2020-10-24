@@ -1,16 +1,16 @@
 /* global fetch */
 
-function PostData () {
+export default function PostData () {
   const requestOptions = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      topic: 'mom',
-      body: 'one piedce',
-      writer: 'nffara supffa',
-      catagories: 'actionsf'
+      topic: 'actiondddddd',
+      body: 'actiondddddd',
+      writer: 'actiondddddd',
+      catagories: 'actiondddddd'
     })
   }
   fetch('http://127.0.0.1:3333/api/v1/posts', requestOptions)
@@ -29,5 +29,3 @@ function PostData () {
   //   console.error('There was an error!', error)
   // })
 }
-
-export default PostData

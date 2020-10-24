@@ -7,6 +7,7 @@ import GlobalStyle from './components/GlobalStyle'
 import withHelmet from './utils/withHelmet'
 // import PostData from './services/PostData'
 // import CommentData from './services/CommentData'
+// import ScoreUserData from './services/ScoreUserData'
 
 const BackgroundColor = styled.div`
   background-color: #003d59;
@@ -21,6 +22,7 @@ function App () {
   // useEffect(() => {
   //   PostData()
   //   CommentData()
+  //   ScoreUserData()
   // }, [])
   return (
     <>

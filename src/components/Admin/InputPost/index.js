@@ -1,4 +1,7 @@
-import React from 'react'
+/* global fetch */
+
+import React, { useState } from 'react'
+// import Topic from '../../News/NewsTopic/index.'
 import {
   SubHeading,
   ButtonTextarea,
@@ -9,44 +12,112 @@ import {
   Score,
   ButtonSubmit
 } from './InputPostStyled'
+// import PostData from '../../../services/PostData'
 
 function InputPost () {
+  const [topic, setTopic] = useState('')
+  const [body, setBody] = useState('')
+  const [writer, setWriter] = useState('')
+  // const [catagories, setCatagories] = useState('')
+  const [story, setStory] = useState('')
+  const [gameplay, setGameplay] = useState('')
+  const [performance, setPerformance] = useState('')
+  const [graphic, setGraphic] = useState('')
+
+  const handleChangeTopic = event => setTopic(event.target.value)
+  const handleChangeBody = event => setBody(event.target.value)
+  const handleChangeWriter = event => setWriter(event.target.value)
+
+  const handleChangeStory = event => setStory(event.target.value)
+  const handleChangeGameplay = event => setGameplay(event.target.value)
+  const handleChangePerformance = event => setPerformance(event.target.value)
+  const handleChangeGraphic = event => setGraphic(event.target.value)
+
+  const onSubmited = () => {
+    const postOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        topic: topic,
+        body: body,
+        writer: writer,
+        catagories: 'actiondddddd'
+      })
+    }
+    fetch('http://127.0.0.1:3333/api/v1/posts', postOptions)
+      .then(response => response.json())
+      .then(response => console.log(response))
+
+    const scoreOption = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        story: story,
+        gameplay: gameplay,
+        performance: performance,
+        graphic: graphic
+      })
+    }
+    fetch('http://127.0.0.1:3333/api/v1/admin_scores', scoreOption)
+      .then(response => response.json())
+      .then(response => console.log(response))
+  }
+
   return (
     <>
-      <SubHeading> Topic </SubHeading>
-      <ButtonTextarea className='Topic ' placeholder=' ex: Topic... ' />
+      <from>
+        <SubHeading> Topic </SubHeading>
+        <ButtonTextarea
+          onChange={handleChangeTopic}
+          className='Topic '
+          placeholder=' ex: Topic... '
+        />
 
-      <SubHeading> Writer </SubHeading>
-      <ButtonInput className='Writer' placeholder=' ex: Writer... ' />
+        <SubHeading> Writer </SubHeading>
+        <ButtonInput
+          onChange={handleChangeWriter}
+          placeholder=' ex: Writer... '
+        />
 
-      <SubHeading> Content </SubHeading>
-      <ButtonTextarea className='Content ' placeholder=' ex: Content... ' />
+        <SubHeading> Body </SubHeading>
+        <ButtonTextarea
+          onChange={handleChangeBody}
+          placeholder=' ex: Content... '
+        />
 
-      <SubHeading> Image </SubHeading>
-      <InputFile className='Image file ' type='file' />
+        <SubHeading> Image </SubHeading>
+        <InputFile className='Image file ' type='file' />
 
-      <SubHeading> Score </SubHeading>
-      <ScoreContainer>
-        <ScoreCatagories className='Story'> Story </ScoreCatagories>
-        <Score type='number' min='0' max='10' />
-      </ScoreContainer>
+        <SubHeading> Score </SubHeading>
+        <ScoreContainer>
+          <ScoreCatagories className='Story'> Story </ScoreCatagories>
+          <Score onChange={handleChangeStory} type='number' min='0' max='10' />
+        </ScoreContainer>
 
-      <ScoreContainer>
-        <ScoreCatagories className='Gameplay'> Gameplay </ScoreCatagories>
-        <Score type='number' min='0' max='10' />
-      </ScoreContainer>
+        <ScoreContainer>
+          <ScoreCatagories className='Gameplay'> Gameplay </ScoreCatagories>
+          <Score onChange={handleChangeGameplay} type='number' min='0' max='10' />
+        </ScoreContainer>
 
-      <ScoreContainer>
-        <ScoreCatagories className='Performance'> Performance </ScoreCatagories>
-        <Score type='number' min='0' max='10' />
-      </ScoreContainer>
+        <ScoreContainer>
+          <ScoreCatagories className='Performance'>
+            {' '}
+            Performance{' '}
+          </ScoreCatagories>
+          <Score onChange={handleChangePerformance} type='number' min='0' max='10' />
+        </ScoreContainer>
 
-      <ScoreContainer>
-        <ScoreCatagories className='Graphic'> Graphic </ScoreCatagories>
-        <Score type='number' min='0' max='10' />
-      </ScoreContainer>
+        <ScoreContainer>
+          <ScoreCatagories className='Graphic'> Graphic </ScoreCatagories>
+          <Score onChange={handleChangeGraphic} type='number' min='0' max='10' />
+        </ScoreContainer>
 
-      <ButtonSubmit> Submit </ButtonSubmit>
+        <ButtonSubmit onClick={onSubmited}> Submit </ButtonSubmit>
+      </from>
     </>
   )
 }

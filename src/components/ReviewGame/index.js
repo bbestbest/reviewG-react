@@ -81,7 +81,7 @@ function ReviewGame () {
                     <Heading> Review by Admin </Heading>
                     <ProfileAdmin>
                       <ProfileImageAdmin src={backgroundAdmin} />
-                      <NameAdmin> {adminItem.admins.display_name} </NameAdmin>
+                      <NameAdmin> {adminItem.admins ? adminItem.admins.display_name : ''} </NameAdmin>
                     </ProfileAdmin>
                   </Admin>
                   {adminScores.map((adminScoreItem, adminScoreIndex) => (

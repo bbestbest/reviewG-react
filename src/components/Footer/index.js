@@ -12,7 +12,7 @@ const Container = styled.footer`
   width: auto;
   padding-left: 1rem;
   position:relative;
-  margin-top: 27vh;
+  /* margin-top: 27vh; */
 `
 
 function Footer () {

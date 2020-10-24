@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { fetchLogin } from '../../services/fetchData'
 import styled from 'styled-components'
+import ImageBackground from '../../assets/mario.jpg'
 
 const Container = styled.div`
    background: #003d59;
@@ -20,6 +21,10 @@ const SignContainer = styled.div`
   height: 65%;
 `
 const Image = styled.div`
+  background-image: url(${props => props.src});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -63,7 +68,7 @@ const ButtonSubmit = styled.a`
   align-items: center;
   width: 75%;
   height: 2rem;
-  padding: 5px 10px 5px 10px;
+  /* padding: 5px 10px 5px 10px; */
   margin-top: 3rem;
   background-color: #f04823;
   border: 2px solid #f04823;
@@ -77,6 +82,10 @@ const ButtonSubmit = styled.a`
   &:hover {
     background-color: #d04527;
     border: 2px solid #d04527;
+    cursor: pointer;
+  }
+  &:active {
+    background-color: #d03416;
   }
 `
 const Register = styled.a`
@@ -100,6 +109,8 @@ function Sign ({ children }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [token, setToken] = useState('')
+  // const [tokenIsUndefined, setTokenIsUndefined] = useState()
+  const [loginSuccess, setLoginSucess] = useState(false)
 
   const handleOnUsernameChange = (event) => {
     setUsername(event.target.value)
@@ -107,32 +118,40 @@ function Sign ({ children }) {
   const handleOnPasswordChange = (event) => {
     setPassword(event.target.value)
   }
-  const handleOnSubmit = () => {
-    console.log(username)
-    console.log(password)
-    fetchLogin(username, password).then(response => setToken(response))
+  const handleOnSubmit = async () => {
+    setLoginSucess(false)
+    const data = await fetchLogin(username, password, token).then(response => response.data.access_token)
+    console.log(data)
+    if (username !== null && password !== null && data !== undefined) {
+      setLoginSucess(true)
+      fetchLogin(username, password, token).then(response => setToken(response.data.access_token.token))
+      alert('success')
+    } else {
+      alert('Username or Password is incorrect')
+    }
   }
-
-  console.log(token)
 
   return (
     <>
       <Container>
         <SignContainer>
-          <Image> Image </Image>
+          <Image src={ImageBackground}> </Image>
           <Signs>
             <Head> {children} </Head>
-            <ButtonInput placeholder=' Username... ' onChange={handleOnUsernameChange} value={username} />
+            {/* <Form onSubmit={handleOnSubmit}> */}
+            <ButtonInput type='text' name='username' placeholder=' Username... ' onChange={handleOnUsernameChange} value={username} />
             {/* <ButtonInput placeholder=' Username... ' /> */}
-            <ButtonInput type='password' placeholder=' Password... ' onChange={handleOnPasswordChange} value={password} />
+            <ButtonInput type='password' name='password' placeholder=' Password... ' onChange={handleOnPasswordChange} value={password} />
             {/* <ButtonInput type='password' placeholder=' Password... ' /> */}
-            <ButtonSubmit onClick={handleOnSubmit}>
+            {!loginSuccess ? (<ButtonSubmit type='submit' onClick={handleOnSubmit}>Submit</ButtonSubmit>) : <Redirect to='/' />}
+            {/* <ButtonSubmit type='submit' onClick={handleOnSubmit}>
               Submit
-              {/* <Link to='/'>Submit</Link> */}
-            </ButtonSubmit>
+              <Link to='/'>Submit</Link>
+            </ButtonSubmit> */}
             <Register>
               {/* <Link to='/Register'> Create new account </Link> */}
             </Register>
+            {/* </Form> */}
           </Signs>
         </SignContainer>
       </Container>

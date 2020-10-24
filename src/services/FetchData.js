@@ -40,18 +40,18 @@ export async function countView (table, catagories, id) {
   )
 }
 
-export async function fetchLogin (userUsername, userPassword, token) {
+export async function fetchLogin (userUsername, userPassword, tokenAPI) {
   return await axios(
     {
       method: 'POST',
       url: `${API_ENDPOINT}/${API_VER}/login`,
-      headers: { ...JSON_HEADER, Authorization: `Bearer ${token}` },
+      headers: { ...JSON_HEADER, Authorization: `Bearer ${tokenAPI}` },
       data: JSON.stringify({
         username: userUsername,
         password: userPassword
       })
     }
-  ).then(response => response.data.access_token.token)
+  ).then(response => response)
 }
 
 // export function fetchLogin (username, password) {

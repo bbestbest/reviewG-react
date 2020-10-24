@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { fetchLogin } from '../../services/fetchData'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -96,6 +97,24 @@ const Register = styled.a`
 `
 
 function Sign ({ children }) {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [token, setToken] = useState('')
+
+  const handleOnUsernameChange = (event) => {
+    setUsername(event.target.value)
+  }
+  const handleOnPasswordChange = (event) => {
+    setPassword(event.target.value)
+  }
+  const handleOnSubmit = () => {
+    console.log(username)
+    console.log(password)
+    fetchLogin(username, password).then(response => setToken(response))
+  }
+
+  console.log(token)
+
   return (
     <>
       <Container>
@@ -103,13 +122,16 @@ function Sign ({ children }) {
           <Image> Image </Image>
           <Signs>
             <Head> {children} </Head>
-            <ButtonInput placeholder=' Username... ' />
-            <ButtonInput type='password' placeholder=' Password... ' />
-            <ButtonSubmit>
-              <Link to='/'>Submit</Link>
+            <ButtonInput placeholder=' Username... ' onChange={handleOnUsernameChange} value={username} />
+            {/* <ButtonInput placeholder=' Username... ' /> */}
+            <ButtonInput type='password' placeholder=' Password... ' onChange={handleOnPasswordChange} value={password} />
+            {/* <ButtonInput type='password' placeholder=' Password... ' /> */}
+            <ButtonSubmit onClick={handleOnSubmit}>
+              Submit
+              {/* <Link to='/'>Submit</Link> */}
             </ButtonSubmit>
             <Register>
-              <Link to='/Register'> Create new account </Link>
+              {/* <Link to='/Register'> Create new account </Link> */}
             </Register>
           </Signs>
         </SignContainer>

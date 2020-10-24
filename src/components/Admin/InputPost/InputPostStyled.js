@@ -59,7 +59,7 @@ margin: 1rem;
 padding: 5px 10px 5px 10px;
 color: #f04823;
 `
-export const ButtonSubmit = styled.a`
+export const ButtonSubmit = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;

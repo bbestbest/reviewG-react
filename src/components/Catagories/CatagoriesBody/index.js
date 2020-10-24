@@ -8,6 +8,7 @@ export const Container = styled.div`
   background: #003d59;
   padding: 2rem 0;
   width: 100%;
+  height: auto;
 `
 export const BodyContainer = styled.div`
   display: flex;

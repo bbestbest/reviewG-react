@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext, useEffect } from 'react'
+import React, { useState, createContext, useContext, useEffect, useMemo } from 'react'
 
 const AuthContext = createContext({})
 
@@ -22,8 +22,22 @@ export function CurrentUser ({ children }) {
   const { usernameId, setUsernameId } = useContext(AuthContext)
 
   useEffect(() => {
-    console.log(usernameId)
-  })
+    if (isLogin) {
+      window.localStorage.setItem('Login', JSON.stringify(isLogin))
+      window.localStorage.setItem('Username', JSON.stringify(globalUsername))
+      window.localStorage.setItem('Token', JSON.stringify(isToken))
+      window.localStorage.setItem('UserId', JSON.stringify(usernameId))
+    }
+  }, [{ isLogin, globalUsername, isToken, usernameId }])
+  useMemo(() => {
+    if (!isLogin) {
+      setIsLogin(JSON.parse(window.localStorage.getItem('Login')))
+      setGlobalUsername(JSON.parse(window.localStorage.getItem('Username')))
+      setIsToken(JSON.parse(window.localStorage.getItem('Token')))
+      setUsernameId(JSON.parse(window.localStorage.getItem('UserId')))
+    }
+  }, [])
+
   return <div>{children}</div>
 }
 

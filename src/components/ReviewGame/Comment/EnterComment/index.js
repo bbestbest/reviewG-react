@@ -72,6 +72,7 @@ const ButtonSubmit = styled.button`
   border-radius: 8px;
   transition: background-color 0.5s;
   font-size: 20px;
+  cursor: pointer;
   button {
     color: inherit;
   }

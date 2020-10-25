@@ -106,6 +106,10 @@ function MainNavbar () {
   const handleOnLogout = () => {
     setIsLogin(false)
     setGlobalUsername(null)
+    window.localStorage.setItem('Login', JSON.stringify(false))
+    window.localStorage.setItem('Username', JSON.stringify(0))
+    window.localStorage.setItem('Token', JSON.stringify(''))
+    window.localStorage.setItem('UserId', JSON.stringify(''))
   }
 
   return (

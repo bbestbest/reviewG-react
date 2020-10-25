@@ -21,6 +21,7 @@ color: #f04823;
   color: #707070;
 }
 `
+
 export const ButtonInput = styled.input`
 width: 80%;
 height: 2rem;
@@ -33,6 +34,23 @@ color: #f04823;
 &::placeholder {
   color: #707070;
 }
+`
+export const ButtonInputCatagorise = styled.select`
+width: 80%;
+height: 2rem;
+border: 2px solid #707070;
+border-radius: 5px;
+font-size: 15px;
+margin: 2rem;
+padding: 5px 10px 5px 10px;
+color: #f04823;
+&::placeholder {
+  color: #707070;
+}
+`
+
+export const OptionCatagorise = styled.option`
+  color: #f04823;
 `
 
 export const InputFile = styled.input`
@@ -72,6 +90,7 @@ export const ButtonSubmit = styled.button`
   border-radius: 8px;
   transition: background-color 0.5s;
   font-size: 20px;
+  cursor: pointer;
   a {
     text-decoration: none;
     color: inherit;

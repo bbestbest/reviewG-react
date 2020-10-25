@@ -6,6 +6,8 @@ import {
   SubHeading,
   ButtonTextarea,
   ButtonInput,
+  ButtonInputCatagorise,
+  OptionCatagorise,
   InputFile,
   ScoreContainer,
   ScoreCatagories,
@@ -24,6 +26,8 @@ function InputPost () {
   const [performance, setPerformance] = useState('')
   const [graphic, setGraphic] = useState('')
 
+  const [catagories, setCatagories] = useState('')
+
   const [fileImage, setFileImage] = useState(null)
 
   const handleChangeTopic = event => setTopic(event.target.value)
@@ -34,6 +38,8 @@ function InputPost () {
   const handleChangeGameplay = event => setGameplay(event.target.value)
   const handleChangePerformance = event => setPerformance(event.target.value)
   const handleChangeGraphic = event => setGraphic(event.target.value)
+
+  const handleListCatagorise = event => setCatagories(event.target.value)
 
   const handleChangeImage = event => setFileImage(event.target.value)
 
@@ -47,7 +53,7 @@ function InputPost () {
         topic: topic,
         body: body,
         writer: writer,
-        catagories: 'action'
+        catagories: catagories
       })
     }
     fetch('http://127.0.0.1:3333/api/v1/posts', postOptions)
@@ -106,6 +112,16 @@ function InputPost () {
           onChange={handleChangeBody}
           placeholder=' ex: Content... '
         />
+
+        <SubHeading> Catagories </SubHeading>
+        <ButtonInputCatagorise onChange={handleListCatagorise}>
+          <OptionCatagorise value='action'>action</OptionCatagorise>
+          <OptionCatagorise value='adventure'>advention</OptionCatagorise>
+          <OptionCatagorise value='rpg'>rpg</OptionCatagorise>
+          <OptionCatagorise value='simulation'>simulation</OptionCatagorise>
+          <OptionCatagorise value='strategy'>strategy</OptionCatagorise>
+          <OptionCatagorise value='sport'>sport</OptionCatagorise>
+        </ButtonInputCatagorise>
 
         <SubHeading> Image </SubHeading>
         <InputFile onChange={handleChangeImage} className='Image file ' type='file' />

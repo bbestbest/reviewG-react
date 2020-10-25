@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import MainNavbar from '../components/Navbar/MainNavbar'
 import Sign from '../components/Login'
 import Footer from '../components/Footer'
 
 function Login () {
   return (
     <>
-      <Navbar />
+      <MainNavbar />
       <Sign>Login</Sign>
       <Footer />
     </>

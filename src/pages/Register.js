@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import MainNavbar from '../components/Navbar/MainNavbar'
 import Sign from '../components/Register'
 import Footer from '../components/Footer'
 
 function Register () {
   return (
     <>
-      <Navbar />
+      <MainNavbar />
       <Sign>Register</Sign>
       <Footer />
     </>

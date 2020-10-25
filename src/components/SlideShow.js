@@ -38,7 +38,7 @@ const LeftButton = styled.button`
   outline: none;
   cursor: pointer;
   position: absolute;
-  font-size: 1rem;
+  font-size: 5rem;
 `
 const RightButton = styled.button`
   width: 10%;
@@ -51,7 +51,7 @@ const RightButton = styled.button`
   outline: none;
   cursor: pointer;
   position: absolute;
-  font-size: 1rem;
+  font-size: 5rem;
 `
 const TopicContainer = styled.div`
   z-index: 5000;  
@@ -101,8 +101,8 @@ function SlideShow () {
                 </Link>
               ))}
               <ButtonContainer>
-                <LeftButton onClick={handleGoLeft}>← Left</LeftButton>
-                <RightButton onClick={handleGoRight}>Right →</RightButton>
+                <LeftButton onClick={handleGoLeft}>←</LeftButton>
+                <RightButton onClick={handleGoRight}>→</RightButton>
               </ButtonContainer>
             </SlideContainer>
           )

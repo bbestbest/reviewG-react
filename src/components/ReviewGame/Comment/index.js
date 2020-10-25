@@ -13,8 +13,6 @@ export const IosChatbubbleOutline = () => <SideIconContainer icon={iosChatbubble
 function Comment (props) {
   return (
     <>
-      {/* <HeadingComment> Comment <IosChatbubbleOutline /> </HeadingComment> */}
-
       <CommentUser commentBody={props.commentBody} commentDate={props.commentDate} userWhoCommented={props.userWhoCommented} story={props.story} />
     </>
   )

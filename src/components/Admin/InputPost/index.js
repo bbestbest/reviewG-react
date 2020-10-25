@@ -43,7 +43,7 @@ function InputPost () {
         topic: topic,
         body: body,
         writer: writer,
-        catagories: 'actiondddddd'
+        catagories: 'action'
       })
     }
     fetch('http://127.0.0.1:3333/api/v1/posts', postOptions)

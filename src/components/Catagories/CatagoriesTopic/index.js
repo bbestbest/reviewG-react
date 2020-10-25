@@ -79,7 +79,7 @@ function Topic (params) {
               <Topics>
                 {item.topic}
               </Topics>
-              <DateOfTopics />
+              <DateOfTopics>{item.date}</DateOfTopics>
             </Link>
           </TopicContainer>
         ))}

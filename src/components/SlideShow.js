@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import BackgroundBlock from '../components/SlideShowBlock'
 import { getData, countView } from '../services/fetchData'
+import { Icon } from 'semantic-ui-react'
 
 const Container = styled.div`
   width: 100%;
@@ -101,8 +102,8 @@ function SlideShow () {
                 </Link>
               ))}
               <ButtonContainer>
-                <LeftButton onClick={handleGoLeft}>← Left</LeftButton>
-                <RightButton onClick={handleGoRight}>Right →</RightButton>
+                <LeftButton onClick={handleGoLeft}><Icon color='white' name='angle left' /></LeftButton>
+                <RightButton onClick={handleGoRight}><Icon color='white' name='angle right' /></RightButton>
               </ButtonContainer>
             </SlideContainer>
           )

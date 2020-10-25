@@ -7,7 +7,7 @@ import BackgroundBlock from '../../BackgroundBlock'
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  margin-top: 1rem;
+  margin-top: .30rem;
 `
 
 const ContentContainer = styled.div`
@@ -45,7 +45,7 @@ const TopReviews = styled.div`
  
 `
 const Topic = styled.div`
-  margin-top: 16%;
+  margin-top: 15%;
   padding: 1.2rem;
   width: 18%;
   height: auto;

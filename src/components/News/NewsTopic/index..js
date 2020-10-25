@@ -83,7 +83,7 @@ function Topic ({ children }) {
               <Topics>
                 {item.topic}
               </Topics>
-              <DateOfTopics />
+              <DateOfTopics>{item.date}</DateOfTopics>
             </Link>
           </TopicContainer>
         ))}

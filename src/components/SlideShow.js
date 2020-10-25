@@ -40,7 +40,7 @@ const LeftButton = styled.button`
   outline: none;
   cursor: pointer;
   position: absolute;
-  font-size: 1rem;
+  font-size: 5rem;
 `
 const RightButton = styled.button`
   width: 10%;
@@ -53,7 +53,7 @@ const RightButton = styled.button`
   outline: none;
   cursor: pointer;
   position: absolute;
-  font-size: 1rem;
+  font-size: 5rem;
 `
 const TopicContainer = styled.div`
   z-index: 5000;

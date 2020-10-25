@@ -31,12 +31,12 @@ export default {
     path: '/admin_post',
     exact: true,
     component: lazy(() => import('../pages/AdminPost'))
+  },
+  LoginAdmin: {
+    path: '/loginAdmin',
+    exact: true,
+    component: lazy(() => import('../pages/LoginAdmin'))
   }
-  // LoginAdmin: {
-  //   path: '/loginAdmin',
-  //   exact: true,
-  //   component: lazy(() => import('../pages/LoginAdmin'))
-  // }
   // Action: {
   //   path: '/action',
   //   component: lazy(() => import('../pages/Action'))

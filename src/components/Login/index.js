@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
-// import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import { fetchLogin } from '../../services/fetchData'
 import styled from 'styled-components'
+import AuthContext, { CurrentUser } from '../../contexts/AuthContext'
+import ImageBackground from '../../assets/mario.jpg'
 
 const Container = styled.div`
    background: #003d59;
@@ -20,6 +22,10 @@ const SignContainer = styled.div`
   height: 65%;
 `
 const Image = styled.div`
+  background-image: url(${props => props.src});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -63,7 +69,7 @@ const ButtonSubmit = styled.a`
   align-items: center;
   width: 75%;
   height: 2rem;
-  padding: 5px 10px 5px 10px;
+  /* padding: 5px 10px 5px 10px; */
   margin-top: 3rem;
   background-color: #f04823;
   border: 2px solid #f04823;
@@ -77,6 +83,10 @@ const ButtonSubmit = styled.a`
   &:hover {
     background-color: #d04527;
     border: 2px solid #d04527;
+    cursor: pointer;
+  }
+  &:active {
+    background-color: #d03416;
   }
 `
 const Register = styled.a`
@@ -100,6 +110,8 @@ function Sign ({ children }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [token, setToken] = useState('')
+  const [loginSuccess, setLoginSucess] = useState(false)
+  const { setIsLogin, setGlobalUsername, setUsernameId, setIsToken } = useContext(AuthContext)
 
   const handleOnUsernameChange = (event) => {
     setUsername(event.target.value)
@@ -107,35 +119,52 @@ function Sign ({ children }) {
   const handleOnPasswordChange = (event) => {
     setPassword(event.target.value)
   }
-  const handleOnSubmit = () => {
-    console.log(username)
-    console.log(password)
-    fetchLogin(username, password).then(response => setToken(response))
+  const handleOnSubmit = async () => {
+    const data = await fetchLogin(username, password, token).then(response => response.data.access_token)
+    if (username !== null && password !== null && data !== undefined) {
+      alert('Login Success')
+      setLoginSucess(true)
+      await fetchLogin(username, password, token).then(response => setToken(response.data.access_token.token))
+      await fetchLogin(username, password, token).then(response => setUsernameId(response.data.user.user_id))
+      setIsToken(token)
+      setIsLogin(true)
+      setGlobalUsername(username)
+    } else {
+      alert('Username or Password is incorrect')
+    }
   }
-
-  console.log(token)
+  const handleKeyPress = e => {
+    if (e.keyCode === 13) {
+      handleOnSubmit()
+    }
+  }
 
   return (
     <>
-      <Container>
-        <SignContainer>
-          <Image> Image </Image>
-          <Signs>
-            <Head> {children} </Head>
-            <ButtonInput placeholder=' Username... ' onChange={handleOnUsernameChange} value={username} />
-            {/* <ButtonInput placeholder=' Username... ' /> */}
-            <ButtonInput type='password' placeholder=' Password... ' onChange={handleOnPasswordChange} value={password} />
-            {/* <ButtonInput type='password' placeholder=' Password... ' /> */}
-            <ButtonSubmit onClick={handleOnSubmit}>
+      <CurrentUser>
+        <Container>
+          <SignContainer>
+            <Image src={ImageBackground}> </Image>
+            <Signs>
+              <Head> {children} </Head>
+              {/* <Form onSubmit={handleOnSubmit}> */}
+              <ButtonInput type='text' name='username' placeholder=' Username... ' value={username} onChange={handleOnUsernameChange} onKeyDown={handleKeyPress} />
+              {/* <ButtonInput placeholder=' Username... ' /> */}
+              <ButtonInput type='password' name='password' placeholder=' Password... ' value={password} onChange={handleOnPasswordChange} onKeyDown={handleKeyPress} />
+              {/* <ButtonInput type='password' placeholder=' Password... ' /> */}
+              {!loginSuccess ? (<ButtonSubmit type='submit' onClick={handleOnSubmit}>Submit</ButtonSubmit>) : <Redirect to='/' />}
+              {/* <ButtonSubmit type='submit' onClick={handleOnSubmit}>
               Submit
-              {/* <Link to='/'>Submit</Link> */}
-            </ButtonSubmit>
-            <Register>
-              {/* <Link to='/Register'> Create new account </Link> */}
-            </Register>
-          </Signs>
-        </SignContainer>
-      </Container>
+              <Link to='/'>Submit</Link>
+            </ButtonSubmit> */}
+              <Register>
+                {/* <Link to='/Register'> Create new account </Link> */}
+              </Register>
+              {/* </Form> */}
+            </Signs>
+          </SignContainer>
+        </Container>
+      </CurrentUser>
     </>
   )
 }

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { getData, getDataByIdAndCatagories } from '../../services/fetchData'
-import { Reset } from 'styled-reset'
+import AuthContext from '../../contexts/AuthContext'
 import ScoreReview from './ScoreReview'
 import Comment from './Comment'
 import { ScoreUser } from './Comment/ScoreUser'
@@ -10,6 +10,7 @@ import EnterComment from './Comment/EnterComment'
 import backgroundAdmin from '../../assets/admin.jpg'
 import { withBaseIcon } from 'react-icons-kit'
 import { iosChatbubbleOutline } from 'react-icons-kit/ionicons/iosChatbubbleOutline'
+import styled from 'styled-components'
 import {
   Container,
   BodyContainer,
@@ -28,6 +29,15 @@ import {
   NameAdmin
 } from './reviewGameStyled'
 
+const LoginContainer = styled.div`
+  height: 1%;
+  width: 100%;
+  border-bottom: #f69335 solid 5px;
+  h1 {
+    font-size : 3rem;
+    margin-left: 5rem;
+  }
+`
 const SideIconContainer = withBaseIcon({
   size: '10%',
   // style: { color: '#f69335 ' }
@@ -43,6 +53,7 @@ function ReviewGame () {
   const [userComment, setUserComment] = useState([])
   const [userScore, setUserScore] = useState([])
   const { catagories, id } = useParams()
+  const { isLogin } = useContext(AuthContext)
 
   useEffect(() => {
     getDataByIdAndCatagories('posts', 'assets', catagories, id).then(response => setData(response))
@@ -54,8 +65,6 @@ function ReviewGame () {
 
   return (
     <>
-      <Reset />
-
       {data.map((item, index) => (
         <Container key={index}>
           <BodyContainer>
@@ -88,13 +97,13 @@ function ReviewGame () {
               <Border />
             </ContentContainer>
             <Heading> Comment <IosChatbubbleOutline /></Heading>
-            <EnterComment />
+            {isLogin ? <EnterComment /> : <LoginContainer><h1>Please Login First</h1></LoginContainer>}
             <>
               {userComment.map((userCommentItem, userCommentIndex) => (
                 <div key={userCommentIndex}>
                   {userCommentItem.comments.filter(userRefComment => userRefComment.post_id === item.post_id).sort((a, b) => b.comment_id - a.comment_id).map((userRefCommentItem, userRefCommentIndex) => (
                     <div key={userRefCommentIndex}>
-                      <Comment commentBody={userRefCommentItem.comment} commentDate={userRefCommentItem.comment_date} userWhoCommented={userCommentItem.display_name} />
+                      <Comment commentBody={userRefCommentItem.comment} commentDate={userRefCommentItem.date} userWhoCommented={userCommentItem.display_name} />
                       {userScore.filter(userScoreId => userScoreId.user_id === userCommentItem.user_id).map((userScoreItem, userScoreIndex) => (
                         <div key={userScoreIndex}>
                           {userScoreItem.userScores.slice(0, 1).map((userRefScoreItem, userRefScoreIndex) => (

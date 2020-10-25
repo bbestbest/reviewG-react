@@ -1,16 +1,16 @@
 /* global fetch */
 
 import React, { useState, useContext } from 'react'
-import { useParams } from 'react-router-dom'
-import AuthContext, { CurrentUser } from '../../../../contexts/AuthContext'
+import { Redirect, useParams } from 'react-router-dom'
+import AuthContext from '../../../../contexts/AuthContext'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  height: 7%;
+  height: 2%;
   width: 100%;
   /* border: solid #f69335 1px; */
   /* border-radius: 25px; */
-  margin-bottom: 10%;
+  margin-bottom: 5rem;
 `
 const HeadingCatagories = styled.div`
   width: 8rem;
@@ -58,6 +58,9 @@ const ButtonSubmitContainer = styled.div`
   width: auto;
   height: auto;
   margin: 0 3rem 0 0;
+  a {
+    text-decoration: none;
+  }
 `
 
 const ButtonSubmit = styled.button`
@@ -77,18 +80,20 @@ const ButtonSubmit = styled.button`
     color: inherit;
   }
   &:hover {
+    cursor: pointer;
     background-color: #d04527;
     border: 2px solid #d04527;
   }
 `
 
 function EnterComment () {
-  const [story, setStory] = useState('')
-  const [gameplay, setGameplay] = useState('')
-  const [performance, setPerformance] = useState('')
-  const [graphic, setGraphic] = useState('')
+  const [story, setStory] = useState(0)
+  const [gameplay, setGameplay] = useState(0)
+  const [performance, setPerformance] = useState(0)
+  const [graphic, setGraphic] = useState(0)
   const [comment, setComment] = useState('')
-  const { id } = useParams()
+  const [isSubmit, setIsSubmit] = useState(false)
+  const { catagories, id } = useParams()
   const { usernameId } = useContext(AuthContext)
 
   const handleChangeStory = event => setStory(event.target.value)
@@ -96,43 +101,51 @@ function EnterComment () {
   const handleChangePerformance = event => setPerformance(event.target.value)
   const handleChangeGraphic = event => setGraphic(event.target.value)
   const handleChangeComment = event => setComment(event.target.value)
-
-  const onSubmited = () => {
-    console.log(id, usernameId)
-    const scoreOption = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        story: story,
-        gameplay: gameplay,
-        performance: performance,
-        graphic: graphic,
-        user_id: usernameId,
-        post_id: id
-      })
+  const handleKeyPress = e => {
+    if (e.keyCode === 13) {
+      handleOnSubmit()
     }
-    fetch('http://127.0.0.1:3333/api/v1/user_scores', scoreOption)
-      .then(response => response.json())
-      .then(response => console.log(response))
+  }
 
-    const commentOption = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        comment: comment,
-        user_id: usernameId,
-        post_id: id,
-        date: new Date().toLocaleString()
-      })
+  const handleOnSubmit = () => {
+    if (story !== '' && gameplay !== '' && performance !== '' && graphic !== '' && comment !== '') {
+      setIsSubmit(true)
+      const scoreOption = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          story: story,
+          gameplay: gameplay,
+          performance: performance,
+          graphic: graphic,
+          user_id: usernameId,
+          post_id: id
+        })
+      }
+      fetch('http://127.0.0.1:3333/api/v1/user_scores', scoreOption)
+        .then(response => response.json())
+
+      const commentOption = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          comment: comment,
+          user_id: usernameId,
+          post_id: id,
+          date: new Date().toLocaleString()
+        })
+      }
+      fetch('http://127.0.0.1:3333/api/v1/comments', commentOption)
+        .then(response => response.json())
+      alert('Done')
+      setIsSubmit(false)
+    } else {
+      alert('Requirement is empty')
     }
-    fetch('http://127.0.0.1:3333/api/v1/comments', commentOption)
-      .then(response => response.json())
-      .then(response => console.log(response))
-
   }
 
   return (
@@ -179,10 +192,9 @@ function EnterComment () {
             max='10'
           />
         </ScoreContainer>
-
-        <CommentInput onChange={handleChangeComment} placeholder=' Comment...' />
+        <CommentInput type='textarea' onChange={handleChangeComment} placeholder=' Comment...' onKeyDown={handleKeyPress} />
         <ButtonSubmitContainer>
-          <ButtonSubmit onClick={onSubmited}> Comment </ButtonSubmit>
+          {!isSubmit ? <ButtonSubmit onClick={handleOnSubmit}> Comment </ButtonSubmit> : (<Redirect to='/' />)}
         </ButtonSubmitContainer>
       </Container>
     </>

@@ -37,21 +37,17 @@ const SideIconContainer = withBaseIcon({
 export const IosChatbubbleOutline = () => <SideIconContainer icon={iosChatbubbleOutline} />
 
 function ReviewGame () {
-  // const [catagoriesData, setCatagoriesData] = useState({})
   const [data, setData] = useState([])
   const [admin, setAdmin] = useState([])
   const [adminScores, setAdminScores] = useState([])
-  // const [postComment, setPostComment] = useState([])
   const [userComment, setUserComment] = useState([])
   const [userScore, setUserScore] = useState([])
   const { catagories, id } = useParams()
 
   useEffect(() => {
-    // getData('posts', 'assets').then(response => setCatagoriesData(response))
     getDataByIdAndCatagories('posts', 'assets', catagories, id).then(response => setData(response))
     getDataByIdAndCatagories('posts', 'admins', catagories, id).then(response => setAdmin(response))
     getDataByIdAndCatagories('posts', 'adminScore', catagories, id).then(response => setAdminScores(response))
-    // getDataByIdAndCatagories('posts', 'comments', catagories, id).then(response => setPostComment(response))
     getData('users', 'comments').then(response => setUserComment(response))
     getData('users', 'userScores').then(response => setUserScore(response))
   }, [])
@@ -95,13 +91,13 @@ function ReviewGame () {
             <EnterComment />
             <>
               {userComment.map((userCommentItem, userCommentIndex) => (
-                <div key={userCommentItem}>
+                <div key={userCommentIndex}>
                   {userCommentItem.comments.filter(userRefComment => userRefComment.post_id === item.post_id).sort((a, b) => b.comment_id - a.comment_id).map((userRefCommentItem, userRefCommentIndex) => (
                     <div key={userRefCommentIndex}>
                       <Comment commentBody={userRefCommentItem.comment} commentDate={userRefCommentItem.comment_date} userWhoCommented={userCommentItem.display_name} />
                       {userScore.filter(userScoreId => userScoreId.user_id === userCommentItem.user_id).map((userScoreItem, userScoreIndex) => (
                         <div key={userScoreIndex}>
-                          {userScoreItem.userScores.map((userRefScoreItem, userRefScoreIndex) => (
+                          {userScoreItem.userScores.slice(0, 1).map((userRefScoreItem, userRefScoreIndex) => (
                             <div key={userRefScoreIndex}>
                               <ScoreUser story={userRefScoreItem.story} gameplay={userRefScoreItem.gameplay} performance={userRefScoreItem.performance} graphic={userRefScoreItem.graphic} overall={userRefScoreItem.overall} />
                             </div>

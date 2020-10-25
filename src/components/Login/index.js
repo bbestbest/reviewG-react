@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import { fetchLogin } from '../../services/fetchData'
 import styled from 'styled-components'
+import AuthContext, { CurrentUser } from '../../contexts/AuthContext'
 import ImageBackground from '../../assets/mario.jpg'
 
 const Container = styled.div`
@@ -109,8 +110,8 @@ function Sign ({ children }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [token, setToken] = useState('')
-  // const [tokenIsUndefined, setTokenIsUndefined] = useState()
   const [loginSuccess, setLoginSucess] = useState(false)
+  const { setIsLogin, setGlobalUsername, setUsernameId, setIsToken } = useContext(AuthContext)
 
   const handleOnUsernameChange = (event) => {
     setUsername(event.target.value)
@@ -119,42 +120,51 @@ function Sign ({ children }) {
     setPassword(event.target.value)
   }
   const handleOnSubmit = async () => {
-    setLoginSucess(false)
     const data = await fetchLogin(username, password, token).then(response => response.data.access_token)
-    console.log(data)
     if (username !== null && password !== null && data !== undefined) {
+      alert('Login Success')
       setLoginSucess(true)
-      fetchLogin(username, password, token).then(response => setToken(response.data.access_token.token))
-      alert('success')
+      await fetchLogin(username, password, token).then(response => setToken(response.data.access_token.token))
+      await fetchLogin(username, password, token).then(response => setUsernameId(response.data.user.user_id))
+      setIsToken(token)
+      setIsLogin(true)
+      setGlobalUsername(username)
     } else {
       alert('Username or Password is incorrect')
+    }
+  }
+  const handleKeyPress = e => {
+    if (e.keyCode === 13) {
+      handleOnSubmit()
     }
   }
 
   return (
     <>
-      <Container>
-        <SignContainer>
-          <Image src={ImageBackground}> </Image>
-          <Signs>
-            <Head> {children} </Head>
-            {/* <Form onSubmit={handleOnSubmit}> */}
-            <ButtonInput type='text' name='username' placeholder=' Username... ' onChange={handleOnUsernameChange} value={username} />
-            {/* <ButtonInput placeholder=' Username... ' /> */}
-            <ButtonInput type='password' name='password' placeholder=' Password... ' onChange={handleOnPasswordChange} value={password} />
-            {/* <ButtonInput type='password' placeholder=' Password... ' /> */}
-            {!loginSuccess ? (<ButtonSubmit type='submit' onClick={handleOnSubmit}>Submit</ButtonSubmit>) : <Redirect to='/' />}
-            {/* <ButtonSubmit type='submit' onClick={handleOnSubmit}>
+      <CurrentUser>
+        <Container>
+          <SignContainer>
+            <Image src={ImageBackground}> </Image>
+            <Signs>
+              <Head> {children} </Head>
+              {/* <Form onSubmit={handleOnSubmit}> */}
+              <ButtonInput type='text' name='username' placeholder=' Username... ' value={username} onChange={handleOnUsernameChange} onKeyDown={handleKeyPress} />
+              {/* <ButtonInput placeholder=' Username... ' /> */}
+              <ButtonInput type='password' name='password' placeholder=' Password... ' value={password} onChange={handleOnPasswordChange} onKeyDown={handleKeyPress} />
+              {/* <ButtonInput type='password' placeholder=' Password... ' /> */}
+              {!loginSuccess ? (<ButtonSubmit type='submit' onClick={handleOnSubmit}>Submit</ButtonSubmit>) : <Redirect to='/' />}
+              {/* <ButtonSubmit type='submit' onClick={handleOnSubmit}>
               Submit
               <Link to='/'>Submit</Link>
             </ButtonSubmit> */}
-            <Register>
-              {/* <Link to='/Register'> Create new account </Link> */}
-            </Register>
-            {/* </Form> */}
-          </Signs>
-        </SignContainer>
-      </Container>
+              <Register>
+                {/* <Link to='/Register'> Create new account </Link> */}
+              </Register>
+              {/* </Form> */}
+            </Signs>
+          </SignContainer>
+        </Container>
+      </CurrentUser>
     </>
   )
 }

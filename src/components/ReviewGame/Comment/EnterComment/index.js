@@ -1,6 +1,8 @@
 /* global fetch */
 
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { useParams } from 'react-router-dom'
+import AuthContext, { CurrentUser } from '../../../../contexts/AuthContext'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -8,6 +10,7 @@ const Container = styled.div`
   width: 100%;
   /* border: solid #f69335 1px; */
   /* border-radius: 25px; */
+  margin-bottom: 10%;
 `
 const HeadingCatagories = styled.div`
   width: 8rem;
@@ -85,6 +88,8 @@ function EnterComment () {
   const [performance, setPerformance] = useState('')
   const [graphic, setGraphic] = useState('')
   const [comment, setComment] = useState('')
+  const { id } = useParams()
+  const { usernameId } = useContext(AuthContext)
 
   const handleChangeStory = event => setStory(event.target.value)
   const handleChangeGameplay = event => setGameplay(event.target.value)
@@ -93,6 +98,7 @@ function EnterComment () {
   const handleChangeComment = event => setComment(event.target.value)
 
   const onSubmited = () => {
+    console.log(id, usernameId)
     const scoreOption = {
       method: 'POST',
       headers: {
@@ -102,7 +108,9 @@ function EnterComment () {
         story: story,
         gameplay: gameplay,
         performance: performance,
-        graphic: graphic
+        graphic: graphic,
+        user_id: usernameId,
+        post_id: id
       })
     }
     fetch('http://127.0.0.1:3333/api/v1/user_scores', scoreOption)
@@ -115,7 +123,10 @@ function EnterComment () {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        comment: comment
+        comment: comment,
+        user_id: usernameId,
+        post_id: id,
+        date: new Date().toLocaleString()
       })
     }
     fetch('http://127.0.0.1:3333/api/v1/comments', commentOption)
@@ -129,10 +140,17 @@ function EnterComment () {
         <ScoreContainer>
           <HeadingCatagories> Your score : </HeadingCatagories>
           <ScoreCatagories className='Story'> Story </ScoreCatagories>
-          <Score onChange={handleChangeStory} type='number' min='0' max='10' />
+          <Score
+            required
+            onChange={handleChangeStory}
+            type='number'
+            min='0'
+            max='10'
+          />
 
           <ScoreCatagories className='Gameplay'> Gameplay </ScoreCatagories>
           <Score
+            required
             onChange={handleChangeGameplay}
             type='number'
             min='0'
@@ -144,6 +162,7 @@ function EnterComment () {
             Performance{' '}
           </ScoreCatagories>
           <Score
+            required
             onChange={handleChangePerformance}
             type='number'
             min='0'
@@ -152,6 +171,7 @@ function EnterComment () {
 
           <ScoreCatagories className='Graphic'> Graphic </ScoreCatagories>
           <Score
+            required
             onChange={handleChangeGraphic}
             type='number'
             min='0'

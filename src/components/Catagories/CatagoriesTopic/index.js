@@ -11,7 +11,8 @@ const Containar = styled.div`
   height: auto;
   padding: 1.5rem 4rem 1.5rem 4rem;
   color: #000;
-  
+  position: relative;
+
   a {
     color: inherit;
     text-decoration: none;
@@ -22,12 +23,14 @@ const Containar = styled.div`
 `
 
 const TopicContainer = styled.div`
-  width: 25%;
-  height: 20%;
+  width: 20vw;
+  height: 19rem;
   margin: 30px;
-  padding: 2%;
-  &:hover {
+  transition: color 0.3s;
+
+  &:hover{
     color: #f04823;
+    transition: color 0.3s;
   }
 `
 
@@ -39,16 +42,15 @@ const ImageTopic = styled.div`
   width: auto;
   height: 11rem;
   border-radius: 15px;
-  transition: opacity 0.4s ;
+  transition: opacity 0.7s ;
     &:hover{
-      opacity: 0.7;
+      opacity: 0.6;
   }
 `
 const Topics = styled.div`
   font-size: 18px;
   line-height: 1.2;
-  padding-top: 1rem;
-  font-size: 1.25rem;
+  padding-top: 1rem; 
   width: auto;
   height: auto;
   transition: color 0.4s;
@@ -56,7 +58,7 @@ const Topics = styled.div`
 const DateOfTopics = styled.div`
   font-size: 12px;
   padding-top: 10px;
-  transition: color 0.4s;
+  transition: color 0.7s;
 `
 
 function Topic (params) {

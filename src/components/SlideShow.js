@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import BackgroundBlock from '../components/SlideShowBlock'
 import { getData, countView } from '../services/fetchData'
-import { Icon } from 'semantic-ui-react'
+import { FiChevronRight } from 'react-icons/fi'
+import { FiChevronLeft } from 'react-icons/fi'
 
 const Container = styled.div`
   width: 100%;
@@ -21,7 +22,7 @@ const SlideContainer = styled.div`
 const Slide = styled.div`
   height: 100%;
   width: 100vw;
-  transition: transform .5s;
+  transition: transform 0.5s;
   position: static;
 `
 const ButtonContainer = styled.div`
@@ -55,7 +56,7 @@ const RightButton = styled.button`
   font-size: 5rem;
 `
 const TopicContainer = styled.div`
-  z-index: 5000;  
+  z-index: 5000;
   width: 100%;
   height: 100%;
   margin-top: 20%;
@@ -76,10 +77,10 @@ function SlideShow () {
     return countView('posts', catagories, id)
   }
 
-  const handleGoLeft = (image) => {
+  const handleGoLeft = image => {
     x === 0 ? setX(-100 * 4) : setX(x + 100)
   }
-  const handleGoRight = (image) => {
+  const handleGoRight = image => {
     x === 100 * -4 ? setX(0) : setX(x - 100)
   }
 
@@ -90,24 +91,36 @@ function SlideShow () {
   return (
     <>
       <Container>
-        {data.sort((a, b) => b.post_id - a.post_id).slice(0, 5).map((item, index) => {
-          return (
-            <SlideContainer key={index}>
-              {item.assets.map((image, index2) => (
-                <Link key={index2} to={`/review/${item.catagories}/${item.post_id}`} onClick={() => handleOnClick(item.catagories, item.post_id)}>
-                  <Slide style={{ transform: `translateX(${x}%)` }}>
-                    <TopicContainer>{item.topic}</TopicContainer>
-                    <BackgroundBlock src={image.asset_path} />
-                  </Slide>
-                </Link>
-              ))}
-              <ButtonContainer>
-                <LeftButton onClick={handleGoLeft}><Icon color='white' name='angle left' /></LeftButton>
-                <RightButton onClick={handleGoRight}><Icon color='white' name='angle right' /></RightButton>
-              </ButtonContainer>
-            </SlideContainer>
-          )
-        })}
+        {data
+          .sort((a, b) => b.post_id - a.post_id)
+          .slice(0, 5)
+          .map((item, index) => {
+            return (
+              <SlideContainer key={index}>
+                {item.assets.map((image, index2) => (
+                  <Link
+                    key={index2}
+                    to={`/review/${item.catagories}/${item.post_id}`}
+                    onClick={() =>
+                      handleOnClick(item.catagories, item.post_id)
+                    }>
+                    <Slide style={{ transform: `translateX(${x}%)` }}>
+                      <TopicContainer>{item.topic}</TopicContainer>
+                      <BackgroundBlock src={image.asset_path} />
+                    </Slide>
+                  </Link>
+                ))}
+                <ButtonContainer>
+                  <LeftButton onClick={handleGoLeft}>
+                    <FiChevronLeft />
+                  </LeftButton>
+                  <RightButton onClick={handleGoRight}>
+                    <FiChevronRight />
+                  </RightButton>
+                </ButtonContainer>
+              </SlideContainer>
+            )
+          })}
       </Container>
     </>
   )

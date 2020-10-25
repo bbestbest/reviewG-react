@@ -14,7 +14,7 @@ const Container = styled.div`
   width: auto;
   margin-bottom: auto;
   position: relative;
-  font-size: 1.2rem;
+  font-size: 15px;
 `
 const Logo = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ const Logo = styled.div`
   padding-left: 2rem;
   height: auto;
   width: auto;
-  font-size: 1.6rem;
+  font-size: 20px;
   background-color: #f04823;
   text-decoration: none;
   color: white;
@@ -41,12 +41,12 @@ const SignButton = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2rem;
+  padding: 0.8rem;
   background: #f04823;
   /* background-color: transparent; */
   text-decoration: none;
   color: white;
-
+  transition: background-color .8s;
   a {
     color: inherit;
     text-decoration: none;

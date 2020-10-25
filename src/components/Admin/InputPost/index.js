@@ -24,6 +24,8 @@ function InputPost () {
   const [performance, setPerformance] = useState('')
   const [graphic, setGraphic] = useState('')
 
+  const [fileImage, setFileImage] = useState(null)
+
   const handleChangeTopic = event => setTopic(event.target.value)
   const handleChangeBody = event => setBody(event.target.value)
   const handleChangeWriter = event => setWriter(event.target.value)
@@ -32,6 +34,8 @@ function InputPost () {
   const handleChangeGameplay = event => setGameplay(event.target.value)
   const handleChangePerformance = event => setPerformance(event.target.value)
   const handleChangeGraphic = event => setGraphic(event.target.value)
+
+  const handleChangeImage = event => setFileImage(event.target.value)
 
   const onSubmited = () => {
     const postOptions = {
@@ -65,6 +69,20 @@ function InputPost () {
     fetch('http://127.0.0.1:3333/api/v1/admin_scores', scoreOption)
       .then(response => response.json())
       .then(response => console.log(response))
+
+    const imageOption = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        asset_path: fileImage
+        // type: ['image']
+      })
+    }
+    fetch('http://127.0.0.1:3333/api/v1/assets', imageOption)
+      .then(response => response.json())
+      .then(response => console.log(response))
   }
 
   return (
@@ -90,7 +108,7 @@ function InputPost () {
         />
 
         <SubHeading> Image </SubHeading>
-        <InputFile className='Image file ' type='file' />
+        <InputFile onChange={handleChangeImage} className='Image file ' type='file' />
 
         <SubHeading> Score </SubHeading>
         <ScoreContainer>

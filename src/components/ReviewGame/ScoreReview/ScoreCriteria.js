@@ -36,6 +36,44 @@ export const Score = styled.div`
   margin-left: 12rem;
   margin-right: 8rem;
 `
+// score overall
+
+const ScoreOverallCriterias = styled.div`
+  padding: 2rem 8rem 2rem 4.3rem;
+  font-size: 23px;
+  font-weight: bold;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const ScoreOverall = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 2rem;
+  color: white;
+  background-color: #003d59;
+  margin-left: 12rem;
+`
+
+const BgScoreOverall = styled.div`
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: auto;
+  color: white;
+  font-size: 25px;
+  padding: 0 1rem 0 1rem;
+  border-radius: 2rem;
+  background-color: #003d59;
+`
+
 const FullScore = styled.div`
   margin-left: .2rem;
   font-size: 1rem;
@@ -79,13 +117,15 @@ function ScoreCriteria (props) {
         </Score>
       </ScoreCriterias>
 
-      <ScoreCriterias>
-        Overall
-        <Score>
-          {props.overall}
-          <FullScore> /10 </FullScore>
-        </Score>
-      </ScoreCriterias>
+      <ScoreOverallCriterias>
+        <BgScoreOverall>
+          Overall
+          <ScoreOverall>
+            {props.overall}
+            <FullScore> /10 </FullScore>
+          </ScoreOverall>
+        </BgScoreOverall>
+      </ScoreOverallCriterias>
     </>
   )
 }

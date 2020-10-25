@@ -21,7 +21,7 @@ const ContentContainer = styled.div`
 
 const TopReviewsContainer = styled.div`
   width: 100%;
-  height: 40vh;
+  height: auto;
   display: flex;
   justify-content: center;
   padding: .5rem;
@@ -42,17 +42,19 @@ const TopReviews = styled.div`
   &:hover{
     opacity: 0.7;
   }
+ 
 `
 const Topic = styled.div`
   margin-top: 15%;
   padding: 1.2rem;
-  width: 15%;
+  width: 18%;
   height: auto;
   display: flex;
   justify-content: center;
   position: absolute;
   color: white;
   z-index: 5000;
+
 `
 
 function Body ({ children }) {

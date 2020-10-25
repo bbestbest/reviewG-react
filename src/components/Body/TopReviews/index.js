@@ -38,6 +38,10 @@ const TopReviews = styled.div`
   margin: 0 0.5%;
   overflow: hidden;
   border-radius: 10px;
+  transition: opacity 0.4s;
+  &:hover{
+    opacity: 0.7;
+  }
 `
 const Topic = styled.div`
   margin-top: 16%;

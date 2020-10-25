@@ -26,7 +26,6 @@ const TopicContainer = styled.div`
   height: 20%;
   margin: 30px;
   padding: 2%;
-
   &:hover {
     color: #f04823;
   }
@@ -40,6 +39,10 @@ const ImageTopic = styled.div`
   width: auto;
   height: 11rem;
   border-radius: 15px;
+  transition: opacity 0.4s ;
+    &:hover{
+      opacity: 0.7;
+  }
 `
 const Topics = styled.div`
   font-size: 18px;

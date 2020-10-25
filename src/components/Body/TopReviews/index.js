@@ -64,7 +64,7 @@ function Body ({ children }) {
 
   useEffect(() => {
     getData('posts', 'assets').then(response => setData(response))
-  })
+  }, [])
   return (
     <>
       <Container>

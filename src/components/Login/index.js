@@ -147,20 +147,9 @@ function Sign ({ children }) {
             <Image src={ImageBackground}> </Image>
             <Signs>
               <Head> {children} </Head>
-              {/* <Form onSubmit={handleOnSubmit}> */}
               <ButtonInput type='text' name='username' placeholder=' Username... ' value={username} onChange={handleOnUsernameChange} onKeyDown={handleKeyPress} />
-              {/* <ButtonInput placeholder=' Username... ' /> */}
               <ButtonInput type='password' name='password' placeholder=' Password... ' value={password} onChange={handleOnPasswordChange} onKeyDown={handleKeyPress} />
-              {/* <ButtonInput type='password' placeholder=' Password... ' /> */}
               {!loginSuccess ? (<ButtonSubmit type='submit' onClick={handleOnSubmit}>Submit</ButtonSubmit>) : <Redirect to='/' />}
-              {/* <ButtonSubmit type='submit' onClick={handleOnSubmit}>
-              Submit
-              <Link to='/'>Submit</Link>
-            </ButtonSubmit> */}
-              <Register>
-                {/* <Link to='/Register'> Create new account </Link> */}
-              </Register>
-              {/* </Form> */}
             </Signs>
           </SignContainer>
         </Container>

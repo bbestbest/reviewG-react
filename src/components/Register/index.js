@@ -1,6 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+/* global fetch */
+
+import React, { useState } from 'react'
+// import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import ImageIcon from '../../assets/hhh.png'
 
 const Container = styled.div`
   background: #003d59;
@@ -19,8 +22,21 @@ const SignContainer = styled.div`
   height: 65%;
 `
 const Image = styled.div`
-  /* background-color: #D1C5C2; */
+  display:flex;
   justify-content: center;
+  background-image: url(${ImageIcon});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  width: 600px;
+  height: 500px;
+  margin-right: 3.5rem;
+`
+
+const BoxImage = styled.div`
+  display: flex;
+  /* justify-content: center; */
   align-items: center;
   width: 100%;
   height: 100%;
@@ -35,7 +51,6 @@ const Signs = styled.div`
   width: 80%;
   height: auto;
   padding: 3rem;
-  
 `
 
 const Head = styled.div`
@@ -58,12 +73,13 @@ const ButtonInput = styled.input`
     color: #f04823;
   }
 `
-const ButtonSubmit = styled.a`
+const ButtonSubmit = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75%;
-  height: 2rem;
+  font-size: 16px;
+    width: 80%;
+    height: 3rem;
   padding: 5px 15px 5px 10px;
   margin-top: 1rem;
   margin-bottom: 2rem;
@@ -72,7 +88,8 @@ const ButtonSubmit = styled.a`
   color: white;
   border-radius: 5px;
   transition: background-color 0.5s;
-  a {
+  cursor: pointer;
+  button {
     text-decoration: none;
     color: inherit;
   }
@@ -83,23 +100,65 @@ const ButtonSubmit = styled.a`
 `
 
 function Sign ({ children }) {
+  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [display, setDisplay] = useState('')
+
+  const handleChangeEmail = event => setEmail(event.target.value)
+  const handleChangeUsername = event => setUsername(event.target.value)
+  const handleChangePassword = event => setPassword(event.target.value)
+  const handleChangeDisplay = event => setDisplay(event.target.value)
+
+  const onSubmit = () => {
+    const categoriestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        username: username,
+        password: password,
+        dispaly_name: display
+      })
+    }
+    fetch('http://127.0.0.1:3333/api/v1/users', categoriestOptions)
+      .then(response => response.json())
+      .then(response => console.log(response))
+  }
   return (
     <>
-      <Container>
-        <SignContainer>
-          <Image> Image </Image>
-          <Signs>
-            <Head> {children} </Head>
-            <ButtonInput placeholder=' Email ... ' />
-            <ButtonInput placeholder=' Username... ' />
-            <ButtonInput type='password' placeholder=' Password... ' />
-            <ButtonInput placeholder=' Display... ' />
-            <ButtonSubmit>
-              <Link to='/'>Submit</Link>
-            </ButtonSubmit>
-          </Signs>
-        </SignContainer>
-      </Container>
+      <from>
+        <Container>
+          <SignContainer>
+            <BoxImage>
+              <Image src={ImageIcon} />
+            </BoxImage>
+            <Signs>
+              <Head> {children} </Head>
+              <ButtonInput
+                onChange={handleChangeEmail}
+                placeholder=' Email ... '
+              />
+              <ButtonInput
+                onChange={handleChangeUsername}
+                placeholder=' Username... '
+              />
+              <ButtonInput
+                onChange={handleChangePassword}
+                type='password'
+                placeholder=' Password... '
+              />
+              <ButtonInput
+                onChange={handleChangeDisplay}
+                placeholder=' Display... '
+              />
+              <ButtonSubmit onClick={onSubmit}>Submit</ButtonSubmit>
+            </Signs>
+          </SignContainer>
+        </Container>
+      </from>
     </>
   )
 }

@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { fetchLogin } from '../../services/fetchData'
 import styled from 'styled-components'
 import AuthContext, { CurrentUser } from '../../contexts/AuthContext'
-import ImageBackground from '../../assets/mario.jpg'
+import ImageIcon from '../../assets/hhh.png'
 
 const Container = styled.div`
    background: #003d59;
@@ -22,11 +22,18 @@ const SignContainer = styled.div`
   height: 65%;
 `
 const Image = styled.div`
-  background-image: url(${props => props.src});
+  background-image: url(${ImageIcon});
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 500px;
+  margin-right: 3.5rem;
+`
+
+const BoxImage = styled.div`
+  display: flex;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -67,8 +74,9 @@ const ButtonSubmit = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75%;
-  height: 2rem;
+  font-size: 16px;
+    width: 80%;
+    height: 3rem;
   /* padding: 5px 10px 5px 10px; */
   margin-top: 3rem;
   background-color: #f04823;
@@ -144,7 +152,9 @@ function Sign ({ children }) {
       <CurrentUser>
         <Container>
           <SignContainer>
-            <Image src={ImageBackground}> </Image>
+            <BoxImage>
+              <Image src={ImageIcon} />
+            </BoxImage>
             <Signs>
               <Head> {children} </Head>
               {/* <Form onSubmit={handleOnSubmit}> */}

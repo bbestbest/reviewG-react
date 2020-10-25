@@ -43,7 +43,7 @@ const SignButton = styled.div`
   background-color: transparent;
   text-decoration: none;
   color: white;
-
+  transition: background-color .8s;
   a {
     color: inherit;
     text-decoration: none;

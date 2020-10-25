@@ -57,7 +57,7 @@ const ButtonSubmitContainer = styled.div`
   margin: 0 3rem 0 0;
 `
 
-const ButtonSubmit = styled.a`
+const ButtonSubmit = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,8 +69,7 @@ const ButtonSubmit = styled.a`
   border-radius: 8px;
   transition: background-color 0.5s;
   font-size: 20px;
-  a {
-    text-decoration: none;
+  button {
     color: inherit;
   }
   &:hover {
@@ -121,6 +120,7 @@ function EnterComment () {
     fetch('http://127.0.0.1:3333/api/v1/comments', commentOption)
       .then(response => response.json())
       .then(response => console.log(response))
+
   }
 
   return (

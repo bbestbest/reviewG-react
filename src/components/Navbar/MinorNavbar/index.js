@@ -20,10 +20,10 @@ const Catagories = styled.div`
   display: flex;
   list-style-type: none;
   align-items: center;
-  font-size: 20px;
   flex: 1rem;
 `
 const ListCatagories = styled.li`
+  font-size: 20px;
   display: flex;
   padding: 18px;
   text-decoration: none;
@@ -42,6 +42,29 @@ const ListCatagories = styled.li`
     transition: background-color 0.8s;
   }
 `
+const ListHomeCatagories = styled.li`
+  display: flex;
+  justify-content: center;
+  width: 5vh;
+  font-size: 20px;
+  padding: 18px;
+  text-decoration: none;
+  color: white;
+  background-color: #f69335;
+  transition: background-color 0.5s;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  &:hover {
+    padding: 18px;
+    text-decoration: none;
+    background-color: #43847c;
+    color: white;
+    transition: background-color 0.8s
+  }
+`
 const SideIconContainer = withBaseIcon({
   size: '19.5px',
   style: { color: '#FFFFFF ' }
@@ -54,9 +77,9 @@ function MinorNavbar () {
     <>
       <Container>
         <Catagories>
-          <ListCatagories>
+          <ListHomeCatagories>
             <Link Link to='/'><HomeIcon1 /></Link>
-          </ListCatagories>
+          </ListHomeCatagories>
 
           <ListCatagories>
             <Link to='/catagories/action'>Action</Link>

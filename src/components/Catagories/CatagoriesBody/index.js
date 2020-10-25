@@ -11,12 +11,12 @@ export const Container = styled.div`
   /* height: 85vh; */
 `
 export const BodyContainer = styled.div`
-  width: 90%;
-  height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   background: white;
+  width: 90%;
+  height: auto;
   border-radius: 2rem;
   padding: 2rem;
 `

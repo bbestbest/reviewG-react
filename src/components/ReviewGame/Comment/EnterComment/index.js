@@ -93,7 +93,7 @@ function EnterComment () {
   const [graphic, setGraphic] = useState(0)
   const [comment, setComment] = useState('')
   const [isSubmit, setIsSubmit] = useState(false)
-  const { catagories, id } = useParams()
+  const { id } = useParams()
   const { usernameId } = useContext(AuthContext)
 
   const handleChangeStory = event => setStory(event.target.value)

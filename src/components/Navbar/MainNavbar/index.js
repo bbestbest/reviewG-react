@@ -84,6 +84,7 @@ const LogoutButton = styled.div`
   }
   &:hover {
     /* padding: 10px; */
+    cursor: pointer;
     text-decoration: none;
     background-color: #d04527;
     color: white;
@@ -94,9 +95,7 @@ const LogoutButton = styled.div`
 function MainNavbar () {
   // const [isLogin] = useCurrentUser()
   // const [username] = useCurrentUser()
-  const { isLogin, setIsLogin, globalUsername, setGlobalUsername } = useContext(
-    AuthContext
-  )
+  const { isAdmin, setIsAdmin, isLogin, setIsLogin, globalUsername, setGlobalUsername } = useContext(AuthContext)
 
   // useEffect(() => {
   //   setIsLogin(true)
@@ -105,10 +104,12 @@ function MainNavbar () {
   const handleOnLogout = () => {
     setIsLogin(false)
     setGlobalUsername(null)
+    setIsAdmin(false)
     window.localStorage.setItem('Login', JSON.stringify(false))
-    window.localStorage.setItem('Username', JSON.stringify(0))
+    window.localStorage.setItem('Username', JSON.stringify(''))
     window.localStorage.setItem('Token', JSON.stringify(''))
-    window.localStorage.setItem('UserId', JSON.stringify(''))
+    window.localStorage.setItem('UserId', JSON.stringify(0))
+    window.localStorage.setItem('Admin', JSON.stringify(false))
   }
 
   return (
@@ -119,20 +120,7 @@ function MainNavbar () {
             <Link to='/'>review-G</Link>
           </Logo>
           {/* <SignButton><Link to='/register'>Sign Up</Link></SignButton><SignButton><Link to='/login'>Sign In</Link></SignButton> */}
-          {!isLogin ? (
-            <>
-
-              <Link to='/register'><SignButton>Sign Up</SignButton></Link>
-
-              <Link to='/login'><SignButton>Sign In</SignButton></Link>
-
-            </>
-          ) : (
-            <>
-              <UsernameContainer>{globalUsername}</UsernameContainer>
-              <LogoutButton onClick={handleOnLogout}>Logout</LogoutButton>
-            </>
-          )}
+          {isAdmin ? (<><LogoutButton><Link to='/admin_post'>POST</Link></LogoutButton></>) : (<></>)}{!isLogin ? (<><SignButton><Link to='/register'>Sign Up</Link></SignButton><SignButton><Link to='/login'>Sign In</Link></SignButton></>) : <><UsernameContainer>{globalUsername}</UsernameContainer><LogoutButton onClick={handleOnLogout}>Logout</LogoutButton></>}
         </Container>
       </CurrentUser>
     </>

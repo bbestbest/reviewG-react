@@ -1,6 +1,6 @@
 /* global fetch */
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 // import Topic from '../../News/NewsTopic/index.'
 import {
   SubHeading,
@@ -14,21 +14,22 @@ import {
   Score,
   ButtonSubmit
 } from './InputPostStyled'
+import AuthContext from '../../../contexts/AuthContext'
+import { getDataWithoutRef } from '../../../services/fetchData'
+import { Item } from 'semantic-ui-react'
 // import PostData from '../../../services/PostData'
 
 function InputPost () {
   const [topic, setTopic] = useState('')
   const [body, setBody] = useState('')
   const [writer, setWriter] = useState('')
-  // const [catagories, setCatagories] = useState('')
   const [story, setStory] = useState('')
   const [gameplay, setGameplay] = useState('')
   const [performance, setPerformance] = useState('')
   const [graphic, setGraphic] = useState('')
-
   const [catagories, setCatagories] = useState('')
-
   const [fileImage, setFileImage] = useState(null)
+  const { usernameId } = useContext(AuthContext)
 
   const handleChangeTopic = event => setTopic(event.target.value)
   const handleChangeBody = event => setBody(event.target.value)
@@ -43,23 +44,7 @@ function InputPost () {
 
   const handleChangeImage = event => setFileImage(event.target.value)
 
-  const onSubmited = () => {
-    const postOptions = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        topic: topic,
-        body: body,
-        writer: writer,
-        catagories: catagories
-      })
-    }
-    fetch('http://127.0.0.1:3333/api/v1/posts', postOptions)
-      .then(response => response.json())
-      .then(response => console.log(response))
-
+  const onSubmited = async () => {
     const scoreOption = {
       method: 'POST',
       headers: {
@@ -69,26 +54,49 @@ function InputPost () {
         story: story,
         gameplay: gameplay,
         performance: performance,
-        graphic: graphic
+        graphic: graphic,
+        admin_id: usernameId
       })
     }
     fetch('http://127.0.0.1:3333/api/v1/admin_scores', scoreOption)
       .then(response => response.json())
       .then(response => console.log(response))
 
-    const imageOption = {
+    const getAdminScore = await getDataWithoutRef('admin_scores').then(response => response.length)
+
+    console.log(getAdminScore)
+
+    const postOptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        asset_path: fileImage
-        // type: ['image']
+        topic: topic,
+        body: body,
+        writer: writer,
+        catagories: catagories,
+        admin_id: usernameId,
+        admin_score_id: getAdminScore
       })
     }
-    fetch('http://127.0.0.1:3333/api/v1/assets', imageOption)
+    fetch('http://127.0.0.1:3333/api/v1/posts', postOptions)
       .then(response => response.json())
       .then(response => console.log(response))
+
+    // const imageOption = {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     asset_path: fileImage
+    //     // type: ['image']
+    //   })
+    // }
+    // fetch('http://127.0.0.1:3333/api/v1/assets', imageOption)
+    //   .then(response => response.json())
+    //   .then(response => console.log(response))
   }
 
   return (
@@ -116,7 +124,7 @@ function InputPost () {
         <SubHeading> Catagories </SubHeading>
         <ButtonInputCatagorise onChange={handleListCatagorise}>
           <OptionCatagorise value='action'>Action</OptionCatagorise>
-          <OptionCatagorise value='adventure'>Advention</OptionCatagorise>
+          <OptionCatagorise value='adventure'>Adventure</OptionCatagorise>
           <OptionCatagorise value='rpg'>RPG</OptionCatagorise>
           <OptionCatagorise value='simulation'>Simulation</OptionCatagorise>
           <OptionCatagorise value='strategy'>Strategy</OptionCatagorise>

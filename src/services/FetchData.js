@@ -4,6 +4,15 @@ const API_ENDPOINT = 'http://localhost:3333'
 const API_VER = 'api/v1'
 const JSON_HEADER = { 'Content-Type': 'application/json' }
 
+export async function getDataWithoutRef (table) {
+  return axios(
+    {
+      method: 'GET',
+      url: `${API_ENDPOINT}/${API_VER}/${table}`
+    }
+  ).then(response => response.data.data)
+}
+
 export async function getData (table, references) {
   return axios(
     {
@@ -54,6 +63,19 @@ export async function fetchLogin (userUsername, userPassword, tokenAPI) {
   ).then(response => response)
 }
 
+export async function fetchLoginAdmin (userUsername, userPassword) {
+  return await axios(
+    {
+      method: 'POST',
+      url: `${API_ENDPOINT}/${API_VER}/login_admin`,
+      headers: { ...JSON_HEADER },
+      data: JSON.stringify({
+        username: userUsername,
+        password: userPassword
+      })
+    }
+  ).then(response => response)
+}
 // export function fetchLogin (username, password) {
 //   return axios({
 //     url: 'http://127.0.0.1:3333/api/v1/login',

@@ -27,77 +27,76 @@ const Logo = styled.div`
   background-color: #f04823;
   text-decoration: none;
   color: white;
-  transition: background-color .5s;
-  
+  transition: background-color 0.5s;
+
   a {
     text-decoration: none;
     color: inherit;
   }
 `
 
-const SignButton = styled.div`
-  width: 5%;
+const SignButton = styled.a`
+  display: flex;
+  justify-content: center;;
+  align-items: center;
+  text-align: center;
+  padding: 0.8rem;
+  background: #f04823;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.8s;
+
+  a:visited {
+    border-bottom: none;
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: none;
+    background-color: #d04527;
+    color: white;
+    transition: background-color 0.8s;
+  }
+`
+const UsernameContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0.8rem;
-  background: #f04823;
-  /* background-color: transparent; */
-  text-decoration: none;
-  color: white;
-  transition: background-color .8s;
-  a {
-    color: inherit;
-    text-decoration: none;
-  }  
-    &:hover {
-    /* padding: 10px; */
-    text-decoration: none;
-    background-color: #D04527;
-    color: white;
-    transition: background-color .8s;
-  }
-`
-const UsernameContainer = styled.div`
-  width: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 1rem;
   background-color: transparent;
   text-decoration: none;
 `
 
 const LogoutButton = styled.div`
-  width: 5%;
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  padding: 0.8rem;
   align-items: center;
   text-align: center;
   background: #f04823;
   background-color: transparent;
   text-decoration: none;
   color: white;
+  cursor: pointer;
   a {
     color: inherit;
     text-decoration: none;
-  }  
-    &:hover {
+  }
+  &:hover {
     /* padding: 10px; */
     text-decoration: none;
-    background-color: #D04527;
+    background-color: #d04527;
     color: white;
-    transition: background-color .8s;
+    transition: background-color 0.8s;
   }
 `
 
 function MainNavbar () {
   // const [isLogin] = useCurrentUser()
   // const [username] = useCurrentUser()
-  const { isLogin, setIsLogin, globalUsername, setGlobalUsername } = useContext(AuthContext)
+  const { isLogin, setIsLogin, globalUsername, setGlobalUsername } = useContext(
+    AuthContext
+  )
 
   // useEffect(() => {
   //   setIsLogin(true)
@@ -120,7 +119,20 @@ function MainNavbar () {
             <Link to='/'>review-G</Link>
           </Logo>
           {/* <SignButton><Link to='/register'>Sign Up</Link></SignButton><SignButton><Link to='/login'>Sign In</Link></SignButton> */}
-          {!isLogin ? (<><SignButton><Link to='/register'>Sign Up</Link></SignButton><SignButton><Link to='/login'>Sign In</Link></SignButton></>) : <><UsernameContainer>{globalUsername}</UsernameContainer><LogoutButton onClick={handleOnLogout}>Logout</LogoutButton></>}
+          {!isLogin ? (
+            <>
+
+              <Link to='/register'><SignButton>Sign Up</SignButton></Link>
+
+              <Link to='/login'><SignButton>Sign In</SignButton></Link>
+
+            </>
+          ) : (
+            <>
+              <UsernameContainer>{globalUsername}</UsernameContainer>
+              <LogoutButton onClick={handleOnLogout}>Logout</LogoutButton>
+            </>
+          )}
         </Container>
       </CurrentUser>
     </>

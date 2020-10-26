@@ -113,8 +113,15 @@ function Sign ({ children }) {
   }
   const handleOnSubmit = async () => {
     const data = await fetchLogin(username, password, token).then(response => response.data.access_token)
-    const dataAdmin = await fetchLoginAdmin(username, password).then(response => response.data.user)
-    if (username !== null && password !== null && data !== undefined) {
+    const dataAdmin = await fetchLoginAdmin(username, password).then(response => response.data)
+    if (username !== null && password !== null && dataAdmin !== undefined && data === undefined) {
+      alert('Login Success | Admin')
+      setIsLogin(true)
+      await fetchLoginAdmin(username, password).then(response => setUsernameId(response.data.user.admin_id))
+      setIsAdmin(true)
+      setLoginSucess(true)
+      setGlobalUsername(username)
+    } else if (username !== null && password !== null && data !== undefined && dataAdmin === undefined) {
       alert('Login Success')
       setIsLogin(true)
       await fetchLogin(username, password, token).then(response => setToken(response.data.access_token.token))
@@ -123,15 +130,6 @@ function Sign ({ children }) {
       setIsToken(token)
       setIsAdmin(false)
       setGlobalUsername(username)
-    } else if (username !== null && password !== null && dataAdmin !== undefined) {
-      alert('Login Success | Admin')
-      setIsLogin(true)
-      await fetchLoginAdmin(username, password, token).then(response => setUsernameId(response.data.user.admin_id))
-      setIsAdmin(true)
-      setLoginSucess(true)
-      setGlobalUsername(username)
-    } else {
-      alert('Username or Password is incorrect')
     }
   }
   const handleKeyPress = e => {

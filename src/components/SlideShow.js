@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import BackgroundBlock from '../components/SlideShowBlock'
 import { getData, countView } from '../services/fetchData'
-import { FiChevronRight } from 'react-icons/fi'
-import { FiChevronLeft } from 'react-icons/fi'
+import { FiChevronRight, FiChevronLeft } from 'react-icons/fi'
 
 const Container = styled.div`
   width: 100%;
@@ -102,8 +101,8 @@ function SlideShow () {
                     key={index2}
                     to={`/review/${item.catagories}/${item.post_id}`}
                     onClick={() =>
-                      handleOnClick(item.catagories, item.post_id)
-                    }>
+                      handleOnClick(item.catagories, item.post_id)}
+                  >
                     <Slide style={{ transform: `translateX(${x}%)` }}>
                       <TopicContainer>{item.topic}</TopicContainer>
                       <BackgroundBlock src={image.asset_path} />

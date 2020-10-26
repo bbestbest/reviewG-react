@@ -17,6 +17,8 @@ font-size: 15px;
 margin: 2rem;
 padding: 5px 10px 5px 10px;
 color: #f04823;
+width: 50rem;
+height: 20rem;
 &::placeholder {
   color: #707070;
 }
@@ -81,7 +83,7 @@ export const ButtonSubmit = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
+  width: 100%;
   height: 3rem;
   margin-top: 2.5rem;
   background-color: #f04823;

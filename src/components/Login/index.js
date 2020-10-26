@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Redirect } from 'react-router-dom'
-import { fetchLogin } from '../../services/fetchData'
+import { fetchLogin, fetchLoginAdmin } from '../../services/fetchData'
 import styled from 'styled-components'
 import AuthContext, { CurrentUser } from '../../contexts/AuthContext'
 import ImageIcon from '../../assets/hhh.png'
@@ -97,29 +97,13 @@ const ButtonSubmit = styled.a`
     background-color: #d03416;
   }
 `
-const Register = styled.a`
-  font-size: 15px;
-  padding-top: 1rem;
-  color: #f04823;
-  a:link {
-    color: #f04823;
-    text-decoration: none;
-  }
-  a:visited {
-    color: #f04823;
-  }
-  &:hover {
-    color: #f04823;
-    border-bottom: 1px solid #f04823;
-  }
-`
 
 function Sign ({ children }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [token, setToken] = useState('')
   const [loginSuccess, setLoginSucess] = useState(false)
-  const { setIsLogin, setGlobalUsername, setUsernameId, setIsToken } = useContext(AuthContext)
+  const { setIsLogin, setGlobalUsername, setUsernameId, setIsToken, setIsAdmin } = useContext(AuthContext)
 
   const handleOnUsernameChange = (event) => {
     setUsername(event.target.value)
@@ -129,13 +113,22 @@ function Sign ({ children }) {
   }
   const handleOnSubmit = async () => {
     const data = await fetchLogin(username, password, token).then(response => response.data.access_token)
+    const dataAdmin = await fetchLoginAdmin(username, password).then(response => response.data.user)
     if (username !== null && password !== null && data !== undefined) {
       alert('Login Success')
-      setLoginSucess(true)
+      setIsLogin(true)
       await fetchLogin(username, password, token).then(response => setToken(response.data.access_token.token))
       await fetchLogin(username, password, token).then(response => setUsernameId(response.data.user.user_id))
+      setLoginSucess(true)
       setIsToken(token)
+      setIsAdmin(false)
+      setGlobalUsername(username)
+    } else if (username !== null && password !== null && dataAdmin !== undefined) {
+      alert('Login Success | Admin')
       setIsLogin(true)
+      await fetchLoginAdmin(username, password, token).then(response => setUsernameId(response.data.user.admin_id))
+      setIsAdmin(true)
+      setLoginSucess(true)
       setGlobalUsername(username)
     } else {
       alert('Username or Password is incorrect')

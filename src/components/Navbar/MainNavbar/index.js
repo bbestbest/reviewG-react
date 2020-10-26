@@ -107,9 +107,10 @@ function MainNavbar () {
     setIsLogin(false)
     setGlobalUsername(null)
     window.localStorage.setItem('Login', JSON.stringify(false))
-    window.localStorage.setItem('Username', JSON.stringify(0))
+    window.localStorage.setItem('Username', JSON.stringify(''))
     window.localStorage.setItem('Token', JSON.stringify(''))
-    window.localStorage.setItem('UserId', JSON.stringify(''))
+    window.localStorage.setItem('UserId', JSON.stringify(0))
+    window.localStorage.setItem('Admin', JSON.stringify(false))
   }
 
   return (

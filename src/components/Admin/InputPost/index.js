@@ -42,7 +42,7 @@ function InputPost () {
 
   const handleListCatagorise = event => setCatagories(event.target.value)
 
-  const handleChangeImage = event => setFileImage(event.target.value)
+  const handleChangeImage = event => setFileImage(event.target.files[0])
 
   const onSubmited = async () => {
     const scoreOption = {
@@ -84,19 +84,18 @@ function InputPost () {
       .then(response => response.json())
       .then(response => console.log(response))
 
-    // const imageOption = {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({
-    //     asset_path: fileImage
-    //     // type: ['image']
-    //   })
-    // }
-    // fetch('http://127.0.0.1:3333/api/v1/assets', imageOption)
-    //   .then(response => response.json())
-    //   .then(response => console.log(response))
+// iamge
+    const formData = new FormData()
+
+    formData.append('image', fileImage)
+
+    const imageOption = {
+      method: 'POST',
+      body: formData
+    }
+    fetch('http://127.0.0.1:3333/api/v1/assets', imageOption)
+      .then(response => response.json())
+      .then(response => console.log(response))
   }
 
   return (

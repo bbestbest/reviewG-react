@@ -120,7 +120,7 @@ function MainNavbar () {
             <Link to='/'>review-G</Link>
           </Logo>
           {/* <SignButton><Link to='/register'>Sign Up</Link></SignButton><SignButton><Link to='/login'>Sign In</Link></SignButton> */}
-          {isAdmin ? (<><LogoutButton><Link to='/admin_post'>POST</Link></LogoutButton></>) : (<></>)}{!isLogin ? (<><SignButton><Link to='/register'>Sign Up</Link></SignButton><SignButton><Link to='/login'>Sign In</Link></SignButton></>) : <><UsernameContainer>{globalUsername}</UsernameContainer><LogoutButton onClick={handleOnLogout}>Logout</LogoutButton></>}
+          {isAdmin ? (<><Link to='/admin_post'><LogoutButton>POST</LogoutButton></Link></>) : (<></>)}{!isLogin ? (<><Link to='/register'><SignButton>Sign Up</SignButton></Link><Link to='/login'><SignButton>Sign In</SignButton></Link></>) : <><UsernameContainer>{globalUsername}</UsernameContainer><LogoutButton onClick={handleOnLogout}>Logout</LogoutButton></>}
         </Container>
       </CurrentUser>
     </>

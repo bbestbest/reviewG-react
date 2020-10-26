@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { getData, getDataByIdAndCatagories } from '../../services/fetchData'
 import AuthContext from '../../contexts/AuthContext'
 import ScoreReview from './ScoreReview'
@@ -29,13 +29,33 @@ import {
   NameAdmin
 } from './reviewGameStyled'
 
+import { FiChevronRight } from 'react-icons/fi'
+
 const LoginContainer = styled.div`
-  height: 1%;
-  width: 100%;
-  border-bottom: #f69335 solid 5px;
-  h1 {
-    font-size : 3rem;
-    margin-left: 5rem;
+  display: flex;
+  /* justify-content: flex-end; */
+  height: auto;
+  width: auto;
+  color: white;
+
+  /* border-bottom: #f69335 solid 5px; */
+
+`
+
+const HeadingLogin = styled.a`
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  transition:  0.8s;
+  a:visited {
+    border-bottom: none;
+    text-decoration: none;
+  }
+  a:hover {
+    margin-left: 3rem;
+    text-decoration: none;
+    color: #f69335;
+    transition: 0.8s;
   }
 `
 const SideIconContainer = withBaseIcon({
@@ -97,7 +117,8 @@ function ReviewGame () {
               <Border />
             </ContentContainer>
             <Heading> Comment <IosChatbubbleOutline /></Heading>
-            {isLogin ? <EnterComment /> : <LoginContainer><h1>Please Login First</h1></LoginContainer>}
+            {/* **************************************************************************** */}
+            {isLogin ? <EnterComment /> : <LoginContainer><HeadingLogin><Link to='/login'>Please Login First<FiChevronRight /><FiChevronRight /></Link> </HeadingLogin></LoginContainer>}
             <>
               {userComment.map((userCommentItem, userCommentIndex) => (
                 <div key={userCommentIndex}>

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { fetchLogin, fetchLoginAdmin } from '../../services/fetchData'
 import styled from 'styled-components'
 import AuthContext, { CurrentUser } from '../../contexts/AuthContext'
@@ -144,7 +144,7 @@ function Sign ({ children }) {
         <Container>
           <SignContainer>
             <BoxImage>
-              <Image src={ImageIcon} />
+              <Link to='/'><Image src={ImageIcon} /></Link>
             </BoxImage>
             <Signs>
               <Head> {children} </Head>

@@ -1,7 +1,7 @@
 /* global fetch */
 
 import React, { useState } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import ImageIcon from '../../assets/hhh.png'
 
@@ -133,7 +133,7 @@ function Sign ({ children }) {
         <Container>
           <SignContainer>
             <BoxImage>
-              <Image src={ImageIcon} />
+              <Link to='/'><Image src={ImageIcon} /></Link>
             </BoxImage>
             <Signs>
               <Head> {children} </Head>

@@ -84,7 +84,6 @@ function InputPost () {
       .then(response => response.json())
       .then(response => console.log(response))
 
-// iamge
     const formData = new FormData()
 
     formData.append('image', fileImage)

@@ -46,7 +46,7 @@ const TopReviews = styled.div`
 `
 const Topic = styled.div`
   margin-top: 15%;
-  padding: 1.2rem;
+  padding: 4.5rem 0.5rem 0 0.5rem;
   width: 18%;
   height: auto;
   display: flex;

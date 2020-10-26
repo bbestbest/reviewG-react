@@ -54,6 +54,19 @@ export async function fetchLogin (userUsername, userPassword, tokenAPI) {
   ).then(response => response)
 }
 
+export async function fetchLoginAdmin (userUsername, userPassword, tokenAPI) {
+  return await axios(
+    {
+      method: 'POST',
+      url: `${API_ENDPOINT}/${API_VER}/login_admin`,
+      // headers: { ...JSON_HEADER, Authorization: `Bearer ${tokenAPI}` },
+      data: JSON.stringify({
+        username: userUsername,
+        password: userPassword
+      })
+    }
+  ).then(response => response)
+}
 // export function fetchLogin (username, password) {
 //   return axios({
 //     url: 'http://127.0.0.1:3333/api/v1/login',

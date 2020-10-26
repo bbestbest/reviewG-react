@@ -22,16 +22,23 @@ const Catagories = styled.div`
   align-items: center;
   flex: 1rem;
 `
-const ListCatagories = styled.li`
+
+const ListCatagories = styled.a`
   font-size: 20px;
   display: flex;
   padding: 18px;
-  text-decoration: none;
   color: white;
   transition: background-color 0.5s;
+    a:focus{
+    border-bottom: none;
+    }
 
-  a {
-    color: inherit;
+  a:visited {
+    border-bottom: none;
+    text-decoration: none;
+  }
+  a:link {
+    border-bottom: none;
     text-decoration: none;
   }
   &:hover {
@@ -42,6 +49,7 @@ const ListCatagories = styled.li`
     transition: background-color 0.8s;
   }
 `
+
 const ListHomeCatagories = styled.li`
   display: flex;
   justify-content: center;
@@ -52,9 +60,13 @@ const ListHomeCatagories = styled.li`
   color: white;
   background-color: #f69335;
   transition: background-color 0.5s;
-
+  outline: none;
   a {
     color: inherit;
+    text-decoration: none;
+  }
+  a:visited {
+    border-bottom: none;
     text-decoration: none;
   }
   &:hover {
@@ -62,7 +74,7 @@ const ListHomeCatagories = styled.li`
     text-decoration: none;
     background-color: #43847c;
     color: white;
-    transition: background-color 0.8s
+    transition: background-color 0.8s;
   }
 `
 const SideIconContainer = withBaseIcon({
@@ -77,31 +89,21 @@ function MinorNavbar () {
     <>
       <Container>
         <Catagories>
-          <ListHomeCatagories>
-            <Link Link to='/'><HomeIcon1 /></Link>
-          </ListHomeCatagories>
 
-          <ListCatagories>
-            <Link to='/catagories/action'>Action</Link>
-          </ListCatagories>
-          <ListCatagories>
-            <Link to='/catagories/adventure'>Adventure</Link>
-          </ListCatagories>
-          <ListCatagories>
-            <Link to='/catagories/rpg'>RPG</Link>
-          </ListCatagories>
-          <ListCatagories>
-            <Link to='/catagories/simulation'>Simulation</Link>
-          </ListCatagories>
-          <ListCatagories>
-            <Link to='/catagories/strategy'>Strategy</Link>
-          </ListCatagories>
-          <ListCatagories>
-            <Link to='/catagories/sport'>Sport</Link>
-          </ListCatagories>
-          {/* <ListCatagories>
-            <Link to='/'>Other</Link>
-          </ListCatagories> */}
+          <Link Link to='/'> <ListHomeCatagories><HomeIcon1 /></ListHomeCatagories></Link>
+
+          <Link to='/catagories/action'><ListCatagories>Action</ListCatagories></Link>
+
+          <Link to='/catagories/adventure'><ListCatagories>Adventure</ListCatagories></Link>
+
+          <Link to='/catagories/rpg'><ListCatagories>RPG</ListCatagories></Link>
+
+          <Link to='/catagories/simulation'><ListCatagories>Simulation</ListCatagories></Link>
+
+          <Link to='/catagories/strategy'><ListCatagories>Strategy</ListCatagories></Link>
+
+          <Link to='/catagories/sport'> <ListCatagories>Sport</ListCatagories></Link>
+
         </Catagories>
       </Container>
     </>

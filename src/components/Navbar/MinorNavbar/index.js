@@ -24,20 +24,21 @@ const Catagories = styled.div`
 `
 
 const ListCatagories = styled.a`
-  font-size: 20px;
   display: flex;
+  justify-content: center;
+  width: auto;
+  font-size: 20px;
   padding: 18px;
+  text-decoration: none;
   color: white;
+  background-color: #f69335;
   transition: background-color 0.5s;
-    a:focus{
-    border-bottom: none;
-    }
-
-  a:visited {
-    border-bottom: none;
+  outline: none;
+  a {
+    color: inherit;
     text-decoration: none;
   }
-  a:link {
+  a:visited {
     border-bottom: none;
     text-decoration: none;
   }
@@ -90,19 +91,19 @@ function MinorNavbar () {
       <Container>
         <Catagories>
 
-          <Link Link to='/'> <ListHomeCatagories><HomeIcon1 /></ListHomeCatagories></Link>
+          <ListHomeCatagories><Link Link to='/'><HomeIcon1 /></Link></ListHomeCatagories>
 
-          <Link to='/catagories/action'><ListCatagories>Action</ListCatagories></Link>
+          <ListCatagories><Link to='/catagories/action'>Action</Link></ListCatagories>
 
-          <Link to='/catagories/adventure'><ListCatagories>Adventure</ListCatagories></Link>
+          <ListCatagories><Link to='/catagories/adventure'>Adventure</Link></ListCatagories>
 
-          <Link to='/catagories/rpg'><ListCatagories>RPG</ListCatagories></Link>
+          <ListCatagories><Link to='/catagories/rpg'>RPG</Link></ListCatagories>
 
-          <Link to='/catagories/simulation'><ListCatagories>Simulation</ListCatagories></Link>
+          <ListCatagories><Link to='/catagories/simulation'>Simulation</Link></ListCatagories>
 
-          <Link to='/catagories/strategy'><ListCatagories>Strategy</ListCatagories></Link>
+          <ListCatagories><Link to='/catagories/strategy'>Strategy</Link></ListCatagories>
 
-          <Link to='/catagories/sport'> <ListCatagories>Sport</ListCatagories></Link>
+          <ListCatagories><Link to='/catagories/sport'> Sport</Link></ListCatagories>
 
         </Catagories>
       </Container>

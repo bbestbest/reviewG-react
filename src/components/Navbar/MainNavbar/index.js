@@ -36,21 +36,27 @@ const Logo = styled.div`
 `
 
 const SignButton = styled.a`
+
   display: flex;
-  justify-content: center;;
-  align-items: center;
-  text-align: center;
-  padding: 0.8rem;
-  background: #f04823;
+  justify-content: center;
+  width: auto;
+  font-size: 14px;
+  padding: 18px;
   text-decoration: none;
   color: white;
-  transition: background-color 0.8s;
-
+  background-color: #f04823;
+  transition: background-color 0.5s;
+  outline: none;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
   a:visited {
     border-bottom: none;
     text-decoration: none;
   }
   &:hover {
+    padding: 18px;
     text-decoration: none;
     background-color: #d04527;
     color: white;
@@ -120,7 +126,7 @@ function MainNavbar () {
             <Link to='/'>review-G</Link>
           </Logo>
           {/* <SignButton><Link to='/register'>Sign Up</Link></SignButton><SignButton><Link to='/login'>Sign In</Link></SignButton> */}
-          {isAdmin ? (<><Link to='/admin_post'><LogoutButton>POST</LogoutButton></Link></>) : (<></>)}{!isLogin ? (<><Link to='/register'><SignButton>Sign Up</SignButton></Link><Link to='/login'><SignButton>Sign In</SignButton></Link></>) : <><UsernameContainer>{globalUsername}</UsernameContainer><LogoutButton onClick={handleOnLogout}>Logout</LogoutButton></>}
+          {isAdmin ? (<><LogoutButton><Link to='/admin_post'>POST</Link></LogoutButton></>) : (<></>)}{!isLogin ? (<><SignButton><Link to='/register'>Sign Up</Link></SignButton><SignButton><Link to='/login'>Sign In</Link></SignButton></>) : <><UsernameContainer>{globalUsername}</UsernameContainer><LogoutButton onClick={handleOnLogout}>Logout</LogoutButton></>}
         </Container>
       </CurrentUser>
     </>

@@ -115,12 +115,12 @@ function InputPost () {
 
         <SubHeading> Catagories </SubHeading>
         <ButtonInputCatagorise onChange={handleListCatagorise}>
-          <OptionCatagorise value='action'>action</OptionCatagorise>
-          <OptionCatagorise value='adventure'>advention</OptionCatagorise>
-          <OptionCatagorise value='rpg'>rpg</OptionCatagorise>
-          <OptionCatagorise value='simulation'>simulation</OptionCatagorise>
-          <OptionCatagorise value='strategy'>strategy</OptionCatagorise>
-          <OptionCatagorise value='sport'>sport</OptionCatagorise>
+          <OptionCatagorise value='action'>Action</OptionCatagorise>
+          <OptionCatagorise value='adventure'>Advention</OptionCatagorise>
+          <OptionCatagorise value='rpg'>RPG</OptionCatagorise>
+          <OptionCatagorise value='simulation'>Simulation</OptionCatagorise>
+          <OptionCatagorise value='strategy'>Strategy</OptionCatagorise>
+          <OptionCatagorise value='sport'>Sport</OptionCatagorise>
         </ButtonInputCatagorise>
 
         <SubHeading> Image </SubHeading>

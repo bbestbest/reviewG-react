@@ -111,7 +111,7 @@ function Sign ({ children }) {
   const handleChangeDisplay = event => setDisplay(event.target.value)
 
   const onSubmit = () => {
-    const categoriestOptions = {
+    const userOptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -120,10 +120,10 @@ function Sign ({ children }) {
         email: email,
         username: username,
         password: password,
-        dispaly_name: display
+        display_name: display
       })
     }
-    fetch('http://127.0.0.1:3333/api/v1/users', categoriestOptions)
+    fetch('http://127.0.0.1:3333/api/v1/users', userOptions)
       .then(response => response.json())
       .then(response => console.log(response))
   }
